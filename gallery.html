@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery-Climate Action|SDG 13</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style.css" />
+
+    <style>
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .thumb-wrap {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #1b4332;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .thumb-wrap img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.4s ease,
+          opacity 0.3s ease;
+      }
+
+      .thumb-wrap.hovered img {
+        transform: scale(1.06);
+        opacity: 0.7;
+      }
+
+      .thumb-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(27, 67, 50, 0.95));
+        color: #fff;
+        padding: 2rem 1rem 0.8rem;
+        transform: translateY(30px);
+        opacity: 0;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .thumb-overlay h3 {
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .thumb-overlay p {
+        font-size: 0.8rem;
+        color: #c8d5b9;
+        margin: 0;
+      }
+
+      .thumb-wrap.hovered .thumb-overlay {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      #modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+
+      #modal-backdrop.open {
+        display: flex;
+      }
+
+      #modal-box {
+        background: #f8f5f0;
+        border-radius: 16px;
+        max-width: 700px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        position: relative;
+        padding: 2rem;
+        animation: modalIn 0.3s ease;
+      }
+
+      @keyframes modalIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      #modal-close:hover {
+        background: #1b4332;
+      }
+      #modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #2d6a4f;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+
+      #modal-img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+      }
+
+      #modal-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: #2d6a4f;
+        margin-bottom: 0.75rem;
+      }
+
+      #modal-desc {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #1c1c1c;
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-controls {
+        background: #f0f7f4;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        margin-top: 1rem;
+      }
+
+      .modal-controls h3 {
+        font-size: 0.9rem;
+        color: #52796f;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+      }
+
+      .control-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.5rem;
+      }
+
+      .control-row label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #1c1c1c;
+        min-width: 80px;
+      }
+
+      .control-row button {
+        padding: 0.3rem;
+        border: 2px solid #2d6a4f;
+        border-radius: 6px;
+        background: transparent;
+        color: #2d6a4f;
+        font-size: 0.8rem;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        cursor: pointer;
+      }
+
+      .control-row button:hover,
+      .control-row button.selected {
+        background: #2d6a4f;
+        color: #fff;
+      }
+
+      #modal-content-area {
+        transition:
+          color 0.3s,
+          background 0.3s,
+          font-family 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="Climate Action SDG 13-Go to Home"
+        >
+          <img
+            src="images/logo.png"
+            alt="SDG 13 Climate Action logo-green leaf icon"
+          />
+          <div>
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html"> Home</a></li>
+            <li>
+              <a href="gallery.html" class="active" aria-current="page"
+                >Gallery
+              </a>
+            </li>
+            <li><a href="ais.html">Action Simulator </a></li>
+            <li><a href="profile.html">User Profile </a></li>
+            <li><a href="feedback.html">Feedback </a></li>
+            <li><a href="team.html">Team </a></li>
+            <li><a href="sitemap.html">Sitemap </a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="section-heading">
+        <h1>Climate Action Gallery</h1>
+        <p>
+          Explore photographs that tell the story of our changing climate and
+          the actions being taken worldwide. Hover over an image to preview,
+          then click to explore in detail.
+        </p>
+      </div>
+
+      <h2 class="sr-only">Gallery Images</h2>
+
+      <div class="gallery-grid" id="gallery-grid" role="list">
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery-item:Melting Arctic Ice-click to expand"
+          data-id="0"
+        >
+          <img
+            src="images/g1.jpeg"
+            alt="Vast Arctic ice sheet with large cracks and melt pools under an orange twilight sky"
+          />
+
+          <div class="thumb-overlay">
+            <h3>Melting Artic Ice</h3>
+            <p>Click more to explore</p>
+          </div>
+        </div>
+
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery item:Solar Revolution-click to expand"
+          data-id="1"
+        >
+          <img
+            src="images/g2.jpg"
+            alt="Wide field of solar panels stretching to the horizon under a bright blue sky"
+          />
+          <div class="thumb-overlay">
+            <h3>Solar Revolution</h3>
+            <p>Click to explore</p>
+          </div>
+        </div>
+
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery item: Forest Restoration - click to expand"
+          data-id="2"
+        >
+          <img
+            src="images/g3.jpeg"
+            alt="Volunteers planting young tree saplings in a deforested hillside area"
+          />
+          <div class="thumb-overlay">
+            <h3>Forest Restoration</h3>
+            <p>Click to explore</p>
+          </div>
+        </div>
+
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery item: Rising Sea Levels - click to expand"
+          data-id="3"
+        >
+          <img
+            src="images/g4.jpg"
+            alt="Flooded coastal village with homes partially submerged in brown floodwater"
+          />
+          <div class="thumb-overlay">
+            <h3>Rising Sea levels</h3>
+            <p>Click to explore</p>
+          </div>
+        </div>
+
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery item: Wind power - click to expand"
+          data-id="4"
+        >
+          <img
+            src="images/g5.jpg"
+            alt="Offshore wind turbines standing in a calm blue sea at sunrise"
+          />
+          <div class="thumb-overlay">
+            <h3>Offshore Wind Power</h3>
+            <p>Click to explore</p>
+          </div>
+        </div>
+
+        <div
+          class="thumb-wrap"
+          role="listitem"
+          tabindex="0"
+          aria-label="Gallery-item: Youth Climate Strike - click to expand"
+          data-id="5"
+        >
+          <img
+            src="images/g6.jpg"
+            alt="Young people marching in a climate strike holding colourful handmade protest signs"
+          />
+          <div class="thumb-overlay">
+            <h3>Youth Climate Strike</h3>
+            <p>Click to explore</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      id="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div id="modal-box">
+        <button id="modal-close" aria-label="Close image detail view">
+          &times;
+        </button>
+
+        <img id="modal-img" src="images/g1.jpeg" alt="Gallery Image" />
+
+        <div id="modal-content-area">
+          <h2 id="modal-title">Gallery Item</h2>
+          <p id="modal-desc"></p>
+        </div>
+
+        <div class="modal-controls">
+          <h3>Customize this view</h3>
+          <div class="control-row">
+            <label>Color</label>
+            <button class="colour-btn" data-color="#1c1c1c" data-bg="#f8f5f0">
+              Default
+            </button>
+            <button class="colour-btn" data-color="#ffffff" data-bg="#1B4332">
+              Dark Green
+            </button>
+            <button class="colour-btn" data-color="#1B4332" data-bg="#FFF8E7">
+              Warm Cream
+            </button>
+            <button class="colour-btn" data-color="#ffffff" data-bg="#1a3a5c">
+              Ocean Blue
+            </button>
+          </div>
+
+          <div class="control-row">
+            <label>Font</label>
+            <button class="font-btn" data-font="'Source Sans 3', sans-serif">
+              Sans
+            </button>
+            <button class="font-btn" data-font="'Playfair Display', serif">
+              Serif
+            </button>
+            <button class="font-btn" data-font="'Courier New', monospace">
+              Mono
+            </button>
+            <button class="font-btn" data-font="'Georgia', serif">
+              Georgia
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h4>Climate Action</h4>
+          <p style="font-size: 0.85rem; color: #c8d5b9; line-height: 1.6">
+            A student project for UN SDG Goal 13 — Climate Action.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="profile.html">User Profile</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h4>This Page</h4>
+          <p style="font-size: 0.85rem; color: #c8d5b9">
+            Student: Kosish (Student 1)
+          </p>
+          <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+          <a href="validation_ST1.html" target="_blank">Validation</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action — University of Westminster | Kosish
+          — Student 1
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const thumbWraps = document.querySelectorAll(".thumb-wrap");
+      const colourBtns = document.querySelectorAll(".colour-btn");
+      const fontBtns = document.querySelectorAll(".font-btn");
+      const galleryData = [
+        {
+          title: "Melting Arctic Ice",
+          img: "images/g1.jpeg",
+          alt: "Vast Arctic ice sheet with large cracks and melt pools under an orange twilight sky",
+          desc: "The Arctic is warming nearly four times faster than the global average. Since 1979, Arctic sea ice extent has declined by roughly 13% per decade. As the white reflective ice disappears, darker ocean water absorbs more sunlight, accelerating warming in a dangerous feedback loop. This is not a distant problem — meltwater from Greenland and Antarctica is already raising sea levels around the world. We can slow this by transitioning away from fossil fuels and protecting remaining carbon sinks.",
+        },
+        {
+          title: "Solar Revolution",
+          img: "images/g2.jpg",
+          alt: "Wide field of solar panels stretching to the horizon under a bright blue sky",
+          desc: "Solar energy is the fastest-growing energy source on Earth. In the last decade, the cost of solar panels has dropped by over 90%, making clean electricity affordable for millions of households. Countries including Germany, China, and the UK are building solar farms at record speeds. Students and individuals can participate by advocating for solar on campus buildings, supporting community energy schemes, or simply switching to a green energy tariff.",
+        },
+        {
+          title: "Forest Restoration",
+          img: "images/g3.jpeg",
+          alt: "Volunteers planting young tree saplings in a deforested hillside area",
+          desc: "Forests cover 31% of Earth's land area and act as the planet's lungs — absorbing billions of tonnes of CO₂ every year. Deforestation accounts for up to 10% of global greenhouse gas emissions. Restoration projects worldwide are fighting back: the Bonn Challenge aims to restore 350 million hectares of degraded land by 2030. As a student, you can support reforestation charities, avoid products linked to deforestation, and advocate for green urban spaces in your city.",
+        },
+        {
+          title: "Rising Sea Levels",
+          img: "images/g4.jpg",
+          alt: "Flooded coastal village with homes partially submerged in brown floodwater",
+          desc: "Global sea levels have risen by approximately 20cm since 1900 and the rate is accelerating. By 2100, seas could rise by 1 metre or more under high-emission scenarios, threatening hundreds of millions of people in coastal cities including London, Mumbai, and New York. Low-lying nations such as Tuvalu and the Maldives face near-total inundation. This is a climate justice issue — those least responsible for emissions are most vulnerable to these consequences.",
+        },
+        {
+          title: "Offshore Wind Power",
+          img: "images/g5.jpg",
+          alt: "Offshore wind turbines standing in a calm blue sea at sunrise",
+          desc: "The UK is the world leader in offshore wind energy, with capacity sufficient to power millions of homes. Wind power produces zero direct emissions once constructed and wind turbines can coexist with marine ecosystems. Offshore wind represents one of the fastest and most cost-effective ways to decarbonise national electricity grids. Students can engage with this transition by voting for pro-renewable energy policies, participating in consultations, and pursuing careers in the growing green energy sector. ",
+        },
+        {
+          title: "Youth Climate Strike",
+          img: "images/g6.jpg",
+          alt: "Young people marching in a climate strike holding colourful handmade protest signs",
+          desc: "Inspired by Greta Thunberg's Fridays for Future movement, millions of young people have taken to the streets globally to demand urgent climate action. These strikes have successfully pushed climate onto national and international agendas, contributing to stronger emissions pledges. Young people are not just future voters — they are current activists, innovators, and leaders. Every student has a voice, whether through organised protest, social media advocacy, campus campaigns, or community organising.",
+        },
+      ];
+
+      thumbWraps.forEach(function (thumb) {
+        thumb.addEventListener("mouseenter", function () {
+          this.classList.add("hovered");
+        });
+
+        thumb.addEventListener("click", function () {
+          openModal(parseInt(this.dataset.id));
+        });
+
+        thumb.addEventListener("mouseleave", function () {
+          this.classList.remove("hovered");
+        });
+
+        thumb.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openModal(parseInt(this.dataset.id));
+          }
+        });
+      });
+
+      const backdrop = document.getElementById("modal-backdrop");
+      const modalImg = document.getElementById("modal-img");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalClose = document.getElementById("modal-close");
+      const contentArea = document.getElementById("modal-content-area");
+
+      function openModal(id) {
+        const data = galleryData[id];
+        modalImg.src = data.img;
+        modalImg.alt = data.alt;
+        modalTitle.textContent = data.title;
+        modalDesc.textContent = data.desc;
+        contentArea.style.color = "#1c1c1c";
+        contentArea.style.background = "transparent";
+        contentArea.style.fontFamily = "'Source Sans 3', sans-serif";
+        contentArea.style.padding = "0";
+        backdrop.classList.add("open");
+        modalClose.focus();
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        backdrop.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      modalClose.addEventListener("click", closeModal);
+
+      backdrop.addEventListener("click", function (e) {
+        if (e.target === backdrop) closeModal();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && backdrop.classList.contains("open")) {
+          closeModal();
+        }
+      });
+
+      colourBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          contentArea.style.color = this.dataset.color;
+          contentArea.style.background = this.dataset.bg;
+          contentArea.style.padding = "1rem";
+          contentArea.style.borderRadius = "8px";
+          colourBtns.forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+        });
+      });
+
+      fontBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          contentArea.style.fontFamily = this.dataset.font;
+          fontBtns.forEach((b) => b.classList.remove("selected"));
+          this.classList.add("selected");
+        });
+      });
+    </script>
+  </body>
+</html>
