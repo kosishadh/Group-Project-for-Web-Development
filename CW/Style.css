@@ -9,7 +9,7 @@
   --color-secondary-container: #fdcdbc;
   --color-tertiary: #006156;
   --color-tertiary-fixed: #97f3e2;
-  --color-surface: rgba(13, 99, 27, 0.03); /* A bit opacity of green */
+  --color-surface: rgba(13, 99, 27, 0.03); 
   --color-surface-container: rgba(13, 99, 27, 0.06);
   --color-surface-container-low: rgba(13, 99, 27, 0.04);
   --color-surface-container-lowest: #ffffff;
@@ -77,13 +77,11 @@ a {
   font-variation-settings: 'FILL' 0;
 }
 
-/* Headers */
 h1, h2, h3, h4, .font-headline {
   font-family: var(--font-headline);
   line-height: 1.2;
 }
 
-/* Base Content Container */
 main {
   max-width: 1280px;
   margin: 0 auto;
@@ -93,7 +91,6 @@ main {
   main { padding: 0 3rem; }
 }
 
-/* Header & Navbar */
 header {
   background-color: rgba(245, 252, 237, 0.7);
   backdrop-filter: blur(16px);
@@ -254,7 +251,6 @@ header {
   transform: translateY(-1px);
 }
 
-/* Hero Section */
 .hero {
   margin-top: 3rem;
   display: grid;
@@ -337,7 +333,6 @@ header {
   filter: blur(24px);
 }
 
-/* Stats Strip */
 .stat-strip {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -367,7 +362,6 @@ header {
   margin-top: 0.5rem;
 }
 
-/* Section Headings */
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -381,7 +375,7 @@ header {
   color: var(--color-primary);
 }
 .section-heading p {
-  display: none; /* Replaced by the clean bento aesthetic subtitle/layout usually */
+  display: none;
 }
 .section-heading .view-all {
   color: var(--color-primary);
@@ -393,7 +387,7 @@ header {
   border-color: var(--color-primary);
 }
 
-/* Bento Cards (Mission Cards) */
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -493,7 +487,6 @@ header {
 }
 
 
-/* Content Gallery (Student Archives Style) */
 .gallery-section-heading {
   text-align: center;
   margin-top: 4rem;
@@ -575,7 +568,6 @@ header {
   margin-top: 0.25rem;
 }
 
-/* Call to Action */
 .cta-section {
   margin-top: 6rem;
   padding: 6rem 2rem;
@@ -607,7 +599,6 @@ header {
   font-size: 1.125rem;
 }
 
-/* Footer */
 footer {
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(24px);
