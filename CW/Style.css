@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0');
 
 :root {
@@ -20,7 +20,7 @@
   --color-outline: #707a6c;
   --color-outline-variant: #bfcaba;
 
-  --font-headline: 'Playfair Display', Georgia, serif;
+  --font-headline: 'Epilogue', sans-serif ;
   --font-body: 'Source Sans 3', sans-serif;
   --font-label: 'Source Sans 3', sans-serif;
   
