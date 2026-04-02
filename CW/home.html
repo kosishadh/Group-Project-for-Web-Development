@@ -1,365 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Climate Action </title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Climate Action</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <link rel="stylesheet" href="style.css">
-
-    <style>
-        .home-hero{
-            background: linear-gradient(135deg, rgba(27,67,50,0.92) 0%, rgba(45,106,79,0.85) 60%), url('images/hero-bg.jpg') center/cover no-repeat;
-            color:white;
-            padding: 5rem 2rem;
-            text-align: center;
-            border-radius: 16px;
-            margin-bottom: 3rem;
-        }
-
-        .home-hero h1{
-            color: whitesmoke;
-            font-size: 3.2rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-            margin-bottom: 1rem;
-        }
-
-        .home-hero p{
-            font-size:1.2rem;
-            color:whitesmoke;
-            max-width: 650px;
-            margin: 0 auto 2rem;
-        }
-
-        .stat-strip{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            background: #2D6A4F;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .stat-item{
-            text-align: center;
-            color:white;
-        }
-
-        .stat-item p{
-            margin: 0;
-        }
-
-        .stat-item strong{
-            display: block;
-            font-size: 2.2rem;
-            font-family: 'Playfair Display',serif;
-            color:#D4A017;
-        }
-
-        .stat-item small{
-            font-size: 0.85rem;
-            color:#C8D5B9;
-            display: block;
-            max-width: 140px;
-        }
-
-        .card-grid{
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-            gap:1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .card{
-            background-color:#EDE8E0;
-            border:1px solid #C8D5B9;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card img{
-            width:100%;
-            height:200px;
-            object-fit: cover;
-            border-radius:8px;
-            margin-bottom: 1rem;
-            display:block;
-        }
-
-        .content-gallery{
-            display:grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap:1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-tile{
-            position:relative;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor:pointer;
-            box-shadow:0 4px 12px rgba(0,0,0,0.15);
-            transition:transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            display: block;
-            background-color: #1B4332;
-        }
-
-        .gallery-tile:hover{
-            transform: translate(-8px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25) ; 
-        }
-        
-        .gallery-tile:hover .gallery-tile-label{
-            padding-bottom: 1.2rem;
-            background: linear-gradient(transparent, rgba(212,160,23,0.95));
-        }
-
-        .gallery-tile-label span{
-            display:block;
-            font-size: 0.8rem;
-            font-weight: 400;
-            opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            font-family:'Source Sans 3', sans-serif;
-        }
-
-        .gallery-tile:hover .gallery-tile-label span{
-            opacity: 1;
-            transform: translate(0);
-        }
-
-        .gallery-tile img{
-            width: 100%;
-            height:180px;
-            object-fit: cover;
-            display: block;
-            transition:opacity 0.3s ease ;
-        }
-
-        .gallery-tile:hover img{
-            opacity: 0.75;
-        }
-
-        .gallery-tile-label{
-            position:absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background:linear-gradient(transparent, rgba(27,67,50,0.95));
-            color:#fff;
-            padding: 1.5rem 1rem 0.8rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-             font-size: 1rem;
-            transition: padding 0.3s ease;
-        }
-
-        .cta-section{
-            text-align: center;
-            background: linear-gradient(135deg, #EDE8E0, #C8D5B9);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            margin-top: 3rem;
-        }
-
-        .cta-section h2{
-            color:#1B4332;
-        }
-
-        .site-logo img{
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-        }
-    </style>
-</head>
-
-<body>
+  <body>
     <header>
-        <div class="header-inner">
-            <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13-Go to home">
-                <img src="images/logo.png" alt="SDG 13 Climate Action logo-green leaf icon">
-                <div>
-                    <span class="site-title"> Climate Action </span>
-                    <span class="site-subtitle">UN SDG Goal 13</span>
-                </div>
-            </a>
-            <nav aria-label="Main navigation">
-                <ul class="nav-list">
-                    <li><a href="home.html" class="active" aria-current="page"> Home</a></li>
-                    <li><a href="gallery.html">Gallery </a> </li>
-                    <li><a href="ais.html">Action Simulator </a> </li>
-                    <li><a href="profile.html">User Profile </a> </li>
-                    <li><a href="feedback.html">Feedback </a> </li>
-                    <li><a href="team.html">Team </a> </li>
-                    <li><a href="sitemap.html">Sitemap </a> </li>
-                </ul>
-            </nav>
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="Climate Action SDG 13-Go to home"
+        >
+          <img src="images/logo.png" alt="SDG 13 Climate Action logo" />
+          <div style="display: flex; flex-direction: column">
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="home.html" class="active" aria-current="page">Home</a>
+            </li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+        <div
+          class="header-actions"
+          style="display: flex; align-items: center; justify-content: flex-end"
+        >
+          <a href="ais.html" class="btn btn-primary">Try Simulator</a>
         </div>
+      </div>
     </header>
 
-            <main id="top">
-                <section class="home-hero" aria-label="Welcome banner">
-                    <div class="sdg-badge" style="margin:0 auto 1.5rem; display:inline-flex">&#127807; SDG 13</div>
-                    <h1>Act now for our climate</h1>
-                    <p>Climate change is the defining challenge of our generation.Together as students, citizens, and future professionals we have the power to make a real difference. This website is your guide to action.</p>
-                    <a href="#mission-cards" class="btn btn-primary">Explore Actions</a>
-                    <a href="ais.html" class="btn btn-secondary" style="margin-left:1rem; border-color:whitesmoke ;color: white;">
-                        Try the Simulator
-                    </a>
-                </section>
+    <main id="top">
+      <!-- Hero Section -->
+      <section class="hero" aria-label="Welcome banner">
+        <div class="hero-content">
+          <span class="sdg-badge">Sustainable Development Goal 13</span>
+          <h1>Act now for our <span>climate</span>.</h1>
+          <p>
+            Climate change is the defining challenge of our generation. Together
+            as students, citizens, and future professionals we have the power to
+            make a real difference. This website is your guide to action.
+          </p>
+          <div class="hero-actions">
+            <a href="#mission-cards" class="btn btn-hero">Explore Actions</a>
+            <a href="ais.html" class="btn btn-outline">Our Mission</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-inner">
+            <img
+              src="images/hero-bg.jpg"
+              alt="Aesthetic climate image background"
+            />
+          </div>
+          <div class="hero-image-blur"></div>
+        </div>
+      </section>
 
-                <section class="stat-strip" aria-label="Key Climate statistics">
-                    <div class="stat-item">
-                         <p><strong>1.1° C</strong>
-                         <small> Global temperature rise above pre-industrial levels</small></p>
-                    </div>
+      <!-- Stats Strip -->
+      <section class="stat-strip" aria-label="Key Climate statistics">
+        <div class="stat-item">
+          <strong>1.1°C</strong>
+          <small>Global temperature rise above pre-industrial levels</small>
+        </div>
+        <div class="stat-item">
+          <strong>420 ppm</strong>
+          <small>CO₂ concentration — highest in 3 million years</small>
+        </div>
+        <div class="stat-item">
+          <strong>3.6B</strong>
+          <small>People highly vulnerable to climate impacts right now</small>
+        </div>
+      </section>
 
-                    <div class="stat-item">
-                        <p><strong>420 ppm</strong>
-                        <small>CO₂ concentation-highest in 3 million years </small></p>
-                    </div>
+      <!-- Mission Cards -->
+      <section id="mission-cards" aria-labelledby="mission-heading">
+        <div class="section-heading">
+          <h2 id="mission-heading">Why Climate Action Matters</h2>
+        </div>
 
-                    <div class="stat-item">
-                        <p>
-                        <strong>3.68</strong>
-                        <small> People highly vulnerable to climate impacts right now</small></p>
-                    </div>
-                </section>
+        <div class="card-grid">
+          <article class="card" aria-label="The Crisis Card">
+            <div class="card-img-wrapper">
+              <img
+                src="images/card-crisis.jpg"
+                alt="Aerial photograph of a dried-up river bed showing the severe impact of drought on landscapes"
+              />
+            </div>
+            <span class="card-label">The Threat</span>
+            <h3>The Crisis is Real</h3>
+            <p>
+              Climate change is no longer a future threat—rising seas, extreme
+              weather, and collapsing ecosystems are happening right now.
+              Students and young people will inherit consequences of today's
+              decision.
+            </p>
+            <ul>
+              <li>Extreme weather events have doubled since 2000</li>
+              <li>Sea levels rising 3.7mm per year and accelerating</li>
+              <li>1 million species at risk of extinction</li>
+            </ul>
+          </article>
 
-                <section id="mission-cards" aria-labelledby="mission-heading">
-                    <div class="section-heading">
-                        <h2 id="mission-heading"> Why Climate Action matters</h2>
-                        <p> SDG 13 calls on all of us to take urgent action.Here is why it matters, who it affects and what each of us can do today.</p>
-                    </div>
+          <article class="card" aria-label="Students can act card">
+            <div class="card-img-wrapper">
+              <img
+                src="images/card-students.jpg"
+                alt="University students working together on an environmental project outdoors"
+              />
+            </div>
+            <span class="card-label">Action</span>
+            <h3>Students Can Drive Change</h3>
+            <p>
+              You don't need to be a politician or scientist to make a
+              meaningful impact. As a student, you have access to communities,
+              knowledge, and platforms that can amplify climate action in
+              powerful ways.
+            </p>
+            <ul>
+              <li>Switch to a plant-rich diet 3+ days a week</li>
+              <li>Join or start a sustainability group on campus</li>
+              <li>Use public transport or cycle instead of driving</li>
+            </ul>
+          </article>
 
-                    <div class="card-grid">
-                        <article class="card" aria-label="The Crisis Card">
-                            <img src="images/card-crisis.jpg" alt="Aerial photograph of a dried-up river bed showing the severe impact of drought on landscapes">
-                            <h3>The Crisis is real</h3>
-                            <p> Climate change is no longer a future threat rising seas, extreme weather, and collapsing ecosystems are happening right now. Students and young people will inherit consequences of todays decision.</p>
-                            <ul>
-                                <li> Extreme weatehr events have doubled since 2000</li>
-                                <li>Sea levels rising 3.7mm per year and accelerating</li>
-                                <li>1 million species ar risk of extinction</li>
-                            </ul>
-                        </article>
+          <article class="card" aria-label="Outcomes Card">
+            <div class="card-img-wrapper">
+              <img
+                src="images/card-future.jpg"
+                alt="Renewable energy wind turbines and solar panels in a green field at sunset"
+              />
+            </div>
+            <span class="card-label">Solutions</span>
+            <h3>A Better Future is Possible</h3>
+            <p>
+              If individuals, communities and nations act together, we can limit
+              warming to 1.5°C and build a fairer, cleaner world. Every action,
+              no matter how small, contributes to this shared outcome.
+            </p>
+            <ul>
+              <li>Clean energy could power 90% of the world by 2050</li>
+              <li>Green jobs could reach 24 million globally by 2030</li>
+              <li>Restoring forests could absorb 10% of annual emissions</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-                        <article class="card" aria-label="Students acan act card">
-                            <img src="images/card-students.jpg" alt="University students working together on an environmental project outdoors">
-                            <h3>Students can drive change</h3>
-                            <p> You dont need to be a politician or scientist to make a meaningful impact. As a student, you have access to communities, knowledge, and platforms that can amplify climate action in powerful ways.</p>
-                            <ul>
-                                <li>Switch to a plant-rich diet 3+ days a week</li>
-                                <li> Join or start a sustainabilty group on campus</li>
-                                <li>Use public transport or cycle instead of driving</li>
-                            </ul>
-                        </article>
+      <!-- Content Gallery -->
+      <section id="content-gallery" aria-labelledby="gallery-heading">
+        <div class="gallery-section-heading">
+          <h2 id="gallery-heading">Explore Our Topics</h2>
+        </div>
 
-                        <article class="card" aria-label="Outcomes Card">
-                            <img src="images/card-future.jpg" alt="Renewable energy wind turbines and solar panels in a green field at sunset">
-                            <h3>A betetr future is possible</h3>
-                            <p> If individuals, communities and nations act together, we can limit warming to 1.5°C and buildna fairer, cleaner world. Every actions no matter how small contributes to this shared outcome.</p>
-                        <ul>
-                            <li> Clean energy could power 90% of the world by 2050</li>
-                            <li>Green jobs could reach 24 million global by 2030</li>
-                            <li>Restoring forests could absorb 10% of annual emissons</li>
-                        </ul>
-                        </article>
-                    </div>
-                </section>
+        <div class="content-gallery">
+          <a
+            href="content_Kosish.html"
+            class="gallery-tile"
+            aria-label="Read about Climate science explained"
+          >
+            <img
+              src="images/title-kosish.jpg"
+              class="gallery-tile-img"
+              alt="Climate Science Explained"
+            />
+            <strong>Climate Science Explained</strong>
+            <span>Research & Data</span>
+          </a>
 
-                <section id="content-gallery" aria-labelledby="gallery-heading" style="margin-top:4rem;">
-                    <div class="section-heading">
-                        <h2 id="gallery-heading">Explore our topics</h2>
-                        <p>Each team member has researched a key area of climate action. Click a title to read their in depth content page.</p>
-                    </div>
+          <a
+            href="content_Rishav.html"
+            class="gallery-tile"
+            aria-label="Read about renewable energy solutions"
+          >
+            <img
+              src="images/title-rishav.jpg"
+              class="gallery-tile-img"
+              alt="Renewable Energy Solutions"
+            />
+            <strong>Renewable Energy Solutions</strong>
+            <span>Energy Transition</span>
+          </a>
 
-                    <div class="content-gallery">
-                        <a href="content_Kosish.html" class="gallery-tile" aria-label="Read about Climate science explained">
-                            <img src="images/title-kosish.jpg" alt="Scientist examining ice core samples in a lab to study historical climate data">
-                        
-                        <div class="gallery-tile-label">Climate science explained
-                        <span>Read more</span>
-                        </div>
-                        </a>
+          <a
+            href="content_Roshan.html"
+            class="gallery-tile"
+            aria-label="Read about community and grassroots actions"
+          >
+            <img
+              src="images/title-roshan.jpg"
+              class="gallery-tile-img"
+              alt="Community Grassroots Action"
+            />
+            <strong>Community Grassroots Action</strong>
+            <span>Local Impact</span>
+          </a>
 
-                        <a href="content_Rishav.html" class="gallery-tile" aria-label="Read about renewable energy solutions">
-                            <img src="images/title-rishav.jpg" alt="Solar panels installed on rooftops in a residential neighbourhood">
-                            <div class="gallery-tile-label">Renwable energy solutions
-                                <span>Read more</span>
-                            </div>
-                        </a>
+          <a
+            href="content_Vishank.html"
+            class="gallery-tile"
+            aria-label="Read about climate policy"
+          >
+            <img
+              src="images/title-vishank.jpg"
+              class="gallery-tile-img"
+              alt="Climate Policy And You"
+            />
+            <strong>Climate Policy And You</strong>
+            <span>Legislation</span>
+          </a>
+        </div>
+      </section>
 
-                        <a href="content_Roshan.html" class="gallery-tile" aria-label="Read about community and grassrosts actions">
-                            <img src="images/title-roshan.jpg" alt="Community volunteers planting trees in an urban park">
+      <!-- Call to Action -->
+      <section class="cta-section" aria-label="Call to action">
+        <h2>Ready to measure your impact?</h2>
+        <p>
+          Use our Interactive Action Impact Simulator to choose climate actions
+          and see how much of a difference your choices could make.
+        </p>
+        <a href="ais.html" class="btn btn-hero">Launch the Simulator</a>
+      </section>
+    </main>
 
-                            <div class="gallery-tile-label">
-                                Community grassrosts action
-                                <span>Read more</span>
-                            </div>
-                        </a>
-                        <a href="content_Vishank.html" class="gallery-tile" aria-label="Read about community and grassrosts actions">
-                            <img src="images/title-vishank.jpg" alt="Protestors holding climate action signs at a public demonstration">
-
-                            <div class="gallery-tile-label">
-                                Climate Policy and you
-                                <span>Read more</span>       
-                            </div>
-                        </a> 
-
-                    </div>
-                </section>
-
-                <section class="cta-section" aria-label="Call to action">
-                    <h2> Ready to measure your impact?</h2>
-                    <p style="color:#5C5C5C; max-width:550px; margin:1rem auto 2rem;">
-                        Use our Interactive action impact simulator to choose climate actions and see how much of a differnce your choices could make.
-                    </p>
-                    <a href="ais.html" class="btn btn-primary"> Launch the Simulator</a>
-                </section>
-
-            </main>
-
-            <footer>
-                <div class="footer-inner">
-                    <div class="footer-section">
-                        <h3>Climate action</h3>
-                        <p style="font-size:0.85rem; color:whitesmoke; line-height:1.6">A student group project promoting awareness and action for UN Sustainable Developement Goal 13</p>
-                        <span class="sdg-badge" style="margin-top:1rem;"> SDG 13</span>
-                    </div>
-                    <div class="footer-section">
-                        <a href="home.html">Home</a>
-                        <a href="gallery.html"> Gallery</a>
-                        <a href="ais.html"> Action Simulator</a>
-                        <a href="profile.html">User Profile</a>
-                        <a href="feedback.html"> Feedback</a>
-                        <a href="team.html">Team</a>
-                        <a href="sitemap.html">Sitemap</a>
-                    </div>
-                    <div class="footer-section">
-                        <h3>This page</h3>
-                        <p style="font-size:0.85rem; color:whitesmoke;">Student:Kosish Adhikari</p>
-                        <a href="pageEditor_Kosish.html" target="_blank">Page Editor</a>
-                        <a href="validator_Kosish.html" target="_blank">Validator</a>
-                        <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accesibilty (WCAG 2.1)</a>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p>&copy; 2026 SDG 13 Climate Action-University of Westminster 4C0SCO11Q Web design & Development | Kosish-Student 1</p>
-                </div>
-            </footer>
-        
-</body>
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h4>Climate action</h4>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h4>Pages</h4>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="profile.html">User Profile</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h4>This page</h4>
+          <p>Student: Kosish Adhikari</p>
+          <a href="pageEditor_Kosish.html" target="_blank">Page Editor</a>
+          <a href="validator_Kosish.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4C0SCO11Q | Web design & Development | Kosish - Student 1
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
