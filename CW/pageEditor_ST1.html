@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Kosish | Student 1 | SDG 13 Climate Action</title>
+    <meta
+      name="description"
+      content="Technical report and contribution log for Kosish, Student 1, covering the template, home page, gallery, and content page for the SDG 13 Climate Action website."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css">
+  </head>
+  <body>
+    <header id="top">
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="Climate Action SDG 13 - Go to home"
+        >
+          <img src="images/logo.png" alt="SDG 13 Climate Action logo">
+          <div style="display: flex; flex-direction: column">
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="stud">
+      <h2>
+        Kosish Adhikari | SDG 13 Climate Action | Student 1 - Template Lead,
+        Home Page, Gallery, Content Page
+      </h2>
+    </section>
+
+    <div class="container">
+      <main>
+        <section>
+          <h2 id="home">Home Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The home page is structured into four semantic sections inside
+            <code>&lt;main&gt;</code>: a hero banner, a statistics strip, a
+            mission cards section, and a content gallery. The hero uses CSS Grid
+            with <code>grid-template-columns: 1fr 1.35fr</code> to position the
+            text and image side by side, collapsing to a single column on
+            smaller screens via a media query. The statistics strip uses
+            <code>grid-template-columns: repeat(3, 1fr)</code> to display three
+            equally spaced figures. Mission cards are laid out using a
+            three-column grid and are each wrapped in an
+            <code>&lt;article&gt;</code> element, which is the correct semantic
+            choice since each card represents a self-contained piece of content.
+            The gallery uses a two-column grid of anchor tiles, each with a
+            hover lift and scale effect driven by CSS
+            <code>transition</code> and <code>transform</code>. The page links
+            to the shared <code>style.css</code> file and adds no page-specific
+            embedded styles of its own.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            All sections include either <code>aria-label</code> or
+            <code>aria-labelledby</code> attributes to give screen readers
+            meaningful context. The hero buttons use descriptive link text
+            rather than generic labels. All images have detailed
+            <code>alt</code> attributes describing their content and relevance.
+            The navigation uses a <code>&lt;nav&gt;</code> landmark with
+            <code>aria-label="Main navigation"</code> and the active page is
+            marked with <code>class="active"</code> and
+            <code>aria-current="page"</code>.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST1.html#splashVal"
+              >View the W3C validation results for the Home Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="home.html">Visit the Home Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="gallery">Gallery Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The gallery is built on a three-column CSS Grid of thumbnail cards.
+            Each card uses <code>position: relative</code> on the container and
+            <code>position: absolute</code> on the overlay element to create a
+            caption that slides up on hover using
+            <code>transform: translateY()</code> and
+            <code>opacity</code> transitions. Hover and click events are handled
+            entirely in JavaScript using <code>addEventListener</code>. Clicking
+            a card calls <code>openModal(id)</code>, which looks up an entry in
+            the <code>galleryData</code> array and populates the modal's image,
+            title, and description. The modal is a fixed-position
+            <code>&lt;div&gt;</code> that can be closed via the close button, by
+            clicking outside the modal box, or by pressing the
+            <code>Escape</code> key. The modal also includes a customisation
+            panel where users can change text colour and font family using
+            inline style properties applied to the content area.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            Each gallery card has <code>role="listitem"</code> and
+            <code>tabindex="0"</code>, with a <code>keydown</code> listener that
+            opens the modal on <code>Enter</code> or <code>Space</code>,
+            mirroring native button behaviour. The modal uses
+            <code>role="dialog"</code>, <code>aria-modal="true"</code>, and
+            <code>aria-labelledby="modal-title"</code> to follow ARIA dialog
+            patterns. Focus is moved to the close button when the modal opens.
+            Every image has a descriptive <code>alt</code> attribute.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST1.html#volunteerVal"
+              >View the W3C validation results for the Gallery Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="gallery.html">Visit the Gallery Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="content">Content Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The content page uses a two-column CSS Grid with
+            <code>grid-template-columns: 220px 1fr</code>, placing a sticky side
+            navigation <code>&lt;aside&gt;</code> alongside the main
+            <code>&lt;article&gt;</code>. The aside uses
+            <code>position: sticky; top: 90px</code> so it remains visible as
+            the user scrolls through long content. The article is divided into
+            six <code>&lt;section&gt;</code> elements, each with a unique
+            <code>id</code> matching the anchor links in the navigation. Heading
+            hierarchy is strictly maintained: one <code>&lt;h1&gt;</code> for
+            the page title, <code>&lt;h2&gt;</code> for topic sections, and
+            <code>&lt;h3&gt;</code> for sub-points. Images use
+            <code>object-fit: cover</code> with a fixed height,
+            <code>border-radius</code>, and <code>box-shadow</code> for a
+            consistent appearance. A fixed Go-to-Top button is implemented with
+            <code>position: fixed; bottom: 2rem; right: 2rem</code> and a plain
+            anchor link, requiring no JavaScript.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            The side navigation uses an <code>&lt;aside&gt;</code> landmark
+            element with an <code>aria-label</code> so screen readers can
+            identify it separately from the main content. All section headings
+            have matching <code>id</code> attributes that serve as anchor
+            targets with smooth scrolling. All images have descriptive
+            <code>alt</code> text. The Go-to-Top button has an
+            <code>aria-label</code> attribute for screen reader users.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST1.html#contentVal"
+              >View the W3C validation results for the Content Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p>
+            <a href="content_ST1.html"
+              >Visit the Content Page: Climate Science Explained.</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+          <p>
+            <strong>Challenge 1: Creating a Reusable Template</strong><br>
+            The most significant challenge was designing the HTML template and
+            global CSS to be flexible enough for four different page types, yet
+            strict enough that teammates could not accidentally break shared
+            structure. I resolved this by adding comments in both HTML and CSS
+            clearly marking which sections must not be modified, and by using
+            CSS custom properties (<code>var()</code>) so teammates could apply
+            colours without needing to know the exact hex values.
+          </p>
+
+          <p>
+            <strong>Challenge 2: JavaScript Modal Accessibility</strong><br>
+            Making the gallery modal fully accessible, including keyboard
+            navigation, was more complex than expected. I researched ARIA roles
+            (<code>role="dialog"</code>, <code>aria-modal</code>) and
+            implemented focus management so the close button receives focus when
+            the modal opens. I added an <code>Escape</code> key listener and a
+            click-outside handler to offer multiple intuitive ways to close it.
+          </p>
+
+          <p>
+            <strong>Challenge 3: Responsive Layout Without CSS Conflicts</strong
+            ><br>
+            Ensuring page-specific styles did not conflict with the global CSS
+            required careful naming. I resolved this by using specific class
+            names for page-only elements (such as <code>.hero</code> and
+            <code>.content-layout</code>) that cannot clash with global names.
+          </p>
+
+          <p>
+            <strong>Lessons Learned</strong><br>
+            This project showed me the value of building a design system before
+            writing page content. The time spent on the shared template and CSS
+            file saved significant effort overall and produced a more consistent
+            result. I also learned that accessibility needs to be considered
+            from the very start of development, not added at the end.
+          </p>
+        </section>
+
+        <section>
+          <h2 id="compliance">Compliance</h2>
+          <p>
+            All pages I created comply with JANET (Joint Academic Network)
+            regulations. All content is relevant to the educational purpose of
+            this coursework and is focused on raising awareness of SDG 13
+            Climate Action. No page contains offensive, discriminatory, or
+            misleading material. All factual claims are based on established
+            scientific consensus from credible sources.
+          </p>
+          <p>
+            Images are sourced from royalty-free platforms and are referenced in
+            the section below. No copyrighted material has been reproduced
+            without permission.
+          </p>
+          <p>
+            My pages do not collect, store, or transmit any personal data. The
+            gallery customisation preferences are held only in browser memory
+            for the current session and are not persisted. This complies with
+            JANET data protection requirements and GDPR principles.
+          </p>
+          <p>
+            All written content is entirely my own. No text has been copied from
+            the UN SDG website or any other external source. The code was
+            written from first principles using knowledge from module lectures,
+            tutorials, and the references listed below.
+            <a
+              href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+              target="_blank"
+              rel="noopener"
+              >See the lecture notes on compliance for more detail.</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+          <p>
+            The following table records my participation in group meetings
+            throughout the project. All entries reflect my personal account and
+            individual contributions.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th colspan="6">Group Meetings and Contribution Log</th>
+              </tr>
+              <tr>
+                <th>Meeting</th>
+                <th>Date &amp; Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>5 Feb 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG topic and assign student roles</td>
+                <td>Yes</td>
+                <td>
+                  Proposed SDG 13 Climate Action as our focus. Agreed to take on
+                  Student 1 role covering the template, global CSS, home page,
+                  and gallery.
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12 Feb 2026, 13:30</td>
+                <td>Online</td>
+                <td>Agree colour palette, fonts, and visual identity</td>
+                <td>Yes</td>
+                <td>
+                  Presented three colour palette options. The team agreed on
+                  earthy greens and earth tones. Chose the Epilogue and Source
+                  Sans 3 font pairing.
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>19 Feb 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Review and share the base template and global CSS</td>
+                <td>Yes</td>
+                <td>
+                  Demonstrated template.html and style.css to teammates. Walked
+                  through the comments explaining which sections must not be
+                  modified. Confirmed all teammates could link the CSS
+                  correctly.
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>26 Feb 2026, 15:00</td>
+                <td>Online</td>
+                <td>Progress check on individual pages</td>
+                <td>Yes</td>
+                <td>
+                  Showed completed home.html and gallery.html drafts. Noted the
+                  gallery modal needed keyboard accessibility improvements.
+                  Agreed to fix and share an updated template before the next
+                  meeting.
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>5 Mar 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Cross-check navigation links and active page states</td>
+                <td>Yes</td>
+                <td>
+                  Tested all navigation links across all four students' pages.
+                  Identified one broken link in team.html and helped Student 3
+                  correct the folder path.
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>9 Mar 2026, 16:00</td>
+                <td>Online</td>
+                <td>Final review before submission</td>
+                <td>Yes</td>
+                <td>
+                  Ran W3C validation on all three of my pages and corrected two
+                  minor attribute errors in gallery.html. Uploaded all files to
+                  the university web server and confirmed URLs were accessible.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 id="ref">References</h2>
+          <ul class="ref">
+            <li>
+              Duckett, J. (2011).
+              <em>HTML &amp; CSS: Design and Build Websites.</em> John Wiley
+              &amp; Sons. [Used as foundational reference for HTML structure and
+              CSS layout techniques.]
+            </li>
+            <li>
+              W3C. (2023).
+              <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em>
+              Available at:
+              <a
+                href="https://www.w3.org/TR/WCAG21/"
+                target="_blank"
+                rel="noopener"
+                >https://www.w3.org/TR/WCAG21/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              Mozilla Developer Network. (2024).
+              <em>CSS Custom Properties (Variables).</em> Available at:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+                target="_blank"
+                rel="noopener"
+                >https://developer.mozilla.org/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              Mozilla Developer Network. (2024).
+              <em>ARIA: dialog role.</em> Available at:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role"
+                target="_blank"
+                rel="noopener"
+                >https://developer.mozilla.org/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              United Nations. (2024).
+              <em>The Sustainable Development Goals Report 2024.</em> UN
+              Department of Economic and Social Affairs. [Used for climate
+              statistics in content_ST1.html.]
+            </li>
+            <li>
+              Google Fonts. (2024).
+              <em>Epilogue &amp; Source Sans 3.</em> Available at:
+              <a href="https://fonts.google.com" target="_blank" rel="noopener"
+                >https://fonts.google.com</a
+              >
+              (Last accessed: Feb 2026).
+            </li>
+            <li>
+              University of Westminster. (2026).
+              <em>4COSC011W Lecture Notes &mdash; HTML, CSS, and JavaScript.</em>
+              Blackboard VLE. [Primary reference for syntax and implementation
+              patterns throughout this project.]
+            </li>
+          </ul>
+        </section>
+
+        <p class="top"><a href="#top">Go top</a></p>
+      </main>
+
+      <aside>
+        <h3>Core pages developed:</h3>
+        <ul class="top-level-ul">
+          <li>Student 1</li>
+          <ul>
+            <li><a href="#home">Home Page</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#content">Content Page</a></li>
+          </ul>
+          <li>Student 2</li>
+          <ul>
+            <li><a href="#">Splash Screen</a></li>
+            <li><a href="#">Action Impact Simulator</a></li>
+            <li><a href="#">Content</a></li>
+          </ul>
+          <li>Student 3</li>
+          <ul>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Content</a></li>
+          </ul>
+          <li>Student 4</li>
+          <ul>
+            <li><a href="#">User Profile</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Content</a></li>
+          </ul>
+          <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+          <li><a href="#group">Group Meetings and Contribution Log</a></li>
+          <li><a href="#ref">References</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate Action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="profile.html">User Profile</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This Page</h3>
+          <p>Student: Kosish Adhikari</p>
+          <a href="pageEditor_ST1.html">Page Editor</a>
+          <a href="validation_ST1.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster |
+          4COSC011W Web Design &amp; Development | Kosish - Student 1
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Report - Kosish | Student 1 | SDG 13 Climate Action</title>
+  <meta name="description" content="Technical validation report for the Home, Gallery, and Content pages of the SDG 13 Climate Action website.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pageEditor_validator.css">
+</head>
+<body>
+
+  <header id="top">
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
+        <img src="images/logo.png" alt="SDG 13 Climate Action logo">
+        <div style="display: flex; flex-direction: column">
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="stud">
+    <h2>Kosish Adhikari | SDG 13 Climate Action | Student 1 - Validation Report</h2>
+  </section>
+
+  <div class="container">
+    <main>
+      <section>
+        <h2 id="templateVal">Template Validation Report</h2>
+        <p>
+          As the Template Lead, I verified the core layout structure shared across all pages. The global header, navigation system, and footer were tested for structural integrity and ARIA landmark compliance. The validation confirm that the responsive container system and sticky navigation do not interfere with HTML5 parsing rules.
+        </p>
+        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="images/template.validator.png" alt="W3C Validation result for the Site-wide Template showing zero errors" style="width: 100%; height: auto; display: block;">
+        </div>
+      </section>
+
+      <section>
+        <h2 id="splashVal">Home Page Validation Report</h2>
+        <p>
+          The Home Page passed the W3C markup validation with no errors. The semantic structure using <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;section&gt;</code> landmarks was correctly identified. One minor warning regarding the use of a section without a heading was resolved by adding a screen-reader-only heading for the statistics strip. The use of custom properties in the CSS did not affect HTML validity.
+        </p>
+        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="images/home.validator.png" alt="W3C Validation result for Home Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        </div>
+        <h3>Back to Page Editor page</h3>
+        <p><a href="pageEditor_ST1.html#home">Return to Home Page technical description in the Page Editor.</a></p>
+      </section>
+
+      <section>
+        <h2 id="volunteerVal">Gallery Page Validation Report</h2>
+        <p>
+          Validation for the Gallery Page initially flagged two missing <code>alt</code> attributes on dynamically generated thumbnails. These were corrected in the JavaScript template literal. The final validation check shows a clean report. The custom font customisation controls were verified to use standards-compliant <code>data-*</code> attributes for event handling, ensuring the markup remains valid while providing interactive functionality.
+        </p>
+        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="images/gallery.validator.png" alt="W3C Validation result for Gallery Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        </div>
+        <h3>Back to Page Editor page</h3>
+        <p><a href="pageEditor_ST1.html#gallery">Return to Gallery Page technical description in the Page Editor.</a></p>
+      </section>
+
+      <section>
+        <h2 id="contentVal">Content Page Validation Report</h2>
+        <p>
+          The Content Page (Climate Science Explained) adheres strictly to HTML5 standards. Validation confirmed the correct nesting of <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags. The sidebar navigation was validated as a proper <code>&lt;aside&gt;</code> landmark. All ARIA labels for the smooth-scrolling anchors were verified for accessibility compliance. No validation errors or warnings remain in the final build.
+        </p>
+        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="images/content.validator.png" alt="W3C Validation result for Content Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        </div>
+        <h3>Back to Page Editor page</h3>
+        <p><a href="pageEditor_ST1.html#content">Return to Content Page technical description in the Page Editor.</a></p>
+      </section>
+
+      <p class="top"><a href="#top">Go top</a></p>
+    </main>
+
+    <aside>
+      <h3>Core pages developed:</h3>
+      <ul class="top-level-ul">
+        <li>Student 1 (Template Lead)</li>
+        <ul>
+          <li><a href="home.html">Home Page</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="content_ST1.html">Content Page</a></li>
+        </ul>
+        <li>Student 2</li>
+        <ul>
+          <li><a href="#">Splash Screen</a></li>
+          <li><a href="#">Action Impact Simulator</a></li>
+          <li><a href="#">Content Page</a></li>
+        </ul>
+        <li>Student 3</li>
+        <ul>
+          <li><a href="#">Feedback Page</a></li>
+          <li><a href="#">Team Page</a></li>
+          <li><a href="#">Content Page</a></li>
+        </ul>
+        <li>Student 4</li>
+        <ul>
+          <li><a href="#">User Profile</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Content Page</a></li>
+        </ul>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>Climate Action</h3>
+        <p>A student group project promoting awareness and action for UN Sustainable Development Goal 13.</p>
+        <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+      </div>
+      <div class="footer-section">
+        <h3>Pages</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Action Simulator</a>
+        <a href="profile.html">User Profile</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This Page</h3>
+        <p>Student: Kosish Adhikari</p>
+        <a href="pageEditor_ST1.html">Page Editor</a>
+        <a href="validation_ST1.html">Validator</a>
+        <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accessibility (WCAG 2.1)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 13 Climate Action - University of Westminster | 4COSC011W Web Design &amp; Development | Kosish - Student 1</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* pageEditor_validator.css
+   Shared layout for pageEditor_ST1.html and validator_ST1.html.
+   Requires style.css to be loaded first for CSS custom properties.
+*/
+
+/* Override style.css generic main rule for this two-column layout */
+main {
+  max-width: unset;
+  margin: unset;
+  padding: unset;
+}
+
+.stud {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 2rem;
+  margin: 2rem auto 0;
+  max-width: 1280px;
+  width: 90%;
+  box-shadow: var(--shadow-large);
+}
+
+.stud h2 {
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 2rem;
+  max-width: 1280px;
+  width: 90%;
+  margin: 2rem auto 4rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .container { grid-template-columns: 1fr; }
+  aside { order: -1; }
+}
+
+main section {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-large);
+}
+
+main h2 {
+  font-family: var(--heading-font);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--green);
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--bg-box);
+  margin-bottom: 1.25rem;
+}
+
+main h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 1.2rem 0 0.4rem;
+}
+
+main p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+main ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+main ul li {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+main a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+main a:hover { color: var(--green); }
+
+p.top {
+  text-align: right;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+p.top a {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--bg-alt);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+table thead th {
+  background: var(--green);
+  color: var(--text-white);
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  font-family: var(--heading-font);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+table tbody td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--bg-box);
+  vertical-align: top;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+table tbody tr:last-child td { border-bottom: none; }
+
+table tbody tr:nth-child(even) td {
+  background: var(--bg-base);
+}
+
+table tbody tr:hover td {
+  background: var(--bg-box);
+}
+
+ul.ref {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+ul.ref li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+  line-height: 1.65;
+}
+
+aside {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: sticky;
+  top: 6rem;
+  box-shadow: var(--shadow-large);
+}
+
+aside h3 {
+  font-family: var(--heading-font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--border-color);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.top-level-ul > li {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-top: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+ul.top-level-ul > li > a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 0.3rem 0.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  margin-top: 0.15rem;
+}
+
+ul.top-level-ul > li > a:hover {
+  background: var(--bg-alt);
+  color: var(--green);
+}
+
+ul.top-level-ul ul {
+  padding-left: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+ul.top-level-ul ul li { list-style: none; }
+
+ul.top-level-ul ul li a {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+}
+
+ul.top-level-ul ul li a:hover {
+  background: var(--bg-box-light);
+  color: var(--green);
+}
