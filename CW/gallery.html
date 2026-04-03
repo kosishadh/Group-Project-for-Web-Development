@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery-Climate Action|SDG 13</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Climate Action | SDG 13</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    />
+    >
 
-    <link rel="stylesheet" href="Style.css" />
+    <link rel="stylesheet" href="Style.css">
 
     <style>
       .gallery-grid {
@@ -63,7 +63,7 @@
         pointer-events: none;
       }
 
-      .card-overlay h3 {
+      .card-overlay h2 {
         color: #fff;
         font-size: 1rem;
         margin-bottom: 0.25rem;
@@ -227,7 +227,7 @@
           class="site-logo"
           aria-label="Climate Action SDG 13-Go to home"
         >
-          <img src="images/logo.png" alt="SDG 13 Climate Action logo" />
+          <img src="images/logo.png" alt="SDG 13 Climate Action logo">
           <div style="display: flex; flex-direction: column">
             <span class="site-title">Climate Action</span>
             <span class="site-subtitle">UN SDG Goal 13</span>
@@ -241,134 +241,148 @@
                 >Gallery</a
               >
             </li>
-            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
             <li><a href="feedback.html">Feedback</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
             <li><a href="sitemap.html">Sitemap</a></li>
-            <li><a href="ais.html">Action Impact Simulator</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main id="top">
-      <div class="sectionHeading">
+      <!-- Page Hero Section -->
+      <section class="section-title">
         <h1>Climate Action Gallery</h1>
         <p>
           Explore photographs that tell the story of our changing climate and
           the actions being taken worldwide. Hover over an image to preview,
           then click to explore in detail.
         </p>
-      </div>
+      </section>
 
-      <section class="gallery-grid" id="gallery-grid" role="list">
-        <section
-          class="card-image"
-          aria-label="Gallery-item:Melting Arctic Ice- click to expland"
-          role="listitem"
-          tabindex="0"
-          data-id="0"
-        >
-          <img src="images/g1.jpeg" alt="Glacier melting cracks aerial view" />
+      <!-- Main Gallery Grid -->
+      <section id="gallery-container" aria-label="Impact and Solution Stories">
+        <h2 class="sr-only">Impact and Solution Gallery</h2>
+        
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Card 1: Arctic Ice -->
+          <article
+            class="card-image"
+            aria-labelledby="title-0"
+            tabindex="0"
+            data-id="0"
+          >
+            <figure>
+              <img src="images/g1.jpeg" alt="Large coal-fired power plant with four cooling towers releasing thick white steam into a clear blue sky, surrounded by green trees and transmission lines">
+              <figcaption class="card-overlay">
+                <h3 id="title-0">Melting Arctic Ice</h3>
+                <p>Click more to expand</p>
+              </figcaption>
+            </figure>
+          </article>
 
-          <div class="card-overlay">
-            <h3>Melting Arctic Ice</h3>
-            <p>Click more to expand</p>
-          </div>
-        </section>
+          <!-- Card 2: Solar Energy -->
+          <article
+            class="card-image"
+            aria-labelledby="title-1"
+            tabindex="0"
+            data-id="1"
+          >
+            <figure>
+              <img
+                src="images/g2.jpg"
+                alt="Wide field of solar panels stretching to the horizon under a bright blue sky"
+              >
+              <figcaption class="card-overlay">
+                <h3 id="title-1">Solar Revolution</h3>
+                <p>Click to explore</p>
+              </figcaption>
+            </figure>
+          </article>
 
-        <section
-          class="card-image"
-          aria-label="Gallery-item: Solar Revolution Click more to expand"
-          role="listitem"
-          tabindex="0"
-          data-id="1"
-        >
-          <img
-            src="images/g2.jpg"
-            alt="Wide field of solar panels stretching to the horizon under a bright blue sky"
-          />
-          <div class="card-overlay">
-            <h3>Solar Revolution</h3>
-            <p>Click to explore</p>
-          </div>
-        </section>
+          <!-- Card 3: Reforestation -->
+          <article
+            class="card-image"
+            aria-labelledby="title-2"
+            tabindex="0"
+            data-id="2"
+          >
+            <figure>
+              <img
+                src="images/g3.jpeg"
+                alt="Volunteers planting young tree saplings in a deforested hillside area"
+              >
+              <figcaption class="card-overlay">
+                <h3 id="title-2">Forest Restoration</h3>
+                <p>Click to explore</p>
+              </figcaption>
+            </figure>
+          </article>
 
-        <section
-          class="card-image"
-          aria-label="Forest Restoration - click to expand"
-          role="listitem"
-          tabindex="0"
-          data-id="2"
-        >
-          <img
-            src="images/g3.jpeg"
-            alt="Volunteers planting young tree saplings in a deforested hillside area"
-          />
+          <!-- Card 4: Flooding -->
+          <article
+            class="card-image"
+            aria-labelledby="title-3"
+            tabindex="0"
+            data-id="3"
+          >
+            <figure>
+              <img
+                src="images/g4.jpg"
+                alt="Flooded coastal village with homes partially submerged in brown floodwater"
+              >
+              <figcaption class="card-overlay">
+                <h3 id="title-3">Rising Sea levels</h3>
+                <p>Click to explore</p>
+              </figcaption>
+            </figure>
+          </article>
 
-          <div class="card-overlay">
-            <h3>Forest Restoration</h3>
-            <p>Click to explore</p>
-          </div>
-        </section>
+          <!-- Card 5: Wind Energy -->
+          <article
+            class="card-image"
+            aria-labelledby="title-4"
+            tabindex="0"
+            data-id="4"
+          >
+            <figure>
+              <img
+                src="images/g5.jpg"
+                alt="Offshore wind turbines standing in a calm blue sea at sunrise"
+              >
+              <figcaption class="card-overlay">
+                <h3 id="title-4">Offshore Wind Power</h3>
+                <p>Click to explore</p>
+              </figcaption>
+            </figure>
+          </article>
 
-        <section
-          class="card-image"
-          aria-label="Gallery item: Rising Sea Levels - click to expand"
-          role="listitem"
-          tabindex="0"
-          data-id="3"
-        >
-          <img
-            src="images/g4.jpg"
-            alt="Flooded coastal village with homes partially submerged in brown floodwater"
-          />
-
-          <div class="card-overlay">
-            <h3>Rising Sea levels</h3>
-            <p>Click to explore</p>
-          </div>
-        </section>
-
-        <section
-          class="card-image"
-          aria-label="Gallery item: Wind power - click to expand"
-          role="listitem"
-          tabindex="0"
-          data-id="4"
-        >
-          <img
-            src="images/g5.jpg"
-            alt="Offshore wind turbines standing in a calm blue sea at sunrise"
-          />
-
-          <div class="card-overlay">
-            <h3>Offshore Wind Power</h3>
-            <p>Click to explore</p>
-          </div>
-        </section>
-
-        <section
-          class="card-image"
-          role="listitem"
-          tabindex="0"
-          data-id="5"
-          aria-label="Gallery item:Youth Climate Strike - click to expand"
-        >
-          <img
-            src="images/g6.jpg"
-            alt="Young people marching in a climate strike holding colorful handmade protest signs"
-          />
-
-          <div class="card-overlay">
-            <h3>Youth Climate Strike</h3>
-            <p>Click to explore</p>
-          </div>
-        </section>
+          <!-- Card 6: Activism -->
+          <article
+            class="card-image"
+            aria-labelledby="title-5"
+            tabindex="0"
+            data-id="5"
+          >
+            <figure>
+              <img
+                src="images/g6.jpg"
+                alt="Young people marching in a climate strike holding colorful handmade protest signs"
+              >
+              <figcaption class="card-overlay">
+                <h3 id="title-5">Youth Climate Strike</h3>
+                <p>Click to explore</p>
+              </figcaption>
+            </figure>
+          </article>
+        </div>
       </section>
     </main>
 
-    <div
+    <!-- Detailed View Modal -->
+    <section
       id="modal-back"
       role="dialog"
       aria-modal="true"
@@ -379,34 +393,35 @@
           &times;
         </button>
 
-        <img id="modal-img" src="images/g1.jpeg" alt="Gallery Image" />
+        <img id="modal-img" src="images/g1.jpeg" alt="Selected Gallery Item">
 
         <div id="modal-content-area">
-          <h3 id="modal-title">Gallery Item</h3>
-          <p id="modal-desc"></p>
+          <h2 id="modal-title">Gallery Item Title</h2>
+          <p id="modal-desc">Detailed description of the climate story will appear here.</p>
         </div>
 
-        <div class="modal-control">
+        <!-- Customization Controls -->
+        <aside class="modal-control">
           <h3>Customize this view</h3>
 
           <div class="control-row">
-            <label> Color </label>
-            <button class="color-btn" data-color="#1c1c1c" data-bg="#f8f5f0">
+            <span class="label"> Color </span>
+            <button class="color-btn selected" data-color="" data-bg="" aria-label="Reset to default theme">
               Default
             </button>
-            <button class="color-btn" data-color="#ffffff" data-bg="#1b4332">
+            <button class="color-btn" data-color="#ffffff" data-bg="#1b4332" aria-label="Dark Green theme">
               Dark Green
             </button>
-            <button class="color-btn" data-color="#1b4332" data-bg="#FFF8E7">
+            <button class="color-btn" data-color="#1b4332" data-bg="#FFF8E7" aria-label="Warm Cream theme">
               Warm Cream
             </button>
-            <button class="color-btn" data-color="#ffffff" data-bg="#1a3a5c">
+            <button class="color-btn" data-color="#ffffff" data-bg="#1a3a5c" aria-label="Ocean Blue theme">
               Ocean Blue
             </button>
           </div>
 
           <div class="control-row">
-            <label> Font </label>
+            <span class="label"> Font </span>
             <button class="font-btn" data-font="'Source Sans 3', sans-serif">
               Sans
             </button>
@@ -420,22 +435,23 @@
               Georgia
             </button>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </section>
 
     <footer>
       <div class="footer-inner">
-        <div class="footer-section">
-          <h4>Climate action</h4>
+        <section class="footer-section">
+          <h3>Climate action</h3>
           <p>
             A student group project promoting awareness and action for UN
             Sustainable Development Goal 13.
           </p>
-          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
-        </div>
-        <div class="footer-section">
-          <h4>Pages</h4>
+          <span class="sdg-badge">SDG 13</span>
+        </section>
+        
+        <nav class="footer-section" aria-label="Secondary navigation">
+          <h3>Pages</h3>
           <a href="home.html">Home</a>
           <a href="gallery.html">Gallery</a>
           <a href="ais.html">Action Simulator</a>
@@ -443,37 +459,49 @@
           <a href="feedback.html">Feedback</a>
           <a href="team.html">Team</a>
           <a href="sitemap.html">Sitemap</a>
-        </div>
-        <div class="footer-section">
-          <h4>This page</h4>
+        </nav>
+
+        <section class="footer-section">
+          <h3>This page</h3>
           <p>Student: Kosish Adhikari</p>
-          <a href="pageEditor_Kosish.html" target="_blank">Page Editor</a>
-          <a href="validator_Kosish.html" target="_blank">Validator</a>
+          <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+          <a href="validation_ST1.html" target="_blank">Validator</a>
           <a
             href="https://www.w3.org/WAI/WCAG21/quickref/"
             target="_blank"
             rel="noopener"
             >Accessibility (WCAG 2.1)</a
           >
-        </div>
+        </section>
       </div>
+
       <div class="footer-bottom">
         <p>
           &copy; 2026 SDG 13 Climate Action - University of Westminster
-          4C0SCO11Q | Web design & Development | Kosish - Student 1
+          4COSC011W | Web Design &amp; Development | Kosish - Student 1
         </p>
       </div>
     </footer>
 
+    <!-- Interactive Logic -->
     <script>
-      const cardImages = document.querySelectorAll(".card-image");
+      // DOM References
+      const cards = document.querySelectorAll(".card-image");
       const colorBtns = document.querySelectorAll(".color-btn");
       const fontBtns = document.querySelectorAll(".font-btn");
+      const back = document.getElementById("modal-back");
+      const modalImg = document.getElementById("modal-img");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalClose = document.getElementById("modal-close");
+      const contentArea = document.getElementById("modal-content-area");
+
+      // Content Data
       const galleryData = [
         {
           title: "Melting Arctic Ice",
           img: "images/g1.jpeg",
-          alt: "Glacier melting cracks aerial view",
+          alt: "Large coal-fired power plant with four cooling towers releasing thick white steam into a clear blue sky, surrounded by green trees and transmission lines",
           desc: "The Arctic is warming nearly four times faster than the global average. Since 1979, Arctic sea ice extent has declined by roughly 13% per decade. As the white reflective ice disappears, darker ocean water absorbs more sunlight, accelerating warming in a dangerous feedback loop. This is not a distant problem — meltwater from Greenland and Antarctica is already raising sea levels around the world. We can slow this by transitioning away from fossil fuels and protecting remaining carbon sinks.",
         },
         {
@@ -508,13 +536,15 @@
         },
       ];
 
-      cardImages.forEach(function (card) {
+      // Initialize Card Listeners
+      cards.forEach((card) => {
         card.addEventListener("mouseenter", function () {
           this.classList.add("hovered");
         });
 
         card.addEventListener("click", function () {
-          openModal(parseInt(this.dataset.id));
+          const id = parseInt(this.dataset.id);
+          openModal(id);
         });
 
         card.addEventListener("mouseleave", function () {
@@ -529,25 +559,27 @@
         });
       });
 
-      const back = document.getElementById("modal-back");
-      const modalImg = document.getElementById("modal-img");
-      const modalTitle = document.getElementById("modal-title");
-      const modalDesc = document.getElementById("modal-desc");
-      const modalClose = document.getElementById("modal-close");
-      const contentArea = document.getElementById("modal-content-area");
-
+      // Modal Handlers
       function openModal(id) {
+        if (isNaN(id)) return;
         const data = galleryData[id];
+        
         modalImg.src = data.img;
         modalImg.alt = data.alt;
         modalTitle.textContent = data.title;
         modalDesc.textContent = data.desc;
-        contentArea.style.color = "#1c1c1c";
-        contentArea.style.background = "transparent";
-        contentArea.style.fontFamily = "'Source Sans 3', sans-serif";
+
+        // Reset Styles
+        contentArea.style.color = "";
+        contentArea.style.background = "";
+        contentArea.style.fontFamily = "";
         contentArea.style.padding = "0";
-        modalTitle.style.color = "#2d6a4f";
-        modalDesc.style.color = "#1c1c1c";
+        modalTitle.style.color = "";
+        modalDesc.style.color = "";
+        
+        colorBtns.forEach(btn => btn.classList.remove("selected"));
+        colorBtns[0].classList.add("selected");
+        
         back.classList.add("open");
         modalClose.focus();
         document.body.style.overflow = "hidden";
@@ -559,37 +591,49 @@
       }
 
       modalClose.addEventListener("click", closeModal);
-
-      back.addEventListener("click", function (e) {
+      back.addEventListener("click", (e) => {
         if (e.target === back) closeModal();
       });
 
-      document.addEventListener("keydown", function (e) {
+      document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && back.classList.contains("open")) {
           closeModal();
         }
       });
 
-      colorBtns.forEach(function (btn) {
+      // Appearance Controls
+      colorBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
-          contentArea.style.color = this.dataset.color;
-          contentArea.style.background = this.dataset.bg;
-          contentArea.style.padding = "1rem";
-          contentArea.style.borderRadius = "8px";
-          modalTitle.style.color = this.dataset.color;
-          modalDesc.style.color = this.dataset.color;
-          colorBtns.forEach((b) => b.classList.remove("selected"));
+          if (this.dataset.color === "") {
+            contentArea.style.color = "";
+            contentArea.style.background = "";
+            contentArea.style.padding = "0";
+            contentArea.style.borderRadius = "";
+            modalTitle.style.color = "";
+            modalDesc.style.color = "";
+          } else {
+            contentArea.style.color = this.dataset.color;
+            contentArea.style.background = this.dataset.bg;
+            contentArea.style.padding = "1.5rem";
+            contentArea.style.borderRadius = "12px";
+            modalTitle.style.color = this.dataset.color;
+            modalDesc.style.color = this.dataset.color;
+          }
+          colorBtns.forEach(b => b.classList.remove("selected"));
           this.classList.add("selected");
         });
       });
 
-      fontBtns.forEach(function (btn) {
+      fontBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
           contentArea.style.fontFamily = this.dataset.font;
-          fontBtns.forEach((b) => b.classList.remove("selected"));
+          fontBtns.forEach(b => b.classList.remove("selected"));
           this.classList.add("selected");
         });
       });
     </script>
+  </body>
+</html>
+
   </body>
 </html>
