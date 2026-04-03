@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Title- Climate Action | SDG 13</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
-    />
+    >
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 
     <style>
       .content-layout {
@@ -31,7 +31,7 @@
         border-radius: 8px;
       }
 
-      .side-nav h3 {
+      .side-nav h2 {
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.08em;
@@ -72,6 +72,7 @@
         margin-bottom: 3.5rem;
         padding-bottom: 2rem;
         border-bottom: 1px solid #c8d5b9;
+        scroll-margin-top: 7.5rem;
       }
 
       .content-article section:last-of-type {
@@ -92,12 +93,11 @@
 
       .content-img {
         width: 100%;
-        height: 300px;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 16px;
         margin: 1.5rem 0;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-        border: 3px solid #c8d5b9;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       }
 
       .img-caption {
@@ -117,7 +117,7 @@
         margin: 1.5rem 0;
       }
 
-      .highlight-box h4 {
+      .highlight-box h3 {
         color: #d4a017;
         font-size: 1rem;
         margin-bottom: 0.5rem;
@@ -174,6 +174,19 @@
         text-decoration: none;
       }
 
+      /* Accessibility utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
       @media (max-width: 768px) {
         .content-layout {
           grid-template-columns: 1fr;
@@ -195,7 +208,7 @@
           <img
             src="images/logo.png"
             alt="SDG 13 Climate Action logo - green leaf with globe"
-          />
+          >
           <div>
             <span class="site-title">Climate Action</span>
             <span class="site-subtitle">UN SDG Goal 13</span>
@@ -207,9 +220,9 @@
             <li><a href="home.html" class="active">Home</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="ais.html">Action Simulator</a></li>
-            <li><a href="profile.html">User Profile</a></li>
             <li><a href="feedback.html">Feedback</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
             <li><a href="sitemap.html">Sitemap</a></li>
           </ul>
         </nav>
@@ -227,7 +240,7 @@
 
       <div class="content-layout">
         <aside class="side-nav" aria-label="Page contents navigation">
-          <h3>Contents</h3>
+          <h2>Contents</h2>
           <ol>
             <li><a href="#what-is">What is climate Change?</a></li>
             <li><a href="#greenhouse"> The Greenhouse Effect</a></li>
@@ -239,6 +252,7 @@
         </aside>
 
         <article class="content-article">
+          <h2 class="sr-only">Detailed Climate Research</h2>
           <section id="what-is" aria-labelledby="h-what-is">
             <h2 id="h-what-is">What is Climate Change</h2>
             <p>
@@ -251,7 +265,7 @@
             </p>
             <p>
               The primary driver is the burning of fossil fuels-coal,oil, and
-              gas - which releases carbon dioxide(CO₂) and other greenhouse
+              gas - which releases carbon dioxide(CO&sup2;) and other greenhouse
               gases into the atmosphere. These gases trap heat from the sun that
               would otherwise radiate back into space, causing the planet to
               warm. This process is often called the"enhanced greenhouse
@@ -262,14 +276,14 @@
               src="images/content1-what.png"
               alt="Infographic showing the Earth surrounded by an atmosphere layer with heat being trapped"
               class="content-img"
-            />
+            >
             <p class="img-caption">
               Fig 1. The enhanced greenhouse effect traps solar radiation,
               causing global warming.
             </p>
 
             <div class="highlight-box">
-              <h4>Key Facts</h4>
+              <h3>Key Facts</h3>
               <p>
                 97% of actively publishing climate scientists agree that current
                 global warming is extremely likely to be caused by human
@@ -283,7 +297,7 @@
             <p>
               The greenhouse effect is a natural process that makes Earth
               habitable - without it, average surface temperatures would be
-              around -18°C rather than the comfortable +15°C we experience.
+              around -18&deg;C rather than the comfortable +15&deg;C we experience.
               However, human-produced greenhouse gases are intensifying this
               effect beyond safe levels.
             </p>
@@ -291,18 +305,18 @@
             <h3>Key Greenhouse Gases</h3>
             <ul class="facts-list">
               <li>
-                <strong> Carbon dioxide (CO₂):</strong> Released by burning
+                <strong> Carbon dioxide (CO&sup2;):</strong> Released by burning
                 fossil fuels and deforestation. Responsible for approximately
                 76% of global emissions.
               </li>
               <li>
-                <strong>Methane (CH₄): </strong> Released from agriculture
+                <strong>Methane (CH&sub4;): </strong> Released from agriculture
                 (especially livestock), landfills, and gas leaks. 80 times more
-                potent than CO₂ over 20 years.
+                potent than CO&sup2; over 20 years.
               </li>
               <li>
-                <strong> Nitrous oxide (N₂O):</strong>Released by agriculture
-                and industrial processes. About 270 times more potent than CO₂
+                <strong> Nitrous oxide (N&sup2;O):</strong>Released by agriculture
+                and industrial processes. About 270 times more potent than CO&sup2;
                 over 100 years.
               </li>
               <li>
@@ -316,12 +330,18 @@
               src="images/content1-gas.jpg"
               alt="Diagram of the carbon cycle showing how CO2 is absorbed by forests and oceans and released by burning fuels"
               class="content-img"
-            />
+            >
             <p class="img-caption">
-              Fig 2. The carbon cycle — natural carbon sinks like forests and
-              oceans absorb CO₂, but human emissions now far exceed absorption
+              Fig 2. The carbon cycle &mdash; natural carbon sinks like forests and
               capacity.
             </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Without the natural greenhouse effect, Earth's average temperature would be roughly -18&deg;C. However, human activities have raised atmospheric CO&sup2; by 50% in less than 200 years.
+              </p>
+            </div>
           </section>
 
           <section id="evidence" aria-labelledby="h-evidence">
@@ -337,7 +357,7 @@
             <ul class="facts-list">
               <li>
                 Gloval average temperature has increased by appromixately by
-                1.1°C above pre-industrial levels.
+                1.1&deg;C above pre-industrial levels.
               </li>
               <li>
                 The last decade (2011-2020) was the warmest on the record.
@@ -351,7 +371,7 @@
                 Ocean heate content has increased continuously since the 1970s.
               </li>
               <li>
-                Atmospheric CO₂ concentration has increased from 280ppm
+                Atmospheric CO&sup2; concentration has increased from 280ppm
                 (pre-industrial) to over 420ppm today.
               </li>
             </ul>
@@ -360,12 +380,19 @@
               src="images/content1-data.jpg"
               alt="Line graph showing global average temperature rising from 0°C in 1850 to approximately 1.5°C above pre-industrial levels by 2024, based on five major climate datasets."
               class="content-img"
-            />
+            >
             <p class="img-caption">
-              Fig 3. Global temperature anomaly 1850–2024. Five major climate
-              datasets all show a sustained rise from 0°C to approximately 1.5°C
+              Fig 3. Global temperature anomaly 1850&ndash;2024. Five major climate
+              datasets all show a sustained rise from 0&deg;C to approximately 1.5&deg;C
               above pre-industrial levels.
             </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                The last decade (2011-2020) was the warmest on record. Each of the last four decades has been successively warmer than any decade that preceded it since 1850.
+              </p>
+            </div>
           </section>
 
           <section id="impacts" aria-labelledby="h-impacts">
@@ -390,7 +417,7 @@
               </li>
               <li>
                 <strong>Displacement:</strong> Rising seas and extreme weather
-                events are displacing millions — by 2050, up to 1 billion people
+                events are displacing millions &mdash; by 2050, up to 1 billion people
                 could be forced to migrate.
               </li>
               <li>
@@ -409,11 +436,18 @@
               src="images/content1-impacts.png"
               alt="Split image showing drought-cracked earth on the left and a flood-damaged town on the right"
               class="content-img"
-            />
+            >
             <p class="img-caption">
               Fig 4. Extreme drought and floodung - two sides of the same
               climate crisis - are increasing in frequencey and severity.
             </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Approximately 3.6 billion people live in contexts that are highly vulnerable to climate change. Extreme weather events have doubled in frequency over the last 20 years.
+              </p>
+            </div>
           </section>
 
           <section id="tipping" aria-labelledby="h-tipping">
@@ -450,11 +484,11 @@
             </ul>
 
             <div class="highlight-box">
-              <h4>Why This Matters</h4>
+              <h3>Why This Matters</h3>
               <p>
                 Tipping points could be triggered at lower temperature increases
-                than previoulsy thought - some as early as 1.5°C warming. This
-                is why the Paris Agreement's 1.5°C target is so critical to
+                than previoulsy thought - some as early as 1.5&deg;C warming. This
+                is why the Paris Agreement's 1.5&deg;C target is so critical to
                 maintain.
               </p>
             </div>
@@ -473,7 +507,7 @@
             <ul class="facts-list">
               <li>
                 <strong> Reduce flying:</strong> One long haul flight can
-                contribute more CO₂ than months of driving. Consider rail or
+                contribute more CO&sup2; than months of driving. Consider rail or
                 video calling instead.
               </li>
               <li>
@@ -482,7 +516,7 @@
               </li>
               <li>
                 <strong>Switch energy supplier:</strong> Choosing a 100%
-                renewable electricity tariff removes thousands of kg of CO₂ from
+                renewable electricity tariff removes thousands of kg of CO&sup2; from
                 your footprint annually.
               </li>
               <li>
@@ -492,7 +526,7 @@
               </li>
               <li>
                 <strong>Study and work in green sectors:</strong> Every
-                profession needs climate-literate people — from law and finance
+                profession needs climate-literate people &mdash; from law and finance
                 to engineering and healthcare.
               </li>
             </ul>
@@ -501,13 +535,20 @@
               src="images/content1-action.jpg"
               alt="Overhead view of a modern office workspace with diverse groups of people working at tables surrounded by indoor plants."
               class="content-img"
-            />
+            >
 
             <p class="img-caption">
               Fig 5. The next generation of climate leaders is already in
               universities. Skills developed today can shape the green economy
               of tomorrow.
             </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Transitioning to a green economy could create 24 million new jobs globally by 2030. Solar and wind energy are now the cheapest sources of new electricity in most of the world.
+              </p>
+            </div>
 
             <div style="text-align: center; margin-top: 2rem">
               <a href="ais.html" class="cta-button">Try the Action Simulator</a>
@@ -528,49 +569,43 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-section">
-          <h3>Climate Action</h3>
-          <p style="font-size: 0.85rem; color: #c8d5b9; line-height: 1.6">
-            A student project promoting awareness and action for UN Sustainable
-            Development Goal 13- Climate Action.
+          <h3>Climate action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
           </p>
           <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
         </div>
-
         <div class="footer-section">
           <h3>Pages</h3>
           <a href="home.html">Home</a>
           <a href="gallery.html">Gallery</a>
           <a href="ais.html">Action Simulator</a>
-          <a href="profile.html">User Profile</a>
           <a href="feedback.html">Feedback</a>
           <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
           <a href="sitemap.html">Sitemap</a>
         </div>
-
         <div class="footer-section">
-          <h3>This Page</h3>
-          <p style="font-size: 0.85rem; color: #c8d5b9">
-            Student: Kosish Adhikari
-          </p>
-          <a href="pageEditor_kosish.html" target="_blank">Page Editor</a>
-          <a href="validation_kosish.html" target="_blank">Validation</a>
+          <h3>This page</h3>
+          <p>Student: Kosish Adhikari</p>
+          <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+          <a href="validation_ST1.html" target="_blank">Validator</a>
           <a
             href="https://www.w3.org/WAI/WCAG21/quickref/"
             target="_blank"
             rel="noopener"
+            >Accessibility (WCAG 2.1)</a
           >
-            Accessibility (WCAG 2.1)
-          </a>
         </div>
       </div>
-
       <div class="footer-bottom">
         <p>
-          &copy; 2026 SDG 13 Climate Action- University of Westminster |
-          4COSC011W Web Design &amp; Development | All content is original
-          student work.
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web design & Development | Kosish - Student 1
         </p>
       </div>
     </footer>
   </body>
 </html>
+
