@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Title- Climate Action | SDG 13</title>
+      <title>Climate Science Explained - Climate Action | SDG 13</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+      /* Two-column grid: places the sticky sidebar (220px) to the left and the article to the right */
       .content-layout {
         display: grid;
         grid-template-columns: 220px 1fr;
@@ -22,6 +23,7 @@
         align-items: start;
       }
 
+      /* Sidebar stays fixed on screen as the user scrolls; green left border marks it as navigation */
       .side-nav {
         position: sticky;
         top: 90px;
@@ -31,6 +33,7 @@
         border-radius: 8px;
       }
 
+      /* Sidebar heading: small uppercase label above the list of section links */
       .side-nav h2 {
         font-size: 0.9rem;
         text-transform: uppercase;
@@ -39,17 +42,20 @@
         margin-bottom: 1rem;
       }
 
+      /* Removes default numbered list bullets; resets the CSS counter for custom numbering */
       .side-nav ol {
         list-style: none;
         padding: 0;
         counter-reset: nav-counter;
       }
 
+      /* Each list item increments the custom counter so items appear numbered */
       .side-nav ol li {
         margin-bottom: 0.5rem;
         counter-increment: nav-counter;
       }
 
+      /* Sidebar links: full-width clickable blocks with a smooth hover transition */
       .side-nav ol li a {
         color: #2d6a4f;
         font-size: 0.88rem;
@@ -62,12 +68,14 @@
         text-decoration: none;
       }
 
+      /* Sidebar link hover: inverts to white text on a green background for clear user feedback */
       .side-nav ol li a:hover {
         background: #2d6a4f;
         color: #fff;
         text-decoration: none;
       }
 
+      /* Each article section: spaced out with a light green dividing line beneath it */
       .content-article section {
         margin-bottom: 3.5rem;
         padding-bottom: 2rem;
@@ -75,22 +83,26 @@
         scroll-margin-top: 7.5rem;
       }
 
+      /* Removes the bottom dividing line after the very last section on the page */
       .content-article section:last-of-type {
         border-bottom: none;
       }
 
+      /* Main section headings inside the article: large dark forest-green text */
       .content-article h2 {
         font-size: 1.8rem;
         color: #1b4332;
         margin-bottom: 1rem;
       }
 
+      /* Sub-headings inside each section: medium green to create visual hierarchy */
       .content-article h3 {
         font-size: 1.3rem;
         color: #2d6a4f;
         margin-bottom: 0.075rem;
       }
 
+      /* Full-width images with a widescreen aspect ratio, rounded corners, and a drop shadow */
       .content-img {
         width: 100%;
         aspect-ratio: 16 / 9;
@@ -100,6 +112,7 @@
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       }
 
+      /* Image captions: small italic centred text pulled up close beneath each image */
       .img-caption {
         font-size: 0.82rem;
         color: #5c5c5c;
@@ -109,6 +122,7 @@
         font-style: italic;
       }
 
+      /* Key fact callout box: diagonal green gradient with white text to stand out on screen */
       .highlight-box {
         background: linear-gradient(135deg, #2d6a4f, #52796f);
         color: #fff;
@@ -117,23 +131,27 @@
         margin: 1.5rem 0;
       }
 
+      /* Title of the callout box: gold colour to contrast against the green background */
       .highlight-box h3 {
         color: #d4a017;
         font-size: 1rem;
         margin-bottom: 0.5rem;
       }
 
+      /* Body text inside the callout box: off-white cream colour for readability on green */
       .highlight-box p {
         color: #ede8e0;
         margin: 0;
         font-size: 0.95rem;
       }
 
+      /* Removes default bullet points from the facts list for a clean custom look */
       .facts-list {
         list-style: none;
         padding: 0;
       }
 
+      /* Each fact item: indented with a dashed green separator line beneath it */
       .facts-list li {
         padding: 0.6rem 0 0.6rem 2rem;
         position: relative;
@@ -141,11 +159,13 @@
         font-size: 0.95rem;
       }
 
+      /* Positions a custom icon/marker at the far left of each fact item */
       .facts-list li::before {
         position: absolute;
         left: 0;
       }
 
+      /* Floating circular button pinned to the bottom-right corner of the screen */
       .go-top {
         position: fixed;
         bottom: 2rem;
@@ -167,6 +187,7 @@
           transform 0.2s;
       }
 
+      /* Go to top hover: button turns gold and lifts 3px upward for a tactile feel */
       .go-top:hover {
         background: #d4a017;
         color: #1b4332;
@@ -174,7 +195,7 @@
         text-decoration: none;
       }
 
-      /* Accessibility utility */
+      /* Visually hides an element from view but keeps it readable by screen readers */
       .sr-only {
         position: absolute;
         width: 1px;
@@ -187,10 +208,12 @@
         border-width: 0;
       }
 
+      /* On screens 768px or smaller: collapses two-column layout to a single stacked column */
       @media (max-width: 768px) {
         .content-layout {
           grid-template-columns: 1fr;
         }
+        /* Sidebar becomes a normal block element rather than staying fixed on screen */
         .side-nav {
           position: static;
         }
@@ -608,4 +631,3 @@
     </footer>
   </body>
 </html>
-

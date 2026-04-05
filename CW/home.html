@@ -1,16 +1,47 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Climate Action</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Home page overrides - these extend the global style.css for page-specific visual tuning */
+
+      /* Hero section: increased vertical padding makes the banner taller and more impactful on landing */
+      .hero {
+        padding: 4rem 0;
+        min-height: 70vh;
+      }
+
+      /* Wavy green underline on the word 'climate' in the hero h1, adds editorial flair */
+      .hero h1 span {
+        text-decoration: underline wavy var(--teal);
+        text-underline-offset: 8px;
+      }
+
+      /* Stats strip: adds a subtle inset shadow and muted border to visually separate it from the hero */
+      .stat-strip {
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-muted);
+      }
+
+      /* Staggered card layout: the middle card drops down 1rem to create a dynamic editorial feel */
+      .card-grid .card:nth-child(even) {
+        transform: translateY(1rem);
+      }
+
+      /* CTA section: a custom teal-tinted gradient and dashed border distinguish it from other sections */
+      .cta-section {
+        background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(151,243,226,0.1));
+        border-style: dashed;
+      }
+    </style>
   </head>
 
   <body>
@@ -21,7 +52,7 @@
           class="site-logo"
           aria-label="Climate Action SDG 13-Go to home"
         >
-          <img src="images/logo.png" alt="SDG 13 Climate Action logo" />
+          <img src="images/logo.png" alt="SDG 13 Climate Action logo">
           <div style="display: flex; flex-direction: column">
             <span class="site-title">Climate Action</span>
             <span class="site-subtitle">UN SDG Goal 13</span>
@@ -47,7 +78,7 @@
       <section class="hero" aria-label="Welcome banner">
         <div class="hero-content">
           <span class="sdg-badge">Sustainable Development Goal 13</span>
-          <h1>Act now for our <span>climate</span>.</h1>
+          <h1>Act now for our <span>climate</span></h1>
           <p>
             Climate change is the defining challenge of our generation. Together
             as students, citizens, and future professionals we have the power to
@@ -64,8 +95,7 @@
           <div class="hero-image-inner">
             <img
               src="images/hero-bg.jpg"
-              alt="A retreating mountain glacier surrounded by rocky terrain and conifer forest, showing signs of glacial melt"
-            />
+              alt="A retreating mountain glacier surrounded by rocky terrain and conifer forest, showing signs of glacial melt">
           </div>
           <div class="hero-image-blur"></div>
         </div>
@@ -96,8 +126,7 @@
             <div class="card-img-wrapper">
               <img
                 src="images/card-crisis.jpg"
-                alt="Aerial photograph of a dried-up river bed showing the severe impact of drought on landscapes"
-              />
+                alt="Aerial photograph of a dried-up river bed showing the severe impact of drought on landscapes">
             </div>
             <span class="card-label">The Threat</span>
             <h3>The Crisis is Real</h3>
@@ -118,8 +147,7 @@
             <div class="card-img-wrapper">
               <img
                 src="images/card-students.jpg"
-                alt="University students working together on an environmental project outdoors"
-              />
+                alt="University students working together on an environmental project outdoors">
             </div>
             <span class="card-label">Action</span>
             <h3>Students Can Drive Change</h3>
@@ -140,8 +168,7 @@
             <div class="card-img-wrapper">
               <img
                 src="images/card-future.jpg"
-                alt="Renewable energy wind turbines and solar panels in a green field at sunset"
-              />
+                alt="Renewable energy wind turbines and solar panels in a green field at sunset">
             </div>
             <span class="card-label">Solutions</span>
             <h3>A Better Future is Possible</h3>
@@ -173,8 +200,7 @@
             <img
               src="images/title-kosish.jpg"
               class="gallery-tile-img"
-              alt="Climate Science Explained"
-            />
+              alt="Climate Science Explained">
             <strong>Climate Science Explained</strong>
             <span>Research & Data</span>
           </a>
@@ -187,8 +213,7 @@
             <img
               src="images/title-rishav.jpg"
               class="gallery-tile-img"
-              alt="Renewable Energy Solutions"
-            />
+              alt="Renewable Energy Solutions">
             <strong>Renewable Energy Solutions</strong>
             <span>Energy Transition</span>
           </a>
@@ -201,8 +226,7 @@
             <img
               src="images/title-roshan.jpg"
               class="gallery-tile-img"
-              alt="Community Grassroots Action"
-            />
+              alt="Community Grassroots Action">
             <strong>Community Grassroots Action</strong>
             <span>Local Impact</span>
           </a>
@@ -215,8 +239,7 @@
             <img
               src="images/title-vishank.jpg"
               class="gallery-tile-img"
-              alt="Climate Policy And You"
-            />
+              alt="Climate Policy And You">
             <strong>Climate Policy And You</strong>
             <span>Legislation</span>
           </a>

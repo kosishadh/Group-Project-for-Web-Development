@@ -13,9 +13,9 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="pageEditor_validator.css">
 </head>
-<body>
+<body id="top">
 
-  <header id="top">
+  <header id="header-top">
     <div class="header-inner">
       <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
         <img src="images/logo.png" alt="SDG 13 Climate Action logo">
@@ -80,9 +80,7 @@
 
       <section>
         <h2 id="contentVal">Content Page Validation Report</h2>
-        <p>
-          The Content Page (Climate Science Explained) adheres strictly to HTML5 standards. Validation confirmed the correct nesting of <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags. The sidebar navigation was validated as a proper <code>&lt;aside&gt;</code> landmark. All ARIA labels for the smooth-scrolling anchors were verified for accessibility compliance. No validation errors or warnings remain in the final build.
-        </p>
+          The content page (Climate Science Explained) was validated and initially showed no errors. I checked the correct nesting of <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags, verified the <code>&lt;aside&gt;</code> landmark was properly identified, and confirmed all <code>scroll-margin-top</code> anchor targets were valid. All ARIA labels for the smooth-scrolling anchors were verified for accessibility compliance. No validation errors or warnings remain in the final build.
         <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
           <img src="images/content.validator.png" alt="W3C Validation result for Content Page showing zero errors" style="width: 100%; height: auto; display: block;">
         </div>
@@ -90,36 +88,40 @@
         <p><a href="pageEditor_ST1.html#content">Return to Content Page technical description in the Page Editor.</a></p>
       </section>
 
-      <p class="top"><a href="#top">Go top</a></p>
+      <p class="top"><a href="#top">Go top &#8593;</a></p>
     </main>
 
     <aside>
       <h3>Core pages developed:</h3>
       <ul class="top-level-ul">
-        <li>Student 1 (Template Lead)</li>
-        <ul>
-          <li><a href="home.html">Home Page</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="content_ST1.html">Content Page</a></li>
-        </ul>
-        <li>Student 2</li>
-        <ul>
-          <li><a href="#">Splash Screen</a></li>
-          <li><a href="#">Action Impact Simulator</a></li>
-          <li><a href="#">Content Page</a></li>
-        </ul>
-        <li>Student 3</li>
-        <ul>
-          <li><a href="#">Feedback Page</a></li>
-          <li><a href="#">Team Page</a></li>
-          <li><a href="#">Content Page</a></li>
-        </ul>
-        <li>Student 4</li>
-        <ul>
-          <li><a href="#">User Profile</a></li>
-          <li><a href="#">Sitemap</a></li>
-          <li><a href="#">Content Page</a></li>
-        </ul>
+        <li>Student 1 (Template Lead)
+          <ul>
+            <li><a href="home.html">Home Page</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="content_ST1.html">Content Page</a></li>
+          </ul>
+        </li>
+        <li>Student 2
+          <ul>
+            <li><a href="#">Splash Screen</a></li>
+            <li><a href="#">Action Impact Simulator</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </li>
+        <li>Student 3
+          <ul>
+            <li><a href="#">Feedback Page</a></li>
+            <li><a href="#">Team Page</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </li>
+        <li>Student 4
+          <ul>
+            <li><a href="#">User Profile</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </li>
       </ul>
     </aside>
   </div>

@@ -42,8 +42,13 @@ main {
 }
 
 @media (max-width: 860px) {
-  .container { grid-template-columns: 1fr; }
-  aside { order: -1; }
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    order: -1;
+  }
 }
 
 main section {
@@ -100,7 +105,9 @@ main a {
   text-underline-offset: 2px;
 }
 
-main a:hover { color: var(--green); }
+main a:hover {
+  color: var(--green);
+}
 
 p.top {
   text-align: right;
@@ -142,7 +149,9 @@ table tbody td {
   line-height: 1.55;
 }
 
-table tbody tr:last-child td { border-bottom: none; }
+table tbody tr:last-child td {
+  border-bottom: none;
+}
 
 table tbody tr:nth-child(even) td {
   background: var(--bg-base);
@@ -195,7 +204,7 @@ aside ul {
   margin: 0;
 }
 
-ul.top-level-ul > li {
+ul.top-level-ul>li {
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--green);
@@ -203,7 +212,7 @@ ul.top-level-ul > li {
   margin-bottom: 0.2rem;
 }
 
-ul.top-level-ul > li > a {
+ul.top-level-ul>li>a {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -215,7 +224,7 @@ ul.top-level-ul > li > a {
   margin-top: 0.15rem;
 }
 
-ul.top-level-ul > li > a:hover {
+ul.top-level-ul>li>a:hover {
   background: var(--bg-alt);
   color: var(--green);
 }
@@ -225,7 +234,9 @@ ul.top-level-ul ul {
   margin-bottom: 0.25rem;
 }
 
-ul.top-level-ul ul li { list-style: none; }
+ul.top-level-ul ul li {
+  list-style: none;
+}
 
 ul.top-level-ul ul li a {
   font-size: 0.84rem;
