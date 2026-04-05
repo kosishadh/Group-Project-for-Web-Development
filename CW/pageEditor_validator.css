@@ -109,17 +109,35 @@ main a:hover {
   color: var(--green);
 }
 
-p.top {
-  text-align: right;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
+/* Fixed button for easy return to top, as described in technical reports */
+a.go-top {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  background: var(--green);
+  color: var(--text-white);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-hover);
+  z-index: 999;
+  transition: all var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-p.top a {
-  color: var(--green);
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 1.5px solid var(--bg-alt);
+a.go-top:hover {
+  background: var(--teal);
+  transform: translateY(-5px);
+  color: var(--text-white);
+}
+
+p.top {
+  display: none; /* Hide the old static link as we use the fixed button */
 }
 
 table {
@@ -251,4 +269,83 @@ ul.top-level-ul ul li a {
 ul.top-level-ul ul li a:hover {
   background: var(--bg-box-light);
   color: var(--green);
+}
+
+/* ── Validation page: status badge ─────────────────── */
+.status-badge {
+  display: inline-block;
+  background: rgba(62, 126, 68, 0.1);
+  color: var(--green);
+  padding: 0.3rem 1rem;
+  border-radius: var(--radius-full);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(62, 126, 68, 0.25);
+  margin-bottom: 0.9rem;
+}
+
+/* ── Validation page: live/editor button group ──────── */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.btn-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--green);
+  color: var(--text-white);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all var(--transition);
+}
+
+.btn-live:hover {
+  background: var(--teal);
+  color: var(--text-white);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-editor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-alt);
+  color: var(--green);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-muted);
+  transition: all var(--transition);
+}
+
+.btn-editor:hover {
+  background: var(--bg-box);
+  color: var(--green);
+  text-decoration: none;
+}
+
+.val-snapshot {
+  margin: 1.25rem 0;
+  border: 1px solid var(--bg-box);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.val-snapshot img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

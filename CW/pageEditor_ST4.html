@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Vishank | Student 4 | SDG 13 Climate Action</title>
+    <meta
+      name="description"
+      content="Technical report for Vishank, Student 4, covering the User Profile (HTML/CSS), SVG Sitemap, and Content Page."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css">
+  </head>
+  <body id="top">
+    <!-- This section is showing the site logo and main navigation links at the top of the page -->
+    <header id="header-top">
+      <div class="header-inner">
+        <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
+          <img src="images/logo.png" alt="SDG 13 Climate Action logo">
+          <div style="display: flex; flex-direction: column">
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- This section is showing the student name, role, and pages assigned banner -->
+    <section class="stud">
+      <h2>
+        Vishank Bajracharya | SDG 13 Climate Action | Student 4 - User Profile, SVG Sitemap, Content Page
+      </h2>
+    </section>
+
+    <!-- This section is showing the two-column layout with the main technical report and the sidebar navigation -->
+    <div class="container">
+      <main>
+        
+        <section>
+          <h2 id="profile">User Profile Page Implementation</h2>
+          <h3>Technical Description</h3>
+          <p>
+            The User Profile page was developed using a <strong>pure HTML and CSS structure</strong>. Instead of JavaScript, I utilized a multi-part <code>&lt;form&gt;</code> to collect user data regarding personal details, climate interests, and sustainability goals. I utilized <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> tags to logically group the information.
+          </p>
+          <p>
+            I implemented a visual <strong>Progress Bar</strong> using the HTML5 <code>&lt;progress&gt;</code> element, styled with CSS to match our site's green color palette. The layout uses <strong>CSS Flexbox</strong> to ensure the form fields align perfectly on both desktop and mobile devices.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            Every input field is explicitly associated with a <code>&lt;label&gt;</code> using the <code>for</code> attribute, allowing screen readers to identify fields easily. I added <code>required</code> attributes to essential fields to provide immediate browser-level validation, adhering to <strong>WCAG 2.1</strong> standards.
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="profile.html" target="_blank">Visit the User Profile Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="sitemap">SVG Sitemap</h2>
+          <h3>Technical Description</h3>
+          <p>
+            The sitemap is built using <strong>Scalable Vector Graphics (SVG)</strong>. I manually coded the <code>&lt;rect&gt;</code> nodes and <code>&lt;path&gt;</code> connectors within the HTML document. To make it interactive, I wrapped the SVG shapes in anchor tags (<code>&lt;a&gt;</code>).
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            I included <code>&lt;title&gt;</code> tags inside each SVG element to provide alternative text for screen readers. Keyboard navigation was enabled by setting <code>tabindex="0"</code> on the nodes, following technical tutorials on SVG accessibility.
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="sitemap.html" target="_blank">Visit the SVG Sitemap Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="content">Content Page: Global Warming Impacts</h2>
+          <h3>Technical Description</h3>
+          <p>
+            This page utilizes a <strong>CSS Grid</strong> structure to present a clean, educational layout. I strictly followed the heading hierarchy (H1 to H3) for semantic clarity. The content was inspired by <strong>United Nations</strong> reports on Goal 13.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            Semantic HTML5 landmarks like <code>&lt;article&gt;</code> and <code>&lt;aside&gt;</code> are used. A "Go to Top" button was created using CSS <code>position: fixed</code> to ensure easy navigation back to the main menu.
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="content_ST4.html" target="_blank">Visit the Content Page: Global Warming Impacts.</a></p>
+        </section>
+
+        <section id="challenge">
+          <h2>Challenges and Lessons Learned</h2>
+          <p>
+            <strong>SVG Coordination:</strong> Manually calculating coordinates for the sitemap branches was a technical challenge. I learned how to use SVG coordinate systems to create clean diagrams.
+          </p>
+          <p>
+            <strong>Validation:</strong> Resolving duplicate IDs in the SVG file was necessary to pass the <strong>W3C Validation</strong> test with no errors.
+          </p>
+        </section>
+
+        <section id="group">
+          <h2>Group Meetings and Contribution Log</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Meeting</th>
+                <th>Date</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Individual Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>23 Nov 2025</td><td>F2F</td><td>Assign Roles</td><td>Yes</td><td>Agreed to take responsibility for User Profile and Sitemap.</td></tr>
+              <tr><td>2</td><td>30 Nov 2025</td><td>Online</td><td>Style Guide</td><td>Yes</td><td>Suggested the forest-green color palette for SVG nodes.</td></tr>
+              <tr><td>3</td><td>07 Dec 2025</td><td>Hybrid</td><td>Draft Review</td><td>Yes</td><td>Presented the progress of the interactive form structure.</td></tr>
+              <tr><td>4</td><td>14 Dec 2025</td><td>Online</td><td>Integration</td><td>Yes</td><td>Synced my local files with the shared group CSS.</td></tr>
+              <tr><td>5</td><td>04 Jan 2026</td><td>F2F</td><td>Validation</td><td>Yes</td><td>Cleaned up HTML/SVG code to fix W3C errors.</td></tr>
+              <tr><td>6</td><td>11 Jan 2026</td><td>Online</td><td>Final Check</td><td>Yes</td><td>Finalized navigation links to other group members' pages.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="ref">
+          <h2>References</h2>
+          <ul class="ref">
+            <li>
+              Economou, D. (2025). <em>4COSC011W Web Design and Development Module Lecture Notes</em>. University of Westminster.
+            </li>
+            <li>
+              MDN Web Docs. (2026). <em>SVG: Scalable Vector Graphics - Tutorial</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank">https://developer.mozilla.org/</a> (Last accessed: Feb 2026).
+            </li>
+            <li>
+              United Nations. (2026). <em>Sustainable Development Goal 13: Climate Action</em>. Available at: <a href="https://sdgs.un.org/goals/goal13" target="_blank">https://sdgs.un.org/goals/goal13</a> (Last accessed: Feb 2026).
+            </li>
+            <li>
+              W3C. (2026). <em>Web Content Accessibility Guidelines (WCAG) 2.1 Quick Reference</em>. Available at: <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">https://www.w3.org/WAI/WCAG21/</a> (Last accessed: Feb 2026).
+            </li>
+            <li>
+              W3C. (2026). <em>Markup Validation Service</em>. Available at: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a> (Last accessed: Feb 2026).
+            </li>
+          </ul>
+        </section>
+
+        <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top">&#8679;</a>
+      </main>
+
+      <!-- This section is showing the sticky sidebar listing all students' pages for quick navigation -->
+      <aside>
+        <h3>Core pages developed:</h3>
+        <ul class="top-level-ul">
+          <li>Student 1
+            <ul>
+              <li><a href="#">Home Page</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </li>
+          <li>Student 2
+            <ul>
+              <li><a href="#">Splash Screen</a></li>
+              <li><a href="#">Action Simulator</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </li>
+          <li>Student 3
+            <ul>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </li>
+          <li>Student 4
+            <ul>
+              <li><a href="#profile">User Profile</a></li>
+              <li><a href="#sitemap">Sitemap</a></li>
+              <li><a href="#content">Content</a></li>
+            </ul>
+          </li>
+          <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+          <li><a href="validation_ST4.html">Validation Evidence</a></li>
+          <li><a href="#group">Group Meetings and Contribution Log</a></li>
+          <li><a href="#ref">References</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- This section is showing the site footer with links, student attribution, and copyright notice -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate Action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Impact Simulator</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This Page</h3>
+          <p>Student: Vishank Bajracharya</p>
+          <a href="pageEditor_ST4.html">Page Editor</a>
+          <a href="validation_ST4.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster |
+          4COSC011W Web Design &amp; Development | Vishank - Student 4
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

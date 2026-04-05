@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Report - Roshan | Student 3 | SDG 13 Climate Action</title>
+  <meta name="description" content="Technical validation report for the Feedback, Team, and Content pages of the SDG 13 Climate Action website.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pageEditor_validator.css">
+</head>
+<body id="top">
+
+  <!-- site header -->
+  <header id="header-top">
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
+        <img src="images/logo.png" alt="SDG 13 Climate Action logo">
+        <div style="display: flex; flex-direction: column">
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Title Banner -->
+  <section class="stud">
+    <h2>Roshan Dahal | SDG 13 Climate Action | Student 3 - Validation Report</h2>
+  </section>
+
+  <div class="container">
+    <main>
+      <!-- Feedback Page Validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="feedbackVal">Feedback Page Validation Report</h2>
+        <p>
+          The Feedback Page (<code>feedback.html</code>) was validated for its complex form structure and interactive character counters. The focus was on ensuring that the <code>fieldset</code> and <code>legend</code> tags correctly group the feedback inputs and that all <code>&lt;label&gt;</code> elements are properly associated with their respective <code>id</code>. The horizontal scrollable carousel for activity cards was verified to remain compliant while using <code>scroll-snap</code> properties.
+        </p>
+        <div class="val-snapshot">
+          <img src="images/feedbackvalidation.png" alt="W3C Validation result for the Feedback Page showing zero errors">
+        </div>
+        <div class="btn-group">
+          <a href="feedback.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST3.html#feedback" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- Team Page Validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="teamVal">Team Page Validation Report</h2>
+        <p>
+          The Team Page (<code>team.html</code>) was validated for its grid-based responsive layout. Validation confirmed that the four team member cards, which utilize <code>position: relative</code> for their hover detail panels, maintain structural validity. Special attention was paid to the <code>tabindex="0"</code> application on each card, ensuring it follows accessibility recommendations without breaking the DOM hierarchy.
+        </p>
+        <div class="val-snapshot">
+          <img src="images/Teamvalidation.png" alt="W3C Validation result for the Team Page showing zero errors">
+        </div>
+        <div class="btn-group">
+          <a href="team.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST3.html#team" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- Content Page Validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="contentVal">Content Page Validation Report</h2>
+        <p>
+          The individual Content Page (<code>content_ST3.html</code>) was verified for its semantic use of HTML5 landmarks like <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code>. I checked the heading hierarchy to ensure it follows a logical order (H1 to H3) and verified that all internal jumping anchors point to valid <code>id</code> attributes. All images include descriptive <code>alt</code> text, contributing to a high accessibility score.
+        </p>
+        <div class="val-snapshot">
+          <img src="images/contentvalidation.png" alt="W3C Validation result for the Student 3 Content Page showing zero errors">
+        </div>
+        <div class="btn-group">
+          <a href="content_ST3.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST3.html#content" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- Reflection -->
+      <section id="reflection">
+        <h2>Reflection on the Validation Process</h2>
+        <p>
+          Using the W3C Markup Validation Service was an essential step in refining the interactive elements of my assigned pages. During initial testing, I discovered a missing closing <code>&lt;/label&gt;</code> tag on the feedback form, which could have led to accessibility issues. Correcting this was a valuable reminder of how small structural errors can impact screen reader functionality.
+        </p>
+        <p>
+          On the <strong>Team Page</strong>, I initially used duplicate IDs for some of the hidden detail panels. The validator helped me identify these conflicts, which I resolved by switching to class-based targeting for the hover effects. This process not only fixed the validation errors but also made my CSS more robust.
+        </p>
+        <p>
+          The <strong>Content Page</strong> development taught me the importance of landmarks and heading hierarchy. The validator's warnings about empty sections helped me maintain a cleaner document structure. Overall, the process confirmed that valid code is the foundation of an accessible and professional user experience, ensuring that our Climate Action website performs reliably across all devices.
+        </p>
+      </section>
+
+      <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top">&#8679;</a>
+    </main>
+
+    <aside>
+      <h3>Core pages developed:</h3>
+      <ul class="top-level-ul">
+        <li>Student 3 (Roshan Dahal)
+          <ul>
+            <li><a href="feedback.html">Feedback Page</a></li>
+            <li><a href="team.html">Team Page</a></li>
+            <li><a href="content_ST3.html">Content Page</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- local navigation -->
+      <h3 style="margin-top: 2rem">Validation Sections</h3>
+      <ul>
+        <li><a href="#feedbackVal">Feedback Page</a></li>
+        <li><a href="#teamVal">Team Page</a></li>
+        <li><a href="#contentVal">Content Page</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- site footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>Climate Action</h3>
+        <p>A student group project promoting awareness and action for UN Sustainable Development Goal 13.</p>
+        <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+      </div>
+      <div class="footer-section">
+        <h3>Pages</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Action Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">User Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This Page</h3>
+        <p>Student: Roshan Dahal</p>
+        <a href="pageEditor_ST3.html">Page Editor</a>
+        <a href="validation_ST3.html">Validator</a>
+        <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accessibility (WCAG 2.1)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SDG 13 Climate Action - University of Westminster | 4COSC011W Web Design &amp; Development | Roshan - Student 3</p>
+    </div>
+  </footer>
+
+</body>
+</html>

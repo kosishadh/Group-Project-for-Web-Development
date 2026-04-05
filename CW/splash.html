@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splash</title>
+    <meta http-equiv="refresh" content="4; url=home.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /*splash content: centered flex column*/
+      .splash {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      /*Dark overlay on top of background image */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 0;
+      }
+      /*full screen background with dark overlay*/
+      body {
+        font-family: "Source Sans 3", sans-serif;
+        background-image: url("images/splash_bg.jpeg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+        color: rgb(255, 255, 255);
+      }
+      /*horizontal row team name list*/
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+      }
+      /*Individual name badge: pill shape*/
+      li {
+        color: #ffffff;
+        list-style: none;
+        border: 2px solid var(--teal);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+      /*CSS loader: spinning circle animation*/
+      .loader {
+        width: 44px;
+        height: 44px;
+        border: 4px solid rgba(255, 255, 255, 0.2);
+        border-top-color: var(--color-primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      /*Spin animation keyframe*/
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      /*Skip intro button*/
+      button {
+        font-size: 0.8rem;
+        font-family: "Source Sans 3", sans-serif;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      /*Button hover state*/
+      button:hover {
+        color: #1a1a1a;
+        background-color: #a8e063;
+        border-color: #a8e063;
+        transition: all ease 0.2s;
+      }
+      /*Page title*/
+      h1 {
+        font-size: xxx-large;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        letter-spacing: 2px;
+        margin: 0;
+      }
+      /*SDG subtitle below main heading*/
+      .sdg-subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+        color: var(--color-primary);
+        margin: 0;
+        text-transform: uppercase;
+      }
+      /*Mission statement*/
+      h2 {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.7;
+        max-width: 550px;
+      }
+      .team {
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary);
+        text-underline-offset: 6px;
+        text-decoration-thickness: 2px;
+      }
+
+      .splash p {
+        font-size: medium;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+      }
+      /*Countdown text*/
+      #countdown {
+        font-size: medium;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 1px;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="splash">
+      <h1>Climate Action</h1>
+      <p class="subtitle">UN SDG Goal 13</p>
+      <h2>
+        Climate change is the defining crisis of our generation. We're here to
+        turn awareness into action, one step at a time.
+      </h2>
+      <p class="team">OUR TEAM</p>
+
+      <ul>
+        <li>Rishav Maharjan</li>
+        <li>Kosish Adhikari</li>
+        <li>Roshan Dahal</li>
+        <li>Vishank Bajracharya</li>
+      </ul>
+      <p id="countdown">Entering site in 4…</p>
+      <div class="loader"></div>
+      <button onclick="skipIntro()">Skip Intro</button>
+    </div>
+    <script>
+      let seconds = 4;
+      const countdownEl = document.getElementById("countdown");
+      // Countdown timer: decreses every second and updates the text
+      const timer = setInterval(function () {
+        seconds--;
+        if (seconds > 0) {
+          countdownEl.textContent = "Entering site in " + seconds + "…";
+        } else {
+          countdownEl.textContent = "Welcome!";
+          clearInterval(timer);
+        }
+      }, 1000);
+      // skipIntro: cancels the timer and redirects immediately
+      function skipIntro() {
+        clearInterval(timer);
+        window.location.href = "home.html";
+      }
+    </script>
+  </body>
+</html>

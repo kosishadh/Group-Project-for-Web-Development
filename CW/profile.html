@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | SDG 13 Climate Action</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0" />
+    
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        
+        :root {
+            --green: #0d631b;
+            --green-dark: #1b5e20;
+            --green-light: #e8f5e9;
+            --text-main: #171d14;
+            --text-muted: #40493d;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-full: 9999px;
+            --heading-font: 'Epilogue', sans-serif;
+            --body-font: 'Source Sans 3', sans-serif;
+            --shadow: 0 10px 30px rgba(13, 99, 27, 0.1);
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: calc(var(--radius-xl) + 4px);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+            background: #f7fdf7;
+            border: 1px solid #d6eadf;
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.2rem;
+        }
+        .intro-section { text-align: center; margin-bottom: 1.75rem; }
+        .intro-section h1 { font-family: var(--heading-font); color: var(--green); font-size: 2.5rem; margin-bottom: 0.35rem; }
+        .intro-section p { color: var(--text-muted); font-size: 1rem; max-width: 40rem; margin: 0 auto; line-height: 1.7; }
+
+        .progress-container {
+            margin-bottom: 2rem;
+            background: #f7fdf7;
+            border: 1px solid #d6eadf;
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.2rem;
+        }
+        .progress-info { display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-weight: 700; color: var(--green); }
+        .progress-info span { display: inline-flex; align-items: center; gap: 0.35rem; }
+        .progress-track { background: #eee; height: 14px; border-radius: var(--radius-full); overflow: hidden; }
+        #progress-bar { height: 100%; width: 0%; background: var(--green); transition: width 0.6s ease; }
+
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        .btn-main { background: var(--green); color: white; box-shadow: 0 4px 15px rgba(13, 99, 27, 0.3); }
+        .btn-main:hover { transform: translateY(-2px); background: var(--green-dark); }
+        .btn-reset { background: #f44336; color: white; }
+        .btn-reset:hover { background: #d32f2f; transform: translateY(-2px); }
+        .btn-sub { background: var(--green-light); color: var(--green); }
+        .btn-sub:hover { background: #c8e6c9; }
+
+        #profile-form {
+            margin-top: 2rem;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid #dbeed8;
+            box-shadow: 0 12px 25px rgba(13, 99, 27, 0.08);
+            min-width: 0;
+        }
+        #profile-form fieldset {
+            border: 1px solid #d6eadf;
+            background: #f7fdf7;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        #profile-form legend {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 0 0.5rem;
+            width: auto;
+        }
+        .profile-field { margin-bottom: 1.25rem; }
+        .profile-field label {
+            display: block;
+            margin-bottom: 0.45rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+        .profile-field input {
+            width: 100%;
+            padding: 1rem 1rem;
+            border: 1px solid #c8e6c9;
+            border-radius: calc(var(--radius-lg) - 2px);
+            font-family: inherit;
+            background: #fff;
+        }
+        .profile-field input:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(13, 99, 27, 0.08);
+        }
+        .form-step { display: none; }
+        .form-step.active { display: block; }
+        .step-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-top: 1.75rem;
+            flex-wrap: wrap;
+        }
+        .form-step .step-buttons .btn {
+            flex: 1 1 auto;
+            min-width: 120px;
+        }
+        .form-step .step-buttons .btn-sub {
+            justify-self: start;
+        }
+        .profile-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: 2rem;
+            align-items: start;
+            min-width: 0;
+        }
+        .profile-layout > * {
+            min-width: 0;
+        }
+        @media (max-width: 880px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #profile-output {
+            display: none;
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid #dbeed8;
+            box-shadow: 0 12px 25px rgba(13, 99, 27, 0.08);
+            animation: slideUp 0.5s ease-out forwards;
+            min-width: 0;
+        }
+
+        #profile-output h2 {
+            text-align: left;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+            align-items: start;
+        }
+        .step-result-card {
+            background: linear-gradient(180deg, #f5fcf5 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid #d6eadf;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .step-result-card h3 {
+            margin-bottom: 1rem;
+        }
+        .step-result-card h3 { 
+            color: var(--green); 
+            font-family: var(--heading-font); 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--green-light);
+            padding-bottom: 0.5rem;
+        }
+        .data-item { margin-bottom: 0.8rem; font-size: 0.95rem; line-height: 1.4; }
+        .data-label { font-weight: 700; color: var(--text-muted); display: block; font-size: 0.75rem; text-transform: uppercase; }
+    </style>
+</head>
+
+<body>
+
+    
+    <header>
+      <div class="header-inner">
+        <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13-Go to home">
+          <img src="images/Logo.png" alt="SDG 13 Climate Action logo" />
+          <div style="display: flex; flex-direction: column">
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html" class="active" aria-current="page">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+        <div class="profile-card">
+            <div class="intro-section">
+                <h1>User Profile</h1>
+                <p>Complete the steps to build your Climate Action Identity.</p>
+            </div>
+
+           
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span id="status-msg">Fill the form below to begin</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            
+            <div class="btn-group">
+                <button class="btn btn-main" id="startBtn" onclick="showStep(1)">Start Step 1</button>
+                <button class="btn btn-reset" type="button" onclick="resetProfile()">Reset Profile</button>
+            </div>
+
+            <div class="profile-layout">
+                <div id="profile-form">
+                    <form id="userForm">
+                    <div class="form-step" id="step-1">
+                        <fieldset>
+                            <legend>Step 1: Personal</legend>
+                            <div class="profile-field">
+                                <label for="name">First name</label>
+                                <input type="text" id="name" name="name" placeholder="Your first name" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="surname">Last name</label>
+                                <input type="text" id="surname" name="surname" placeholder="Your last name" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="10" max="120" placeholder="Your age" />
+                            </div>
+                        </fieldset>
+                        <div class="step-buttons">
+                            <button class="btn btn-main" type="button" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-step" id="step-2">
+                        <fieldset>
+                            <legend>Step 2: Interests</legend>
+                            <div class="profile-field">
+                                <label for="topic">Climate topic you like</label>
+                                <input type="text" id="topic" name="topic" placeholder="e.g. oceans, forests" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="activity">Eco action you enjoy</label>
+                                <input type="text" id="activity" name="activity" placeholder="e.g. planting trees" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="diet">Planet-friendly food choice</label>
+                                <input type="text" id="diet" name="diet" placeholder="e.g. plant-based meals" />
+                            </div>
+                        </fieldset>
+                        <div class="step-buttons">
+                            <button class="btn btn-sub" type="button" onclick="prevStep()">Back</button>
+                            <button class="btn btn-main" type="button" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-step" id="step-3">
+                        <fieldset>
+                            <legend>Step 3: Goals</legend>
+                            <div class="profile-field">
+                                <label for="career">Job that helps the Earth</label>
+                                <input type="text" id="career" name="career" placeholder="e.g. climate scientist" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="skill">Skill you want to learn</label>
+                                <input type="text" id="skill" name="skill" placeholder="e.g. recycling tips" />
+                            </div>
+                            <div class="profile-field">
+                                <label for="dream">Your dream for 2030</label>
+                                <input type="text" id="dream" name="dream" placeholder="e.g. cleaner air" />
+                            </div>
+                        </fieldset>
+                        <div class="step-buttons">
+                            <button class="btn btn-sub" type="button" onclick="prevStep()">Back</button>
+                            <button class="btn btn-main" type="button" onclick="submitForm()">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="profile-output">
+                <h2 style="font-family: var(--heading-font); color: var(--green); margin-bottom: 1.5rem; text-align: center;">Your Environmental Identity</h2>
+                <div class="profile-grid">
+                    <div class="step-result-card" id="res-step-1" style="display:none;">
+                        <h3>Personal Details</h3>
+                        <div id="out-name"></div>
+                        <div id="out-surname"></div>
+                        <div id="out-age"></div>
+                    </div>
+                    <div class="step-result-card" id="res-step-2" style="display:none;">
+                        <h3>Interests</h3>
+                        <div id="out-topic"></div>
+                        <div id="out-activity"></div>
+                        <div id="out-diet"></div>
+                    </div>
+                    <div class="step-result-card" id="res-step-3" style="display:none;">
+                        <h3>Goals & Dreams</h3>
+                        <div id="out-career"></div>
+                        <div id="out-skill"></div>
+                        <div id="out-dream"></div>
+                    </div>
+                </div>
+
+                <div id="completion-msg" style="text-align: center; margin-top: 2rem; font-weight: 700; color: var(--green); display:none;">
+                    <span class="material-symbols-outlined" style="vertical-align: middle;">verified</span> Profile 100% Complete!
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate action</h3>
+          <p>A student group project promoting awareness and action for UN Sustainable Development Goal 13.</p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="profile.html">User Profile</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This page</h3>
+          <p>Student: Vishank Bajracharya</p>
+          <a href="pageEditor_ST4.html" target="_blank">Page Editor</a>
+          <a href="validation_ST4.html" target="_blank">Validator</a>
+          <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accessibility (WCAG 2.1)</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web design & Development | Vishank - Student 4
+        </p>
+      </div>
+    </footer>
+
+    <script>
+        
+        let userData = {
+            name: "", surname: "", age: "",
+            topic: "", activity: "", diet: "",
+            career: "", skill: "", dream: ""
+        };
+
+        const totalFields = 9;
+        const totalSteps = 3;
+        let currentStep = 1;
+        const form = document.getElementById("userForm");
+        const statusMsg = document.getElementById("status-msg");
+        const profileOutput = document.getElementById("profile-output");
+
+        window.addEventListener("DOMContentLoaded", function() {
+            showStep(1);
+            statusMsg.innerText = "Start Step 1 to build your profile.";
+        });
+
+        function collectFormData() {
+            const data = new FormData(form);
+            userData.name = (data.get("name") || "").trim();
+            userData.surname = (data.get("surname") || "").trim();
+            userData.age = (data.get("age") || "").trim();
+            userData.topic = (data.get("topic") || "").trim();
+            userData.activity = (data.get("activity") || "").trim();
+            userData.diet = (data.get("diet") || "").trim();
+            userData.career = (data.get("career") || "").trim();
+            userData.skill = (data.get("skill") || "").trim();
+            userData.dream = (data.get("dream") || "").trim();
+        }
+
+        function showStep(step) {
+            currentStep = Math.min(Math.max(step, 1), totalSteps);
+            for (let i = 1; i <= totalSteps; i++) {
+                const element = document.getElementById(`step-${i}`);
+                if (element) {
+                    element.classList.toggle("active", i === currentStep);
+                }
+            }
+            document.getElementById("startBtn").innerText = currentStep === 1 ? "Start Step 1" : `Step ${currentStep}`;
+            statusMsg.innerText = `Step ${currentStep} of ${totalSteps}`;
+            scrollToStep(`step-${currentStep}`);
+        }
+
+        function nextStep() {
+            collectFormData();
+            if (currentStep < totalSteps) {
+                showStep(currentStep + 1);
+            } else {
+                submitForm();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                showStep(currentStep - 1);
+            }
+        }
+
+        function submitForm() {
+            collectFormData();
+            renderProfile();
+            statusMsg.innerText = "Profile complete!";
+            profileOutput.style.display = "block";
+            scrollToStep("profile-output");
+        }
+
+        function scrollToForm() {
+            showStep(1);
+        }
+
+        function scrollToStep(stepId) {
+            const element = document.getElementById(stepId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        function resetProfile() {
+            form.reset();
+            userData = { name: "", surname: "", age: "", topic: "", activity: "", diet: "", career: "", skill: "", dream: "" };
+            profileOutput.style.display = "none";
+            showStep(1);
+            statusMsg.innerText = "Fill the form below to start.";
+            document.getElementById("progress-bar").style.width = "0%";
+            document.getElementById("progress-percent").innerText = "0%";
+            document.getElementById("completion-msg").style.display = "none";
+        }
+
+        function renderProfile() {
+            let filledCount = 0;
+            profileOutput.style.display = "block";
+
+            function updateField(id, label, value, cardId) {
+                const el = document.getElementById(id);
+                const card = document.getElementById(cardId);
+                if (value) {
+                    el.innerHTML = `<span class="data-label">${label}</span> ${value}`;
+                    card.style.display = "block";
+                    filledCount++;
+                } else {
+                    el.innerHTML = "";
+                    card.style.display = "none";
+                }
+            }
+
+            updateField("out-name", "First Name", userData.name, "res-step-1");
+            updateField("out-surname", "Last Name", userData.surname, "res-step-1");
+            updateField("out-age", "Age", userData.age, "res-step-1");
+            updateField("out-topic", "Climate Topic", userData.topic, "res-step-2");
+            updateField("out-activity", "Eco Action", userData.activity, "res-step-2");
+            updateField("out-diet", "Food Choice", userData.diet, "res-step-2");
+            updateField("out-career", "Earth-Friendly Job", userData.career, "res-step-3");
+            updateField("out-skill", "Skill Goal", userData.skill, "res-step-3");
+            updateField("out-dream", "Dream for 2030", userData.dream, "res-step-3");
+
+            const percent = Math.round((filledCount / totalFields) * 100);
+            document.getElementById("progress-bar").style.width = percent + "%";
+            document.getElementById("progress-percent").innerText = percent + "%";
+            document.getElementById("completion-msg").style.display = percent === 100 ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

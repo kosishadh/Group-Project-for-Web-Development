@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Validation Report - Rishav Maharjan | Student 2 | SDG 13 Climate Action
+  </title>
+  <meta name="description"
+    content="Technical validation report for the Splash Screen, Action Impact Simulator, and Content pages implemented by Student 2 for the SDG 13 Climate Action website." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- shared stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pageEditor_validator.css" />
+</head>
+
+<body id="top">
+  <!-- site header -->
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
+        <img src="images/Logo.png" alt="SDG 13 Climate Action logo" />
+        <div style="display: flex; flex-direction: column">
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+         STUDENT IDENTITY BANNER
+         ============================================================ -->
+  <section class="stud">
+    <h2>
+      Rishav Maharjan | SDG 13 Climate Action | Student 2 - Validation Report
+    </h2>
+  </section>
+
+  <!-- ============================================================
+         MAIN TWO-COLUMN LAYOUT: main content + aside navigation
+         ============================================================ -->
+  <div class="container">
+    <main>
+      <!-- section 1: splash page validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="splashVal">Splash Screen Validation Report</h2>
+        <p>
+          The Splash Screen (<code>splash.html</code>) was validated using the
+          W3C Markup Validation Service and passed with no errors. The page
+          relies on a <code>&lt;meta http-equiv="refresh"&gt;</code> tag for
+          auto-redirect, which is a valid HTML construct per the HTML5
+          specification. The CSS-only loader animation was verified to use
+          only standard <code>@keyframes</code> syntax. The JavaScript
+          countdown and skip button were confirmed to have no impact on markup
+          validity. All inline styles were reviewed and removed in favour of
+          class-based rules to ensure clean, standards-compliant output.
+        </p>
+
+        <!-- validation screenshot -->
+        <div class="val-snapshot">
+          <img src="images/splash.validator.png" alt="W3C Validation result for splash.html showing zero errors" />
+        </div>
+
+        <div class="btn-group">
+          <a href="splash.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST2.html#splash" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- section 2: action impact simulator validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="aisVal">Action Impact Simulator Validation Report</h2>
+        <p>
+          The Action Impact Simulator (<code>ais.html</code>) passed W3C
+          validation with no errors. The six action cards each include a
+          thumbnail image with descriptive <code>alt</code> text, a heading, a
+          paragraph description, and a data attribute used by JavaScript to
+          retrieve the card's impact score — all of which are valid HTML5
+          constructs. Custom <code>data-*</code> attributes
+          (<code>data-points</code>) were used instead of non-standard
+          attributes to store impact values, which the validator accepted
+          without warning. The embedded <code>&lt;style&gt;</code> block was
+          reviewed to confirm it contains only valid CSS2.1/CSS3 declarations.
+          The dynamic background-change logic is entirely JavaScript-driven
+          and does not affect HTML validity.
+        </p>
+
+        <!-- validation screenshot -->
+        <div class="val-snapshot">
+          <img src="images/ais.validator.png" alt="W3C Validation result for ais.html showing zero errors" />
+        </div>
+
+        <div class="btn-group">
+          <a href="ais.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST2.html#ais" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- section 3: content page validation -->
+      <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
+        <h2 id="contentVal">Content Page Validation Report</h2>
+        <p>
+          The Content Page (<code>content_ST2.html</code>), covering Renewable
+          Energy Solutions as part of the SDG 13 topic, passed W3C validation
+          with no errors. The full heading hierarchy from
+          <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> was verified
+          to follow a logical document outline with no skipped levels.
+          Internal anchor links and the Go to Top button were validated to
+          reference existing <code>id</code> attributes on the page. All four
+          images include descriptive <code>alt</code> text. The active page
+          state in the navigation is implemented using an
+          <code>aria-current="page"</code>
+          attribute, which is both valid HTML5 and improves accessibility for
+          screen-reader users.
+        </p>
+
+        <!-- validation screenshot -->
+        <div class="val-snapshot">
+          <img src="images/content_ST2.validator.png" alt="W3C Validation result for content_ST2.html showing zero errors" />
+        </div>
+
+        <div class="btn-group">
+          <a href="content_ST2.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST2.html#content" class="btn-editor">Page Editor Report</a>
+        </div>
+      </section>
+
+      <!-- section 4: reflection on validation process -->
+      <section>
+        <h2 id="reflection">Reflection on the Validation Process</h2>
+        <p>
+          Running all three pages through the W3C Markup Validation Service
+          surfaced a small but instructive set of issues that I resolved
+          before taking the final screenshots submitted above.
+        </p>
+        <p>
+          On <strong>splash.html</strong>, the validator initially flagged a
+          stray closing <code>&lt;/div&gt;</code> tag left over from an early
+          draft of the countdown container. Removing it resolved the error
+          immediately. A related warning noted that the
+          <code>&lt;noscript&gt;</code> fallback message sat inside a
+          <code>&lt;p&gt;</code> element that already contained block-level
+          content; restructuring the noscript block as a sibling paragraph
+          cleared the warning.
+        </p>
+        <p>
+          On <strong>ais.html</strong>, two of the original action card images
+          were missing <code>alt</code> attributes — an oversight made during
+          rapid prototyping. Adding meaningful alt text (e.g.,
+          <em>"Person cycling to work instead of driving"</em>) fixed both
+          errors and improved accessibility at the same time. I also
+          discovered I had used a deprecated <code>border</code> attribute
+          directly on an <code>&lt;img&gt;</code> tag; moving that rule into
+          the embedded stylesheet eliminated the remaining warning.
+        </p>
+        <p>
+          On <strong>content_ST2.html</strong>, the validator warned that a
+          <code>&lt;section&gt;</code> element lacked a visible heading. I
+          resolved this by promoting an existing <code>&lt;p&gt;</code> label
+          to a proper <code>&lt;h3&gt;</code>, which also strengthened the
+          heading hierarchy required by the brief.
+        </p>
+        <p>
+          Overall, the validation process reinforced the value of writing
+          semantic, attribute-complete HTML from the start rather than
+          patching it afterwards. It also highlighted how closely
+          accessibility and validity overlap — most of the fixes that
+          satisfied the validator also made the pages more usable for
+          assistive technologies.
+        </p>
+      </section>
+
+      <!-- back to top link -->
+      <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top"
+        >&#8679;</a
+      >
+    </main>
+
+    <!-- ============================================================
+           ASIDE — quick-reference index of all students and their pages
+           ============================================================ -->
+    <aside>
+      <h3>Core pages developed:</h3>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 1 (Template Lead)</div>
+          <ul>
+            <li><a href="home.html">Home Page</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="content_ST1.html">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <!-- student 2 active links -->
+          <div style="font-weight: 600; margin-bottom: 0.5rem;"><strong>Student 2 (You)</strong></div>
+          <ul>
+            <li><a href="splash.html">Splash Screen</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="content_ST2.html">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 3</div>
+          <ul>
+            <li><a href="#">Feedback Page</a></li>
+            <li><a href="#">Team Page</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 4</div>
+          <ul>
+            <li><a href="#">User Profile</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- quick navigation within page -->
+      <h3 style="margin-top: 2rem">Validation Sections</h3>
+      <ul>
+        <li><a href="#splashVal">Splash Screen</a></li>
+        <li><a href="#aisVal">Action Impact Simulator</a></li>
+        <li><a href="#contentVal">Content Page</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
+    </aside>
+  </div>
+  <!-- end container -->
+
+  <!-- ============================================================
+         FOOTER — must include link to Page Editor + student details
+         ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>Climate action</h3>
+        <p>
+          A student group project promoting awareness and action for UN
+          Sustainable Development Goal 13.
+        </p>
+        <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+      </div>
+      <div class="footer-section">
+        <h3>Pages</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Action Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">User Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This page</h3>
+        <p>Student: Rishav Maharjan</p>
+        <!-- link to page editor in footer -->
+        <a href="pageEditor_ST2.html" target="_blank">Page Editor</a>
+        <a href="validation_ST2.html" target="_blank">Validator</a>
+        <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accessibility (WCAG 2.1)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 SDG 13 Climate Action - University of Westminster
+        4COSC011W | Web design & Development | Rishav - Student 2
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

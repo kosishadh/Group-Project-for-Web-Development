@@ -254,7 +254,7 @@
           class="site-logo"
           aria-label="Climate Action SDG 13-Go to home"
         >
-          <img src="images/logo.png" alt="SDG 13 Climate Action logo">
+          <img src="images/Logo.png" alt="SDG 13 Climate Action logo">
           <div style="display: flex; flex-direction: column">
             <span class="site-title">Climate Action</span>
             <span class="site-subtitle">UN SDG Goal 13</span>
@@ -291,8 +291,6 @@
 
       <!-- This section is showing the interactive grid of six clickable gallery cards -->
       <section id="gallery-container" aria-label="Impact and Solution Stories">
-        <h2 class="sr-only">Impact and Solution Gallery</h2>
-        
         <div class="gallery-grid" id="gallery-grid">
           <!-- Card 1: Arctic Ice -->
           <article
@@ -304,7 +302,7 @@
             <figure>
               <img src="images/g1.jpeg" alt="Large coal-fired power plant with four cooling towers releasing thick white steam into a clear blue sky, surrounded by green trees and transmission lines">
               <figcaption class="card-overlay">
-                <h3 id="title-0">Melting Arctic Ice</h3>
+                <h2 id="title-0">Melting Arctic Ice</h2>
                 <p>Click more to expand</p>
               </figcaption>
             </figure>
@@ -323,7 +321,7 @@
                 alt="Wide field of solar panels stretching to the horizon under a bright blue sky"
               >
               <figcaption class="card-overlay">
-                <h3 id="title-1">Solar Revolution</h3>
+                <h2 id="title-1">Solar Revolution</h2>
                 <p>Click to explore</p>
               </figcaption>
             </figure>
@@ -342,7 +340,7 @@
                 alt="Volunteers planting young tree saplings in a deforested hillside area"
               >
               <figcaption class="card-overlay">
-                <h3 id="title-2">Forest Restoration</h3>
+                <h2 id="title-2">Forest Restoration</h2>
                 <p>Click to explore</p>
               </figcaption>
             </figure>
@@ -361,7 +359,7 @@
                 alt="Flooded coastal village with homes partially submerged in brown floodwater"
               >
               <figcaption class="card-overlay">
-                <h3 id="title-3">Rising Sea levels</h3>
+                <h2 id="title-3">Rising Sea levels</h2>
                 <p>Click to explore</p>
               </figcaption>
             </figure>
@@ -380,7 +378,7 @@
                 alt="Offshore wind turbines standing in a calm blue sea at sunrise"
               >
               <figcaption class="card-overlay">
-                <h3 id="title-4">Offshore Wind Power</h3>
+                <h2 id="title-4">Offshore Wind Power</h2>
                 <p>Click to explore</p>
               </figcaption>
             </figure>
@@ -399,7 +397,7 @@
                 alt="Young people marching in a climate strike holding colorful handmade protest signs"
               >
               <figcaption class="card-overlay">
-                <h3 id="title-5">Youth Climate Strike</h3>
+                <h2 id="title-5">Youth Climate Strike</h2>
                 <p>Click to explore</p>
               </figcaption>
             </figure>
@@ -469,27 +467,25 @@
     <!-- This section is showing the site footer with page links and student attribution -->
     <footer>
       <div class="footer-inner">
-        <section class="footer-section">
+        <div class="footer-section">
           <h3>Climate action</h3>
           <p>
             A student group project promoting awareness and action for UN
             Sustainable Development Goal 13.
           </p>
-          <span class="sdg-badge">SDG 13</span>
-        </section>
-        
-        <nav class="footer-section" aria-label="Secondary navigation">
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
           <h3>Pages</h3>
           <a href="home.html">Home</a>
           <a href="gallery.html">Gallery</a>
-          <a href="ais.html">Action Simulator</a>
-          <a href="profile.html">User Profile</a>
+          <a href="ais.html">Action Impact Simulator</a>
           <a href="feedback.html">Feedback</a>
           <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
           <a href="sitemap.html">Sitemap</a>
-        </nav>
-
-        <section class="footer-section">
+        </div>
+        <div class="footer-section">
           <h3>This page</h3>
           <p>Student: Kosish Adhikari</p>
           <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
@@ -500,9 +496,8 @@
             rel="noopener"
             >Accessibility (WCAG 2.1)</a
           >
-        </section>
+        </div>
       </div>
-
       <div class="footer-bottom">
         <p>
           &copy; 2026 SDG 13 Climate Action - University of Westminster

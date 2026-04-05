@@ -48,50 +48,88 @@
   <div class="container">
     <main>
       <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
         <h2 id="templateVal">Template Validation Report</h2>
         <p>
           As the Template Lead, I verified the core layout structure shared across all pages. The global header, navigation system, and footer were tested for structural integrity and ARIA landmark compliance. The validation confirm that the responsive container system and sticky navigation do not interfere with HTML5 parsing rules.
         </p>
-        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
-          <img src="images/template.validator.png" alt="W3C Validation result for the Site-wide Template showing zero errors" style="width: 100%; height: auto; display: block;">
+        <div class="val-snapshot">
+          <img src="images/template.validator.png" alt="W3C Validation result for the Site-wide Template showing zero errors">
+        </div>
+        <div class="btn-group">
+          <a href="home.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST1.html#home" class="btn-editor">Page Editor Report</a>
         </div>
       </section>
 
       <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
         <h2 id="splashVal">Home Page Validation Report</h2>
         <p>
           The Home Page passed the W3C markup validation with no errors. The semantic structure using <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;section&gt;</code> landmarks was correctly identified. One minor warning regarding the use of a section without a heading was resolved by adding a screen-reader-only heading for the statistics strip. The use of custom properties in the CSS did not affect HTML validity.
         </p>
-        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
-          <img src="images/home.validator.png" alt="W3C Validation result for Home Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        <div class="val-snapshot">
+          <img src="images/home.validator.png" alt="W3C Validation result for Home Page showing zero errors">
         </div>
-        <h3>Back to Page Editor page</h3>
-        <p><a href="pageEditor_ST1.html#home">Return to Home Page technical description in the Page Editor.</a></p>
+        <div class="btn-group">
+          <a href="home.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST1.html#home" class="btn-editor">Page Editor Report</a>
+        </div>
       </section>
 
       <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
         <h2 id="volunteerVal">Gallery Page Validation Report</h2>
         <p>
           Validation for the Gallery Page initially flagged two missing <code>alt</code> attributes on dynamically generated thumbnails. These were corrected in the JavaScript template literal. The final validation check shows a clean report. The custom font customisation controls were verified to use standards-compliant <code>data-*</code> attributes for event handling, ensuring the markup remains valid while providing interactive functionality.
         </p>
-        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
-          <img src="images/gallery.validator.png" alt="W3C Validation result for Gallery Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        <div class="val-snapshot">
+          <img src="images/gallery.validator.png" alt="W3C Validation result for Gallery Page showing zero errors">
         </div>
-        <h3>Back to Page Editor page</h3>
-        <p><a href="pageEditor_ST1.html#gallery">Return to Gallery Page technical description in the Page Editor.</a></p>
+        <div class="btn-group">
+          <a href="gallery.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST1.html#gallery" class="btn-editor">Page Editor Report</a>
+        </div>
       </section>
 
       <section>
+        <span class="status-badge">W3C Passed — 0 Errors</span>
         <h2 id="contentVal">Content Page Validation Report</h2>
-          The content page (Climate Science Explained) was validated and initially showed no errors. I checked the correct nesting of <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags, verified the <code>&lt;aside&gt;</code> landmark was properly identified, and confirmed all <code>scroll-margin-top</code> anchor targets were valid. All ARIA labels for the smooth-scrolling anchors were verified for accessibility compliance. No validation errors or warnings remain in the final build.
-        <div class="val-snapshot" style="margin: 1.5rem 0; border: 1px solid var(--bg-box); border-radius: var(--radius-lg); overflow: hidden;">
-          <img src="images/content.validator.png" alt="W3C Validation result for Content Page showing zero errors" style="width: 100%; height: auto; display: block;">
+        <p>The content page (Climate Science Explained) was validated and initially showed no errors. I checked the correct nesting of <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> tags, verified the <code>&lt;aside&gt;</code> landmark was properly identified, and confirmed all <code>scroll-margin-top</code> anchor targets were valid. All ARIA labels for the smooth-scrolling anchors were verified for accessibility compliance. No validation errors or warnings remain in the final build.</p>
+        <div class="val-snapshot">
+          <img src="images/content.validator.png" alt="W3C Validation result for Content Page showing zero errors">
         </div>
-        <h3>Back to Page Editor page</h3>
-        <p><a href="pageEditor_ST1.html#content">Return to Content Page technical description in the Page Editor.</a></p>
+        <div class="btn-group">
+          <a href="content_ST1.html" class="btn-live">View Live Page</a>
+          <a href="pageEditor_ST1.html#content" class="btn-editor">Page Editor Report</a>
+        </div>
       </section>
 
-      <p class="top"><a href="#top">Go top &#8593;</a></p>
+      <section id="reflection">
+        <h2>Reflection on the Validation Process</h2>
+        <p>
+          Running all four pages through the W3C Markup Validation Service surfaced a small but instructive set of issues that I resolved before taking the final screenshots submitted above.
+        </p>
+        <p>
+          On the <strong>site template</strong>, the validator initially flagged a missing <code>lang</code> attribute on the <code>&lt;html&gt;</code> element in an early draft that was shared across all pages. Adding <code>lang="en"</code> resolved the error immediately and improved screen-reader compatibility for all pages that inherited the template. A secondary warning about a <code>&lt;section&gt;</code> element used in the statistics strip lacking a visible heading was resolved by inserting a visually hidden <code>&lt;h2&gt;</code> using a <code>.sr-only</code> utility class, preserving the visual design while satisfying both the validator and WCAG 2.1 requirements.
+        </p>
+        <p>
+          On <strong>home.html</strong>, one warning noted that the hero <code>&lt;section&gt;</code> lacked an accessible heading. I resolved this by ensuring the <code>&lt;h1&gt;</code> was structurally inside the section rather than a sibling. I also confirmed that the CSS custom property declarations used in the embedded <code>&lt;style&gt;</code> block were valid CSS3, which the validator accepted without issue.
+        </p>
+        <p>
+          On <strong>gallery.html</strong>, the validator initially flagged two dynamically generated thumbnail images that were missing <code>alt</code> attributes — an oversight in the JavaScript template literal used to render the gallery grid. Correcting the template string to include a descriptive <code>alt</code> value for each image resolved both errors and improved keyboard and screen-reader accessibility at the same time.
+        </p>
+        <p>
+          On <strong>content_ST1.html</strong>, the validation passed cleanly with no errors. I confirmed that all internal anchor targets referenced by the sticky sidebar navigation were present in the document, and that the <code>scroll-margin-top</code> declarations on each <code>&lt;section&gt;</code> were valid CSS and did not affect HTML validity. The ARIA labels applied to the smooth-scrolling anchors were also verified as standards-compliant.
+        </p>
+        <p>
+          Overall, the validation process reinforced the value of building from a well-structured template. Because the global header, footer, and navigation were validated once at the template level, all pages that inherited that structure benefited from a clean baseline. It also highlighted how accessibility and validity are deeply intertwined — the fixes that satisfied the validator, such as adding ARIA labels and hidden headings, consistently made the pages more usable for assistive technologies too.
+        </p>
+      </section>
+
+    <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top"
+      >&#8679;</a
+    >
     </main>
 
     <!-- This section is showing the sticky sidebar listing all students' pages for quick navigation -->
@@ -127,6 +165,16 @@
           </ul>
         </li>
       </ul>
+
+      <!-- local navigation within page -->
+      <h3 style="margin-top: 2rem">Validation Sections</h3>
+      <ul>
+        <li><a href="#templateVal">Site Template</a></li>
+        <li><a href="#splashVal">Home Page</a></li>
+        <li><a href="#volunteerVal">Gallery Page</a></li>
+        <li><a href="#contentVal">Content Page</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+      </ul>
     </aside>
   </div>
 
@@ -142,10 +190,10 @@
         <h3>Pages</h3>
         <a href="home.html">Home</a>
         <a href="gallery.html">Gallery</a>
-        <a href="ais.html">Action Simulator</a>
-        <a href="profile.html">User Profile</a>
+        <a href="ais.html">Action Impact Simulator</a>
         <a href="feedback.html">Feedback</a>
         <a href="team.html">Team</a>
+        <a href="profile.html">User Profile</a>
         <a href="sitemap.html">Sitemap</a>
       </div>
       <div class="footer-section">

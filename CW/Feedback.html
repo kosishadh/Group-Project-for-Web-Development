@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title- Climate Action | SDG 13</title>
+
+  <!-- Google Fonts- DO NOT remove -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Global CSS- DO NOT remove or replace -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --color-primary: var(--green);
+      --color-primary-container: var(--green-dark);
+      --color-secondary: var(--teal);
+      --color-on-surface: var(--text-main);
+      --color-on-surface-variant: var(--text-muted);
+    }
+
+    .Intro h2 {
+      margin-bottom: 0.5rem;
+      margin-top: 1rem;
+      color: var(--color-primary);
+      font-size: 2rem;
+    }
+
+    .sort-bar {
+      display: flex;
+      text-align: center;
+      justify-content: left;
+      margin: 1rem 0;
+      padding: 0.5rem;
+    }
+
+    .sort-bar label {
+      font-size: 1rem;
+      color:var(--color-primary-container);
+      margin-right: 0.5rem;
+    }
+
+    .sort-bar select {
+      padding: 0.25rem;
+      border: 2px solid var(--color-primary-container);
+      border-radius: 10px;
+      font-family: sans-serif;
+      background-color: #e0e9da;
+      margin-left: 0.25rem;
+      text-align: center;
+    }
+
+    .sort-bar select:focus {
+      outline: none;
+      border-color: var(--color-primary-container);
+      box-shadow: 0 0 5px var(--color-primary-container);
+    }
+
+    .sort-bar select option {
+      background-color: #e0e9da;
+    }
+
+    .box {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      border: 1px solid var(--color-primary-container);
+      border-radius: 1rem;
+      padding: 1rem 3rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .box::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .box::-webkit-scrollbar-thumb {
+      background: rgba(100, 135, 59, 0.6);
+      border-radius: 9999px;
+    }
+
+    .box::-webkit-scrollbar-track {
+      background: rgba(224, 233, 218, 0.4);
+    }
+
+    .card {
+      background-color: #e6efd8;
+      border-radius: 1rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      min-height: 480px;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      color:var(--color-primary);
+      line-height: 1.6;
+      margin-bottom: auto;
+    }
+   .card-button {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .join-button {
+      background-color:var(--color-primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .join-button:hover {
+      background-color:var(--color-primary-container);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(100, 135, 59, 0.22);
+    }
+
+    .ratings-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .overall-rating {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e0e9da 0%, #d4e3c8 100%);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .rating-score {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+
+    .rating-score span {
+      font-size: 1.5rem;
+      color:var(--color-primary-container);
+      margin-left: 0.25rem;
+    }
+
+    .rating-label {
+      font-size: 1.25rem;
+      color:var(--color-primary-container);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background-color: #ffffff;
+      border: 1px solid #d9e8cc;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-heading {
+      font-size: 1.1rem;
+      color:var(--color-primary);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .review-description {
+      font-size: 0.95rem;
+      color:var(--color-primary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .see-more-link {
+      color:var(--color-primary-container);
+      font-weight: 600;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .see-more-link:hover {
+      color:var(--color-primary-container);
+      text-decoration: underline;
+    }
+
+    .review-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e8f1dd;
+      font-size: 0.85rem;
+      color:var(--color-primary-container);
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      color:var(--color-primary);
+    }
+
+    .review-date {
+      font-size: 0.8rem;
+      color:var(--color-primary-container);
+    }
+
+    .review-rating {
+      font-weight: 600;
+      color:var(--color-primary-container);
+    }
+
+    @media (max-width: 768px) {
+      .ratings-container {
+        grid-template-columns: 1fr;
+      }
+
+      .rating-score {
+        font-size: 2.5rem;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feedback-form {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(224, 233, 218, 0.8);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .form-fieldset {
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .form-legend {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color:var(--color-primary);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color:var(--color-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border: 1px solid #d9e8cc;
+      border-radius: 0.75rem;
+      background-color: #ffffff;
+      color: #171d14;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color:var(--color-primary-container);
+      box-shadow: 0 0 0 3px rgba(100, 135, 59, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .char-counter {
+      font-size: 0.8rem;
+      color:var(--color-primary-container);
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    .error-message {
+      display: block;
+      font-size: 0.85rem;
+      color: #d32f2f;
+      margin-top: 0.375rem;
+      min-height: 1.2rem;
+    }
+
+    .form-input.error,
+    .form-textarea.error {
+      border-color: #d32f2f;
+      background-color: rgba(211, 47, 47, 0.03);
+    }
+
+    .submit-button {
+      background-color:var(--color-primary-container);
+      color: #ffffff;
+      border: none;
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .submit-button:hover {
+      background-color:var(--color-primary-container);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(100, 135, 59, 0.2);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+    }
+
+    .confirmation-message {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #e0f5e0 0%, #d4ead1 100%);
+      border: 2px solid var(--color-primary-container);
+      border-radius: 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #284902;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .feedback-form {
+        padding: 1.5rem;
+      }
+
+      .submit-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+    HEADER- DO NOT MODIFY STRUCTURE
+    Only add class="active" to your page's nav link
+  -->
+  <header>
+    <div class="header-inner">
+
+      <!-- Website Identity / Logo -->
+      <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to Home">
+        <!-- Replace src with your team logo path -->
+        <img src="images/Logo.png" alt="SDG 13 Climate Action logo">
+        <div>
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+
+      <!-- Navigation Bar -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <!-- Add class="active" to the link for the CURRENT page only -->
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html" class="active" aria-current="page">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+  <!--MAIN CONTENT- Replace this comment with your content-->
+  <main id="top">
+    <div class="Intro">
+      <h2>Feedback</h2>
+      <p>We would love to hear your thought</p>
+    </div>
+
+    <div class="sort-bar">
+      <label for="sort" class="sort-label">Sort by</label>
+      <select name="sort" id="sort" class="sort-select" aria-label="Sort feedback">
+        <option value="most-popular" selected>Most popular</option>
+        <option value="latest">Latest</option>
+        <option value="oldest">Oldest</option>
+        <option value="most-helpful">Most helpful</option>
+      </select>
+    </div>
+    <div class="Intro">
+      <h2>Activities</h2>
+    </div>
+    <div class="box">
+      <div class="card">
+        <div class="Activity-first">
+          <img src="images/planting.jpeg" alt="planting tree" class="card-image">
+          <div class="card-content">
+            <h2 class="card-title">Planting tree</h2>
+            <p class="card-text">Planting tree in the park. Kepping the environment clean.</p>
+          <div class="card-button">
+              <button class="join-button" aria-label="Join this activity">Join up</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="Activity-second">
+          <img src="images/Recycling.jpeg" alt="waste-recycling" class="card-image">
+          <div class="card-content">
+            <h2 class="card-title">Waste Recycling</h2>
+            <p class="card-text">Recycling waste to reduce pollution and save energy.</p>
+          <div class="card-button">
+              <button class="join-button" aria-label="Join this activity">Join up</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="Acitivity-third">
+          <img src="images/river.jpeg" alt="river-cleaning" class="card-image">
+          <div class="card-content">
+            <h2 class="card-title">River Cleaning</h2>
+            <p class="card-text">Cleaning river to protect aquatic life and improve water quality.</p>
+          <div class="card-button">
+              <button class="join-button" aria-label="Join this activity">Join up</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="Activity-fourth">
+          <img src="images/workshop.jpeg" alt="workshop" class="card-image">
+          <div class="card-content">
+            <h2 class="card-title">Climate Workshop</h2>
+            <p class="card-text">Organizing workshop to raise awareness about climate change and promote sustainable
+              practices.</p>
+         <div class="card-button">
+              <button class="join-button" aria-label="Join this activity">Join up</button>
+          </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="Intro">
+      <h2>Rating</h2>
+    </div>
+    
+    <div class="ratings-container">
+      <div class="overall-rating">
+        <div class="rating-score">8.6<span>/10</span></div>
+        <div class="rating-label">Excellent</div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <h3 class="review-heading">Great Initiative</h3>
+          <p class="review-description">The activities organized here are well-structured and engaging. I learned a lot about climate action and met similarly minded people.</p>
+          <a href="#" class="see-more-link">See more</a>
+          <div class="review-footer">
+            <span class="reviewer-name">Sarah Johnson</span>
+            <span class="review-date">March 28, 2026</span>
+            <span class="review-rating">★★★★★ 5.0</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <h3 class="review-heading">Inspirational Experience</h3>
+          <p class="review-description">Participating in the river cleaning activity was eye-opening. The team was supportive and the impact was tangible. Highly recommend!</p>
+          <a href="#" class="see-more-link">See more</a>
+          <div class="review-footer">
+            <span class="reviewer-name">Michael Chen</span>
+            <span class="review-date">March 25, 2026</span>
+            <span class="review-rating">★★★★☆ 4.5</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <h3 class="review-heading">Well Organized</h3>
+          <p class="review-description">The workshop provided valuable insights into sustainable practices. I appreciated the interactive approach and practical takeaways.</p>
+          <a href="#" class="see-more-link">See more</a>
+          <div class="review-footer">
+            <span class="reviewer-name">Emma Williams</span>
+            <span class="review-date">March 20, 2026</span>
+            <span class="review-rating">★★★★★ 5.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="Intro">
+      <h2>Share Your Feedback</h2>
+    </div>
+
+    <form id="feedbackForm" class="feedback-form" novalidate>
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">Feedback Information</legend>
+
+        <div class="form-group">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" id="fullName" name="fullName" class="form-input" required>
+          <span class="error-message" id="error-fullName"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" name="email" class="form-input" required>
+          <span class="error-message" id="error-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="tel" class="form-label">Telephone</label>
+          <input type="tel" id="tel" name="tel" class="form-input">
+          <span class="error-message" id="error-tel"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" name="address" class="form-input" required>
+          <span class="error-message" id="error-address"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="activity" class="form-label">Activity Type (Select or type)</label>
+          <input type="text" id="activity" name="activity" list="activityList" class="form-input">
+          <datalist id="activityList">
+            <option value="Planting Tree">
+            <option value="Waste Recycling">
+            <option value="River Cleaning">
+            <option value="Climate Workshop">
+          </datalist>
+          <span class="error-message" id="error-activity"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="feedbackDate" class="form-label">Feedback Date</label>
+          <input type="date" id="feedbackDate" name="feedbackDate" class="form-input">
+          <span class="error-message" id="error-feedbackDate"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="feedbackTime" class="form-label">Feedback Time</label>
+          <input type="datetime-local" id="feedbackTime" name="feedbackTime" class="form-input">
+          <span class="error-message" id="error-feedbackTime"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="comment" class="form-label">Comment</label>
+          <textarea id="comment" name="comment" class="form-textarea" maxlength="500" required></textarea>
+          <div class="char-counter">
+            <span id="charCount">0</span>/500 characters
+          </div>
+          <span class="error-message" id="error-comment"></span>
+        </div>
+
+        <button type="submit" class="submit-button">Submit Feedback</button>
+      </fieldset>
+    </form>
+
+    <div id="confirmationMessage" class="confirmation-message" style="display: none;">
+      <p>✓ Thank you for your feedback!</p>
+    </div>
+
+  </main>
+  <!-- END MAIN -->
+
+  <!--FOOTER- DO NOT MODIFY STRUCTURE
+   You should only update:
+      - Your own name
+      - Your Page Editor link (pageEditor_name.html)
+      - Your Validation link (validation_name.html)-->
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Impact Simulator</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This page</h3>
+          <p>Student: Roshan Dahal</p>
+          <a href="pageEditor_ST3.html" target="_blank">Page Editor</a>
+          <a href="validation_ST3.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web design & Development | Roshan - Student 3
+        </p>
+      </div>
+    </footer>
+  <!-- END FOOTER -->
+
+  <!-- ADD YOUR PAGE-SPECIFIC JS HERE
+        Example: <script src="js/mypage.js"></script>
+        Or inline: <script> ... </script> -->
+
+  <script>
+    const feedbackForm = document.getElementById('feedbackForm');
+    const commentField = document.getElementById('comment');
+    const charCount = document.getElementById('charCount');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+
+    // Live character counter
+    commentField.addEventListener('input', function() {
+      charCount.textContent = this.value.length;
+    });
+
+    // Form validation
+    feedbackForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Clear all previous error messages
+      document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
+      document.querySelectorAll('.form-input, .form-textarea').forEach(field => field.classList.remove('error'));
+      confirmationMessage.style.display = 'none';
+
+      let isValid = true;
+
+      // Full Name validation
+      const fullName = document.getElementById('fullName');
+      if (fullName.value.trim() === '') {
+        showError('fullName', 'Full Name is required');
+        isValid = false;
+      } else if (fullName.value.trim().length < 3) {
+        showError('fullName', 'Full Name must be at least 3 characters');
+        isValid = false;
+      }
+
+      // Email validation
+      const email = document.getElementById('email');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value.trim() === '') {
+        showError('email', 'Email is required');
+        isValid = false;
+      } else if (!emailPattern.test(email.value.trim())) {
+        showError('email', 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      // Telephone validation (optional, but if filled, must be valid)
+      const tel = document.getElementById('tel');
+      if (tel.value.trim() !== '' && !/^\d{7,}$/.test(tel.value.replace(/[\s\-\(\)]/g, ''))) {
+        showError('tel', 'Please enter a valid telephone number');
+        isValid = false;
+      }
+
+      // Address validation
+      const address = document.getElementById('address');
+      if (address.value.trim() === '') {
+        showError('address', 'Address is required');
+        isValid = false;
+      } else if (address.value.trim().length < 5) {
+        showError('address', 'Address must be at least 5 characters');
+        isValid = false;
+      }
+
+      // Comment validation
+      const comment = document.getElementById('comment');
+      if (comment.value.trim() === '') {
+        showError('comment', 'Comment is required');
+        isValid = false;
+      } else if (comment.value.trim().length < 10) {
+        showError('comment', 'Comment must be at least 10 characters');
+        isValid = false;
+      }
+
+      // If all validations pass
+      if (isValid) {
+        showConfirmation();
+        feedbackForm.reset();
+        charCount.textContent = '0';
+      }
+    });
+
+    function showError(fieldId, message) {
+      const field = document.getElementById(fieldId);
+      const errorElement = document.getElementById('error-' + fieldId);
+      field.classList.add('error');
+      errorElement.textContent = message;
+    }
+
+    function showConfirmation() {
+      confirmationMessage.style.display = 'block';
+      confirmationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Hide confirmation message after 5 seconds
+      setTimeout(() => {
+        confirmationMessage.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+
+</body>
+
+</html>

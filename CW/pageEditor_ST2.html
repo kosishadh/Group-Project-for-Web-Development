@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Page Editor - Rishav Maharjan | Student 2 | SDG 13 Climate Action
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pageEditor_validator.css" />
+</head>
+
+<body id="top">
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="site-logo" aria-label="Climate Action SDG 13 - Go to home">
+        <img src="images/logo.png" alt="SDG 13 Climate Action logo" />
+        <div style="display: flex; flex-direction: column">
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="stud">
+    <h2>
+      Rishav Maharjan | SDG 13 Climate Action | Student 2 - Splash Screen,
+      Action Impact Simulator, Content Page
+    </h2>
+  </section>
+
+  <div class="container">
+    <main>
+      <section>
+        <h2 id="splash">Splash Screen</h2>
+
+        <h3>Technical Description</h3>
+        <p>
+          The splash screen uses a
+          <code>&lt;meta http-equiv="refresh" content="4;url=home.html"&gt;</code>
+          tag in the <code>&lt;head&gt;</code> to automatically redirect to
+          <code>home.html</code> after four seconds, as specified in the
+          lecture notes. The visible content is centred using
+          <code>display: flex</code> on the body and contains an
+          <code>&lt;h1&gt;</code> for the site title, a mission statement
+          paragraph, all four group member names, a CSS loader
+          <code>&lt;div&gt;</code>, a countdown paragraph updated by
+          JavaScript, and a Skip Intro button.
+        </p>
+        <p>
+          The full-screen background image is set on the body using
+          <code>background-size: cover</code>. A
+          <code>::before</code> pseudo-element with
+          <code>rgba(0,0,0,0.55)</code> overlays the image to keep white text
+          readable. The CSS loader is a <code>&lt;div&gt;</code> with
+          <code>border-radius: 50%</code> and an asymmetric border, animated
+          with a <code>@keyframes spin</code> rule — no GIF or video is used.
+          JavaScript uses <code>setInterval()</code> to count down from 4 to
+          0, updating the countdown paragraph's <code>innerHTML</code> each
+          second. The Skip Intro button calls
+          <code>window.location.href = 'home.html'</code> and
+          <code>clearInterval()</code> to cancel the timer immediately.
+        </p>
+
+        <h3>Accessibility</h3>
+        <p>
+          The page declares <code>lang="en"</code> on the
+          <code>&lt;html&gt;</code> element. The background image is applied
+          via CSS so it is ignored by screen readers as decorative. The Skip
+          Intro <code>&lt;button&gt;</code> is a native element and is
+          keyboard-focusable by default. The countdown paragraph uses
+          <code>aria-live="polite"</code> so updates are announced to
+          assistive technologies.
+        </p>
+
+        <h3>Link to the validation page</h3>
+        <p>
+          <a href="validation_ST2.html#splashVal">View the W3C validation results for the Splash Screen.</a>
+        </p>
+
+        <h3>Link to the page</h3>
+        <p><a href="splash.html">Visit the Splash Screen.</a></p>
+      </section>
+
+      <section>
+        <h2 id="ais">Action Impact Simulator</h2>
+
+        <h3>Technical Description</h3>
+        <p>
+          The page is structured with <code>&lt;header&gt;</code>,
+          <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>. Inside
+          <code>&lt;main&gt;</code> a
+          <code>&lt;section class="card-grid"&gt;</code> holds six action
+          cards and an <code>&lt;aside id="feedback"&gt;</code> displays the
+          live score. Each card is a
+          <code>&lt;div class="card"&gt;</code> with a
+          <code>data-points</code> attribute (1–5), an
+          <code>&lt;img&gt;</code> with alt text, an
+          <code>&lt;h3&gt;</code> title, a description paragraph, and a points
+          badge.
+        </p>
+        <p>
+          The grid uses
+          <code>grid-template-columns: repeat(auto-fill, minmax(280px,
+              1fr))</code>
+          to reflow responsively without media queries. A
+          <code>.card.selected</code> CSS rule applies a coloured border and
+          glow when JavaScript adds the class. The
+          <code>toggleCard()</code> function calls
+          <code>classList.toggle('selected')</code> then
+          <code>updateFeedback()</code>, which sums
+          <code>parseInt(card.dataset.points)</code> across all selected
+          cards. The three impact levels are commented in the code:
+          <strong>Low</strong> (0–5 pts), <strong>Medium</strong> (6–11 pts),
+          <strong>High</strong> (12+ pts). When the level changes,
+          <code>document.body.style.backgroundImage</code> is set directly — a
+          DOM inline style, not a CSS class swap.
+        </p>
+
+        <h3>Accessibility</h3>
+        <p>
+          Cards use <code>tabindex="0"</code> and a
+          <code>keydown</code> listener so they can be activated with
+          <code>Enter</code> or <code>Space</code>. All images have
+          descriptive alt text. The feedback <code>&lt;aside&gt;</code> uses
+          <code>aria-live="polite"</code> so score changes are announced
+          without interrupting other screen reader output. Colour is never the
+          sole indicator of selection — a visible border change accompanies
+          every state change.
+        </p>
+
+        <h3>Link to the validation page</h3>
+        <p>
+          <a href="validation_ST2.html#aisVal">View the W3C validation results for the Action Impact
+            Simulator.</a>
+        </p>
+
+        <h3>Link to the page</h3>
+        <p><a href="ais.html">Visit the Action Impact Simulator.</a></p>
+      </section>
+
+      <section>
+        <h2 id="content">Content Page</h2>
+
+        <h3>Technical Description</h3>
+        <p>
+          The page uses a two-column CSS Grid (<code>grid-template-columns: 220px 1fr</code>) with a sticky
+          <code>&lt;aside&gt;</code> side navigation
+          alongside the main <code>&lt;article&gt;</code>. The aside uses
+          <code>position: sticky; top: 90px</code> so it stays visible while
+          scrolling. The article is split into six
+          <code>&lt;section&gt;</code> elements with unique
+          <code>id</code> attributes matching the side navigation anchors.
+          Heading hierarchy runs strictly from <code>&lt;h1&gt;</code> down to
+          <code>&lt;h6&gt;</code>. Images are wrapped in
+          <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> and
+          styled with <code>object-fit: cover</code>,
+          <code>border-radius</code>, and <code>box-shadow</code>. A Go to Top
+          link (<code>&lt;a href="#top"&gt;</code>) sits at the end of each
+          section. The active nav link is marked with
+          <code>class="active"</code> and <code>aria-current="page"</code>.
+        </p>
+
+        <h3>Accessibility</h3>
+        <p>
+          The <code>&lt;aside&gt;</code> carries
+          <code>aria-label="Page sections"</code> so screen readers
+          distinguish it from the main content. All images have descriptive
+          alt text. Internal anchors allow keyboard users to jump to any
+          section directly. The Go to Top link includes
+          <code>aria-label="Return to top of page"</code>. Body text maintains
+          a contrast ratio above 4.5:1 against the white background, meeting
+          WCAG 2.1 Level AA.
+        </p>
+
+        <h3>Link to the validation page</h3>
+        <p>
+          <a href="validation_ST2.html#contentVal">View the W3C validation results for the Content Page.</a>
+        </p>
+
+        <h3>Link to the page</h3>
+        <p>
+          <a href="content_ST2.html">Visit the Content Page: Renewable Energy Solutions.</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+        <p>
+          <strong>Challenge 1: CSS-Only Loader</strong><br />
+          The brief required the animation with no GIF or video. I researched
+          <code>@keyframes</code> on MDN and found that a
+          <code>&lt;div&gt;</code> with an asymmetric border — three sides
+          transparent, one coloured — combined with a
+          <code>rotate()</code> animation produces a smooth spinner with no
+          image assets at all.
+        </p>
+
+        <p>
+          <strong>Challenge 2: Background Change via JavaScript</strong><br />
+          My first instinct was to toggle a CSS class on the body, but the
+          brief required the change to go through JavaScript. I switched to
+          setting <code>document.body.style.backgroundImage</code> directly,
+          which assigns an inline style and overrides any stylesheet rule,
+          satisfying the requirement clearly.
+        </p>
+
+        <p>
+          <strong>Challenge 3: Text Readability Over Background Images</strong><br />
+          White text was hard to read against lighter areas of the splash
+          photo. I added a <code>::before</code> pseudo-element on the body at
+          <code>rgba(0,0,0,0.55)</code> to darken the image layer without
+          replacing it, then verified the contrast ratio using the WebAIM
+          Contrast Checker.
+        </p>
+
+        <p>
+          <strong>Lessons Learned</strong><br />
+          Reading the brief carefully prevents wasted effort — catching the
+          JavaScript background requirement early saved me a refactor. I also
+          learned that building in accessibility from the start (alt text,
+          aria attributes, keyboard support) costs far less time than adding
+          it at the end.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="compliance">Compliance</h2>
+        <p>
+          All pages I created comply with JANET acceptable use regulations.
+          Content is focused entirely on the educational purpose of this
+          coursework — raising awareness of SDG 13 Climate Action. No
+          offensive, discriminatory, or misleading material is included.
+        </p>
+        <p>
+          Images are sourced from Unsplash and Pexels under Creative Commons
+          Zero (CC0) licences, requiring no permission for educational use.
+          All sources are listed in the References section. No copyrighted
+          material has been reproduced without authorisation.
+        </p>
+        <p>
+          None of my pages collect or transmit personal data. The AIS performs
+          all calculations client-side with nothing submitted to a server,
+          complying with JANET data protection requirements and the UK GDPR
+          principle of data minimisation. All code was written from scratch;
+          no templates or generation tools were used.
+          <a href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html" target="_blank"
+            rel="noopener">See the lecture notes on compliance for more detail.</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+        <p>
+          The following table records my participation in group meetings
+          throughout the project. All entries reflect my personal account and
+          individual contributions.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="6">Group Meetings and Contribution Log</th>
+            </tr>
+            <tr>
+              <th>Meeting</th>
+              <th>Date &amp; Time</th>
+              <th>Format</th>
+              <th>Objective</th>
+              <th>Attended</th>
+              <th>My Individual Contribution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>5 Feb 2026, 14:00</td>
+              <td>Face-to-face</td>
+              <td>Agree SDG topic and assign roles</td>
+              <td>Yes</td>
+              <td>
+                Proposed SDG 13 Climate Action. Agreed to take Student 2 role
+                covering the Splash Screen and AIS page.
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>12 Feb 2026, 13:30</td>
+              <td>Online</td>
+              <td>Agree colour palette and shared visual style</td>
+              <td>Yes</td>
+              <td>
+                Presented a green-tone palette aligned with the energy theme.
+                Agreed on shared CSS variable names.
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>19 Feb 2026, 14:00</td>
+              <td>Face-to-face</td>
+              <td>Progress check — Splash Screen</td>
+              <td>Yes</td>
+              <td>
+                Demonstrated the working splash screen with countdown and CSS
+                loader. Adjusted heading size based on group feedback.
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>26 Feb 2026, 15:00</td>
+              <td>Online</td>
+              <td>Review AIS card content and point values</td>
+              <td>Yes</td>
+              <td>
+                Shared the six action cards and explained the impact
+                thresholds. Added a Reset button following a group suggestion.
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>5 Mar 2026, 14:00</td>
+              <td>Face-to-face</td>
+              <td>Cross-check navigation links across all pages</td>
+              <td>Yes</td>
+              <td>
+                Tested links between all students' pages. Found and corrected
+                a broken link in ais.html back to home.html.
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td> 9 Mar 2026, 16:00</td>
+              <td>Online</td>
+              <td>Final review before submission</td>
+              <td>Yes</td>
+              <td>
+                Ran W3C validation on all three of my pages. Fixed two tag
+                errors in ais.html and took screenshots for
+                validation_ST2.html.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2 id="ref">References</h2>
+        <ul class="ref">
+          <li>
+            Duckett, J. (2011).
+            <em>HTML &amp; CSS: Design and Build Websites.</em> John Wiley
+            &amp; Sons.
+          </li>
+          <li>
+            W3C. (2023).
+            <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em>
+            Available at:
+            <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">https://www.w3.org/TR/WCAG21/</a>
+            (Last accessed: April 2026).
+          </li>
+          <li>
+            Mozilla Developer Network. (2024).
+            <em>CSS Animations.</em> Available at:
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations" target="_blank"
+              rel="noopener">https://developer.mozilla.org/</a>
+            (Last accessed: April 2026).
+          </li>
+          <li>
+            Mozilla Developer Network. (2024).
+            <em>HTMLElement: dataset property.</em> Available at:
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset" target="_blank"
+              rel="noopener">https://developer.mozilla.org/</a>
+            (Last accessed: April 2026).
+          </li>
+          <li>
+            WebAIM. (2024). <em>Contrast Checker.</em> Available at:
+            <a href="https://webaim.org/resources/contrastchecker/" target="_blank"
+              rel="noopener">https://webaim.org/resources/contrastchecker/</a>
+            (Last accessed: April 2026).
+          </li>
+          <li>
+            United Nations. (2024).
+            <em>SDG 13: Climate Action.</em> Available at:
+            <a href="https://sdgs.un.org/goals/goal13" target="_blank"
+              rel="noopener">https://sdgs.un.org/goals/goal13</a>
+            (Last accessed: April 2026).
+          </li>
+          <li>
+            iStockPhoto. (2024). <em>Stock Photography and Images.</em> Available
+            at:
+            <a href="https://www.istockphoto.com" target="_blank" rel="noopener">https://www.istockphoto.com</a>
+            (Last accessed: April 2026). Images downloaded under a standard iStock licence for educational use.
+          </li>
+          <li>
+            (2026).
+            <em>Web Design &amp; Development Lecture Notes.</em> University of
+            Westminster Blackboard VLE.
+          </li>
+        </ul>
+      </section>
+
+    <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top"
+      >&#8679;</a
+    >
+    </main>
+
+    <aside>
+      <h3>Core pages developed:</h3>
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 1</div>
+          <ul>
+            <li><a href="#">Home Page</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 2</div>
+          <ul>
+            <li><a href="#splash">Splash Screen</a></li>
+            <li><a href="#ais">Action Impact Simulator</a></li>
+            <li><a href="#content">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 3</div>
+          <ul>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight: 600; margin-bottom: 0.5rem;">Student 4</div>
+          <ul>
+            <li><a href="#">User Profile</a></li>
+            <li><a href="#">Sitemap</a></li>
+            <li><a href="#">Content Page</a></li>
+          </ul>
+        </div>
+      </div>
+      <ul class="top-level-ul">
+        <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+        <li><a href="#compliance">Compliance</a></li>
+        <li><a href="#group">Group Meetings and Contribution Log</a></li>
+        <li><a href="#ref">References</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h3>Climate action</h3>
+        <p>
+          A student group project promoting awareness and action for UN
+          Sustainable Development Goal 13.
+        </p>
+        <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+      </div>
+      <div class="footer-section">
+        <h3>Pages</h3>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="ais.html">Action Impact Simulator</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="team.html">Team</a>
+        <a href="profile.html">User Profile</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="footer-section">
+        <h3>This page</h3>
+        <p>Student: Rishav Maharjan</p>
+        <a href="pageEditor_ST2.html" target="_blank">Page Editor</a>
+        <a href="validation_ST2.html" target="_blank">Validator</a>
+        <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Accessibility (WCAG 2.1)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 SDG 13 Climate Action - University of Westminster
+        4COSC011W | Web design & Development | Rishav - Student 2
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>

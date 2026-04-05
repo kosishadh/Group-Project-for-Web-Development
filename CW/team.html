@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team</title>
+
+  <!-- Google Fonts- DO NOT remove -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Global CSS- DO NOT remove or replace -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --color-primary: var(--green);
+      --color-primary-container: var(--green-dark);
+      --color-secondary: var(--teal);
+      --color-on-surface: var(--text-main);
+      --color-on-surface-variant: var(--text-muted);
+    }
+
+    h2 {
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      text-align: center;
+      margin: 1rem;
+    }
+    .hero-intro p {
+      color: var(--color-primary-container);
+      text-align: center;
+    }
+    .footer-section p {
+      text-align: left;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(230, 239, 216, 0.8));
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .team-member:hover,
+    .team-member:focus {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-thumbnail {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 0;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f7f8f5;
+    }
+
+    .member-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+
+    .team-member:hover .member-image,
+    .team-member:focus .member-image {
+      transform: scale(1.05);
+      opacity: 0.9;
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 24px rgba(13, 99, 27, 0.3);
+    }
+
+    .member-info {
+      margin-bottom: 1rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .member-name {
+      color: var(--color-primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-role {
+      color: var(--color-primary-container);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .member-details {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(230, 239, 216, 0.9));
+      border-radius: 8px;
+      padding: 0 1rem;
+      margin-top: 1rem;
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .team-member:hover .member-details,
+    .team-member:focus .member-details {
+      max-height: 300px;
+      opacity: 1;
+      padding: 1rem;
+    }
+
+    .member-details h4 {
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-details .role {
+      color: var(--color-secondary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-details .contributions {
+      color: var(--color-on-surface);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-details .summary {
+      color: var(--color-on-surface-variant);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Focus states for keyboard navigation */
+    .team-member:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 4px;
+    }
+
+    .team-member:focus .member-image {
+      border-color: var(--color-primary);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .team-member {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .member-thumbnail {
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        height: 220px;
+      }
+    }
+
+  </style><!--
+    ADD YOUR PAGE-SPECIFIC CSS HERE (embedded or external)
+    Example:
+    <style>
+      / * page-specific rules only- do NOT override
+         global styles * /
+    </style>
+    Or:
+    <link rel="stylesheet" href="css/mypage.css">
+  -->
+</head>
+
+<body>
+
+  <!-- 
+    HEADER- DO NOT MODIFY STRUCTURE
+    Only add class="active" to your page's nav link
+  -->
+  <header>
+    <div class="header-inner">
+
+      <!-- Website Identity / Logo -->
+      <a class="site-logo" href="home.html" aria-label="Climate Action SDG 13 - Go to Home">
+        <!-- Replace src with your team logo path -->
+        <img src="images/Logo.png" alt="SDG 13 Climate Action logo - green leaf with globe">
+        <div>
+          <span class="site-title">Climate Action</span>
+          <span class="site-subtitle">UN SDG Goal 13</span>
+        </div>
+      </a>
+
+      <!-- Navigation Bar -->
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <!-- Add class="active" to the link for the CURRENT page only -->
+          <li><a href="home.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="ais.html">Action Impact Simulator</a></li>
+          <li><a href="feedback.html">Feedback</a></li>
+          <li><a href="team.html" class="active" aria-current="page">Team</a></li>
+          <li><a href="profile.html">User Profile</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- END HEADER -->
+  <main id="top">
+    <div class="center">
+      <div class="team">
+        <div class="title">
+          <h2>Student Team</h2>
+          <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member" tabindex="0">
+              <div class="member-thumbnail">
+                <img src="images/kosish.jpeg" alt="Kosish Adhikari - Team member responsible for template design and layout structure" class="member-image">
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Kosish Adhikari</h3>
+                <p class="member-role">Template Designer</p>
+              </div>
+              <div class="member-details">
+                <h4>Kosish Adhikari</h4>
+                <p class="role">Template Designer</p>
+                <p class="contributions"><strong>Pages Contributed:</strong> style.css, home.html, gallery.html</p>
+                <p class="summary">Kosish developed the template structure and site styling. He created the shared layout and the Home and Gallery pages to ensure a consistent responsive experience across the project.</p>
+              </div>
+            </div>
+            <!-- Team Member 2 -->
+             <div class="team-member" tabindex="0">
+              <div class="member-thumbnail">
+                <img src="images/Rishav.jpeg" alt="Rishav Maharjan - Team member responsible for splash screen and AI simulator design" class="member-image">
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Rishav Maharjan</h3>
+                <p class="member-role">UI/UX Designer</p>
+              </div>
+              <div class="member-details">
+                <h4>Rishav Maharjan</h4>
+                <p class="role">UI/UX Designer</p>
+                <p class="contributions"><strong>Pages Contributed:</strong> splash.html, ais.html</p>
+                <p class="summary">Rishav created the splash screen and the AI simulator interface. His work focuses on intuitive layouts and interactive components that make the climate action content easy to use.</p>
+              </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member" tabindex="0">
+              <div class="member-thumbnail">
+                <img src="images/Roshan.jpeg" alt="Roshan Dahal - Team member responsible for feedback system and team profile design" class="member-image">
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Roshan Dahal</h3>
+                <p class="member-role">Backend Developer</p>
+              </div>
+              <div class="member-details">
+                <h4>Roshan Dahal</h4>
+                <p class="role">Backend Developer</p>
+                <p class="contributions"><strong>Pages Contributed:</strong> feedback.html, team.html</p>
+                <p class="summary">Roshan implemented the feedback page and the team profile page. His work supports user interaction and project structure across the site.</p>
+              </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member" tabindex="0">
+              <div class="member-thumbnail">
+                <img src="images/vishank.jpeg" alt="Vishank Bajracharya - Team member responsible for profile and sitemap" class="member-image">
+              </div>
+              <div class="member-info">
+                <h3 class="member-name">Vishank Bajracharya</h3>
+                <p class="member-role">Digital Project Manager</p>
+              </div>
+              <div class="member-details">
+                <h4>Vishank Bajracharya</h4>
+                <p class="role">Digital Project Manager</p>
+                <p class="contributions"><strong>Pages Contributed:</strong> profile.html, sitemap.html</p>
+                <p class="summary">Vishank created the profile and sitemap pages, making sure navigation and user details were clear and easy to access.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- END MAIN -->
+
+  <!--FOOTER- DO NOT MODIFY STRUCTURE
+   You should only update:
+      - Your own name
+      - Your Page Editor link (pageEditor_name.html)
+      - Your Validation link (validation_name.html)-->
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Impact Simulator</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This page</h3>
+          <p>Student: Roshan Dahal</p>
+          <a href="pageEditor_ST3.html" target="_blank">Page Editor</a>
+          <a href="validation_ST3.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web design & Development | Roshan - Student 3
+        </p>
+      </div>
+    </footer>
+  <!-- END FOOTER -->
+
+
+</body>
+
+</html>

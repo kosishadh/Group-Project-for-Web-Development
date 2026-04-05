@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Renewable Energy Solutions | SDG 13</title>
+
+    <!-- loading fonts from google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* content layout with sidebar and main article */
+      .content-layout {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      /* sticky sidebar navigation */
+      .side-nav {
+        position: sticky;
+        top: 90px;
+        /* clears fixed header */
+        background: #ede8e0;
+        /* warm off-white background */
+        border-left: 4px solid #2d6a4f;
+        /* mid-green accent bar */
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+
+      .side-nav h2 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #52796f;
+        /* muted green color */
+        margin-bottom: 1rem;
+      }
+
+      .side-nav ol {
+        list-style: none;
+        padding: 0;
+        counter-reset: nav-counter;
+      }
+
+      .side-nav ol li {
+        margin-bottom: 0.5rem;
+        counter-increment: nav-counter;
+      }
+
+      /* internal anchor links in sidebar */
+      .side-nav ol li a {
+        color: #2d6a4f;
+        font-size: 0.88rem;
+        display: block;
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+        text-decoration: none;
+      }
+
+      .side-nav ol li a:hover {
+        background: #2d6a4f;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* main article sections */
+      .content-article section {
+        margin-bottom: 3.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #c8d5b9;
+        scroll-margin-top: 7.5rem;
+      }
+
+      .content-article section:last-of-type {
+        border-bottom: none;
+      }
+
+      /* h2 section titles */
+      .content-article h2 {
+        font-size: 1.8rem;
+        color: #1b4332;
+        margin-bottom: 1rem;
+      }
+
+      /* h3 sub-section titles */
+      .content-article h3 {
+        font-size: 1.3rem;
+        color: #2d6a4f;
+        margin-bottom: 0.75rem;
+      }
+
+      /* h4 detail headings */
+      .content-article h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #2d6a4f;
+        margin: 1rem 0 0.4rem;
+      }
+
+      /* h5 caption-level heading */
+      .content-article h5 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #52796f;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.25rem;
+      }
+
+      /* h6 fine-print heading */
+      .content-article h6 {
+        font-size: 0.78rem;
+        color: #888;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+      }
+
+      .content-article h4.table-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #52796f;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.25rem;
+        margin-top: 1rem;
+      }
+
+      /* content image with 16:9 aspect ratio */
+      .content-img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 16px;
+        margin: 1.5rem 0;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .img-caption {
+        font-size: 0.82rem;
+        color: #5c5c5c;
+        text-align: center;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      /* highlight box with green gradient and gold text */
+      .highlight-box {
+        background: linear-gradient(135deg, #2d6a4f, #52796f);
+        color: #fff;
+        border-radius: 10px;
+        padding: 1.5rem 2rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box h3 {
+        color: #d4a017;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box p {
+        color: #ede8e0;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      /* list items with dashed borders and bullet markers */
+      .facts-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .facts-list li {
+        padding: 0.6rem 0 0.6rem 2rem;
+        position: relative;
+        border-bottom: 1px dashed #c8d5b9;
+        font-size: 0.95rem;
+      }
+
+      .facts-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0.4rem;
+        color: #2d6a4f;
+        font-size: 1rem;
+      }
+
+      /* grid layout for key statistics */
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .stat-card {
+        background: #ede8e0;
+        border-radius: 8px;
+        padding: 1.2rem;
+        text-align: center;
+        border-top: 4px solid #2d6a4f;
+      }
+
+      .stat-card .stat-number {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.9rem;
+        color: #1b4332;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .stat-card .stat-label {
+        font-size: 0.78rem;
+        color: #52796f;
+        margin-top: 0.35rem;
+      }
+
+      /* data table styling */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+      }
+
+      .data-table th {
+        background: #1b4332;
+        color: #fff;
+        padding: 0.75rem 1rem;
+        text-align: left;
+      }
+
+      .data-table td {
+        padding: 0.65rem 1rem;
+        border-bottom: 1px solid #c8d5b9;
+        color: #333;
+      }
+
+      .data-table tr:nth-child(even) td {
+        background: #ede8e0;
+      }
+
+      /* progress bars */
+      .progress-group {
+        margin: 1rem 0;
+      }
+
+      .progress-item {
+        margin-bottom: 0.75rem;
+      }
+
+      .prog-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: #1b4332;
+      }
+
+      .progress-track {
+        height: 10px;
+        background: #c8d5b9;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #2d6a4f, #52796f);
+        border-radius: 999px;
+      }
+
+      /* timeline layout */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin: 1.5rem 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0.4rem;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #2d6a4f;
+        border-radius: 3px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 1.25rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -1.75rem;
+        top: 0.35rem;
+        width: 12px;
+        height: 12px;
+        background: #1b4332;
+        border: 3px solid #52796f;
+        border-radius: 50%;
+      }
+
+      .timeline-item h4 {
+        margin: 0 0 0.2rem;
+        color: #1b4332;
+      }
+
+      .timeline-item p {
+        font-size: 0.9rem;
+        color: #444;
+        margin: 0;
+      }
+
+      /* go to top button - floating circle style */
+      .go-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: #2d6a4f;
+        color: #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 500;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .go-top:hover {
+        background: #d4a017;
+        color: #1b4332;
+        transform: translateY(-3px);
+        text-decoration: none;
+      }
+
+      .ais_button:hover {
+        background: #2d6a4f;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      /* screen reader only utility class */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      /* responsive design for mobile screens */
+      @media (max-width: 768px) {
+        .content-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .side-nav {
+          position: static;
+          /* unstick sidebar on mobile */
+        }
+      }
+    </style>
+  </head>
+
+  <!-- id=top body anchor for top button to link -->
+
+  <body id="top">
+    <header>
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="SDG 13  Clean Energy - Go to Home"
+        >
+          <img
+            src="images/Logo.png"
+            alt="SDG 13 Climate Action logo - green leaf with globe"
+          />
+          <div>
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <main>
+      <!-- page title banner -->
+      <div class="section-heading">
+        <h1>Renewable Energy Solutions</h1>
+        <p>
+          Exploring the technologies, progress and actions driving the global
+          shift to clean, affordable energy — UN SDG 13 .
+        </p>
+      </div>
+
+      <div class="content-layout">
+        <!-- sidebar navigation menu -->
+        <aside class="side-nav" aria-label="Page contents navigation">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#what-is">What is Renewable Energy?</a></li>
+            <li><a href="#solar">Solar Power</a></li>
+            <li><a href="#wind">Wind Energy</a></li>
+            <li><a href="#hydro">Hydropower</a></li>
+            <li><a href="#geothermal">Geothermal Energy</a></li>
+            <li><a href="#global-progress">Global Progress</a></li>
+            <li><a href="#student-actions">What Students Can Do</a></li>
+            <li><a href="#future">The Road Ahead</a></li>
+          </ol>
+        </aside>
+
+        <!-- main article content -->
+        <article class="content-article">
+          <h2 class="sr-only">Renewable Energy Research</h2>
+
+          <!-- section 1 -->
+          <section id="what-is" aria-labelledby="h-what-is">
+            <h2 id="h-what-is">What is Renewable Energy?</h2>
+
+            <p>
+              Renewable energy is energy collected from resources that are
+              naturally replenished on a human timescale — sunlight, wind, rain,
+              tides and geothermal heat. Unlike fossil fuels, which took
+              millions of years to form, these sources are continuously
+              available and produce little to no greenhouse gas emissions during
+              operation.
+            </p>
+            <p>
+              The burning of fossil fuels — coal, oil and gas — accounts for
+              approximately
+              <strong>75% of global greenhouse gas emissions</strong>.
+              Transitioning to renewables is therefore the single largest lever
+              available to limit warming to 1.5°C, as set out in the Paris
+              Agreement.
+            </p>
+
+            <!-- solar farm image -->
+            <img
+              src="images/content_intro.jpeg"
+              alt="Aerial view of a large solar panel farm surrounded by green fields, representing large-scale clean energy infrastructure"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 1. A utility-scale solar farm &mdash; one of the most rapidly
+              expanding sources of clean electricity worldwide.
+            </p>
+
+            <!-- Key statistics grid -->
+            <div
+              class="stat-grid"
+              role="region"
+              aria-label="Key renewable energy statistics"
+            >
+              <div class="stat-card">
+                <p class="stat-number">30%</p>
+                <p class="stat-label">
+                  Global electricity from renewables (2023)
+                </p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-number">89%</p>
+                <p class="stat-label">Cost reduction in solar PV since 2010</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-number">12M+</p>
+                <p class="stat-label">Jobs in renewable energy globally</p>
+              </div>
+              <div class="stat-card">
+                <p class="stat-number">733M</p>
+                <p class="stat-label">
+                  People still lacking electricity access
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                UN SDG 13 calls for affordable, reliable, sustainable and modern
+                energy access for all by 2030. Renewables are the primary
+                pathway to achieving this goal while simultaneously tackling
+                climate change.
+              </p>
+            </div>
+          </section>
+
+          <!-- section 2 solar power -->
+          <section id="solar" aria-labelledby="h-solar">
+            <h2 id="h-solar">Solar Power</h2>
+
+            <p>
+              Solar power converts energy from the Sun into electricity using
+              two main technologies. <em>Photovoltaic (PV)</em> panels use the
+              photoelectric effect to generate electricity directly from
+              sunlight, while <em>Concentrated Solar Power (CSP)</em> uses
+              mirrors to focus heat onto a steam turbine.
+            </p>
+
+            <h3>How Photovoltaic Cells Work</h3>
+            <p>
+              A PV cell is made of semiconductor material — typically silicon.
+              When photons from sunlight strike the cell, electrons are knocked
+              loose, creating an electric current. Multiple cells form a module
+              (panel), and arrays of panels generate electricity at scale.
+            </p>
+
+            <!-- rooftop solar image -->
+            <img
+              src="images/content_solar.jpeg"
+              alt="Close-up of blue photovoltaic solar panels installed on a residential rooftop on a sunny day, with blue sky in the background"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 2. Rooftop solar PV installations allow homes and businesses
+              to generate their own clean electricity.
+            </p>
+
+            <h3>Advantages and Challenges</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Zero emissions</strong> during operation — no air or
+                noise pollution.
+              </li>
+              <li>
+                <strong>Highly scalable</strong> — from pocket devices to
+                grid-scale farms.
+              </li>
+              <li>
+                <strong>Rapidly falling costs</strong> — below $0.05/kWh in many
+                regions.
+              </li>
+              <li>
+                <strong>Intermittency</strong> — only generates during daylight;
+                needs battery storage.
+              </li>
+              <li>
+                <strong>Land use</strong> — utility-scale farms require
+                significant space and planning.
+              </li>
+            </ul>
+
+            <!-- table label -->
+            <h4 class="table-label">
+              Top 5 Countries by Installed Solar Capacity (2023)
+            </h4>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Country</th>
+                  <th>Installed Capacity (GW)</th>
+                  <th>Share of Electricity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>China</td>
+                  <td>610 GW</td>
+                  <td>~4.8%</td>
+                </tr>
+                <tr>
+                  <td>United States</td>
+                  <td>140 GW</td>
+                  <td>~3.4%</td>
+                </tr>
+                <tr>
+                  <td>Japan</td>
+                  <td>84 GW</td>
+                  <td>~9.3%</td>
+                </tr>
+                <tr>
+                  <td>Germany</td>
+                  <td>67 GW</td>
+                  <td>~10.5%</td>
+                </tr>
+                <tr>
+                  <td>India</td>
+                  <td>67 GW</td>
+                  <td>~5.5%</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- source reference -->
+            <h5>Source: International Renewable Energy Agency (IRENA), 2023</h5>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                In 2023, solar PV accounted for two-thirds of all new renewable
+                capacity additions globally. It is now the cheapest source of
+                new electricity generation in history (IEA, 2023).
+              </p>
+            </div>
+          </section>
+
+          <!-- section 3 wind energy -->
+          <section id="wind" aria-labelledby="h-wind">
+            <h2 id="h-wind">Wind Energy</h2>
+
+            <p>
+              Wind energy converts the kinetic energy of moving air into
+              electricity via turbines. Modern wind turbines are engineering
+              marvels — a single large offshore turbine can generate enough
+              power to supply over 1,000 homes for an entire year.
+            </p>
+
+            <!-- wind turbines image -->
+            <img
+              src="images/content_wind..jpeg"
+              alt="Row of tall white wind turbines standing in a green agricultural field under a blue sky with white clouds"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 3. Onshore wind turbines generating clean electricity &mdash;
+              farmland between turbines can still be used for crops and grazing.
+            </p>
+
+            <h3>Onshore vs. Offshore Wind</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Onshore wind</strong> is currently the cheapest form of
+                new electricity generation in most countries, with turbines
+                ranging from small farm-scale machines to 5 MW+ commercial wind
+                farms.
+              </li>
+              <li>
+                <strong>Offshore wind</strong> captures stronger, more
+                consistent ocean winds. Though costlier to build, turbines can
+                be larger and output is less variable. The UK, Denmark and China
+                lead globally.
+              </li>
+              <li>
+                <strong>Global wind capacity</strong> exceeded 900 GW in 2023,
+                covering approximately 7% of global electricity demand.
+              </li>
+              <li>
+                <strong>Lifecycle emissions</strong> of wind are just
+                7–15&nbsp;gCO&sup2;/kWh, versus 820&nbsp;gCO&sup2;/kWh for coal
+                power.
+              </li>
+            </ul>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Turbine heights now exceed 300 metres for the largest offshore
+                models. Wind energy's land footprint is minimal — the
+                agricultural land around turbines remains fully usable for
+                farming.
+              </p>
+            </div>
+          </section>
+
+          <!-- section 4 hydropower -->
+          <section id="hydro" aria-labelledby="h-hydro">
+            <h2 id="h-hydro">Hydropower</h2>
+
+            <p>
+              Hydropower is the world's largest source of renewable electricity,
+              supplying approximately
+              <strong>16% of global electricity</strong>. It converts the
+              potential energy of water at height into electricity as water
+              flows through turbines in a dam or run-of-river system.
+            </p>
+
+            <!-- hydroelectric dam image -->
+            <img
+              src="images/content_hydropower.jpeg"
+              alt="Large concrete hydroelectric dam with water flowing through its spillways, surrounded by steep mountains and a reservoir"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 4. A large hydroelectric dam and reservoir &mdash; hydropower
+              remains the most established renewable electricity technology
+              worldwide.
+            </p>
+
+            <h3>Types of Hydropower</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Large-scale (impoundment)</strong> — reservoir dams such
+                as the Three Gorges Dam in China (22.5&nbsp;GW capacity).
+              </li>
+              <li>
+                <strong>Run-of-river</strong> — diverts part of a river's flow
+                with minimal storage and reduced ecological disruption.
+              </li>
+              <li>
+                <strong>Pumped-storage</strong> — acts as a giant battery; water
+                is pumped uphill using surplus electricity and released during
+                peak demand.
+              </li>
+              <li>
+                <strong>Small-scale (&lt;10&nbsp;MW)</strong> — highly suitable
+                for remote communities; Nepal has enormous untapped potential in
+                this area.
+              </li>
+            </ul>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Nepal has an estimated hydropower potential of 83,000&nbsp;MW —
+                one of the largest in Asia relative to its size — but only
+                around 2,000&nbsp;MW is currently developed. Responsible
+                exploitation could transform Nepal into a major regional clean
+                energy exporter.
+              </p>
+            </div>
+          </section>
+
+          <!-- section 5 geothermal energy -->
+          <section id="geothermal" aria-labelledby="h-geothermal">
+            <h2 id="h-geothermal">Geothermal Energy</h2>
+
+            <p>
+              Geothermal energy taps the vast heat stored within the Earth —
+              produced by the decay of radioactive elements and residual heat
+              from the planet's formation. It provides consistent, 24/7 baseload
+              power with very low emissions and an extremely small land
+              footprint.
+            </p>
+            <img
+              src="images/content_geothermal.jpeg"
+              alt="Geothermal power plant with steam rising from vents in an Icelandic volcanic landscape, surrounded by rocky terrain"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 3. A geothermal power plant in Iceland — the country generates
+              over 30% of its electricity from geothermal sources.
+            </p>
+
+            <h3>How It Works</h3>
+            <p>
+              Hot water or steam is extracted from underground reservoirs
+              through production wells. Steam drives a turbine generator; cooled
+              fluid is re-injected to maintain reservoir pressure — making
+              geothermal a near-zero-waste energy cycle.
+            </p>
+
+            <h3>Geothermal vs. Other Renewables</h3>
+            <h4 class="table-label">Comparison Table</h4>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Solar PV</th>
+                  <th>Wind</th>
+                  <th>Geothermal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Capacity Factor</td>
+                  <td>10&ndash;25%</td>
+                  <td>25&ndash;45%</td>
+                  <td>80&ndash;95%</td>
+                </tr>
+                <tr>
+                  <td>Availability</td>
+                  <td>Daytime only</td>
+                  <td>Variable</td>
+                  <td>24/7 baseload</td>
+                </tr>
+                <tr>
+                  <td>Land Use</td>
+                  <td>High</td>
+                  <td>Low&ndash;Medium</td>
+                  <td>Very Low</td>
+                </tr>
+                <tr>
+                  <td>Emissions (gCO&sup2;/kWh)</td>
+                  <td>20&ndash;50</td>
+                  <td>7&ndash;15</td>
+                  <td>15&ndash;55</td>
+                </tr>
+              </tbody>
+            </table>
+            <h5>
+              Capacity factor = percentage of time at full output. Source:
+              IRENA, 2023.
+            </h5>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Iceland generates over 30% of its electricity and nearly 90% of
+                its heating from geothermal sources, making it one of the
+                cleanest energy systems in the world.
+              </p>
+            </div>
+          </section>
+
+          <!-- section 6 global progress -->
+          <section id="global-progress" aria-labelledby="h-progress">
+            <h2 id="h-progress">Global Progress Towards SDG 13</h2>
+
+            <p>
+              The United Nations reviews SDG 13 progress annually. While
+              remarkable strides have been made — particularly in cost reduction
+              and electricity access — the world is not yet on track to meet the
+              2030 targets.
+            </p>
+
+            <h3>Renewable Share by Sector (2023)</h3>
+            <div
+              class="progress-group"
+              role="img"
+              aria-label="Renewable energy adoption rates by sector"
+            >
+              <div class="progress-item">
+                <div class="prog-label">
+                  <span>Electricity generation</span><span>30%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 30%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="prog-label">
+                  <span>Industry</span><span>14%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 14%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="prog-label">
+                  <span>Heating &amp; Cooling</span><span>13%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 13%"></div>
+                </div>
+              </div>
+              <div class="progress-item">
+                <div class="prog-label">
+                  <span>Transport</span><span>4%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 4%"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Key Milestones</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>2015 &mdash; Paris Agreement</h4>
+                <p>
+                  195 countries commit to limiting warming to 1.5&deg;C;
+                  renewables are central to all national climate pledges.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>2017 &mdash; Solar cheaper than coal</h4>
+                <p>
+                  New solar PV becomes cheaper than new coal power in most
+                  countries for the first time (IRENA).
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>2020 &mdash; UK goes coal-free</h4>
+                <p>
+                  The United Kingdom goes 67 consecutive days without coal power
+                  — the longest since the Industrial Revolution.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>2022 &mdash; EU REPowerEU</h4>
+                <p>
+                  Europe accelerates renewables rollout targeting 45% renewable
+                  electricity by 2030, driven by the energy crisis.
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>2023 &mdash; 500 GW milestone</h4>
+                <p>
+                  Global new renewable additions exceed 500&nbsp;GW in a single
+                  year for the first time (IEA, Renewables 2023).
+                </p>
+              </div>
+              <div class="timeline-item">
+                <h4>2030 Target</h4>
+                <p>
+                  SDG 13 aims to substantially increase renewable share globally
+                  and double energy efficiency improvements.
+                </p>
+              </div>
+            </div>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Despite record additions, the IEA warns that the pace of
+                renewable deployment must triple by 2030 to stay on track for
+                net-zero emissions by 2050. Policy ambition must match the
+                urgency of the science.
+              </p>
+            </div>
+          </section>
+
+          <!-- section 7 student actions -->
+          <section id="student-actions" aria-labelledby="h-actions">
+            <h2 id="h-actions">What Students Can Do</h2>
+
+            <p>
+              The science is clear &mdash; and so is the opportunity. Rapid,
+              coordinated action across all sectors of society can still limit
+              the worst impacts of the energy crisis. Students and young people
+              have a vital role to play.
+            </p>
+
+            <h3>Individual Actions with High Impact</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Switch to a green energy tariff:</strong> If you pay
+                energy bills, choose a supplier sourcing 100% electricity from
+                renewables &mdash; removing thousands of kg of CO&sup2;
+                annually.
+              </li>
+              <li>
+                <strong>Reduce energy consumption:</strong> Turn off lights and
+                standby devices; enable energy-saving modes on all electronics.
+              </li>
+              <li>
+                <strong>Advocate for campus solar:</strong> Join or start a
+                sustainability society pushing your university to install
+                rooftop solar PV &mdash; as the University of Edinburgh did in
+                2022.
+              </li>
+              <li>
+                <strong>Use public transport or cycle:</strong> Transport is the
+                hardest sector to decarbonise; every car trip avoided matters.
+              </li>
+              <li>
+                <strong>Study and work in green sectors:</strong> Every
+                profession needs climate-literate people &mdash; from
+                engineering and policy to law, finance and healthcare.
+              </li>
+              <li>
+                <strong>Use your voice:</strong> Vote, campaign, write to
+                representatives, and support organisations working on clean
+                energy policy and community energy co-operatives.
+              </li>
+            </ul>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Transitioning to a green economy could create 24 million new
+                jobs globally by 2030. Solar and wind energy are now the
+                cheapest sources of new electricity generation in most of the
+                world &mdash; meaning clean energy is no longer a trade-off with
+                affordability.
+              </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem">
+              <a href="ais.html" class="ais_button">Try the Action Simulator</a>
+            </div>
+          </section>
+
+          <!-- section 8 the road ahead -->
+          <section id="future" aria-labelledby="h-future">
+            <h2 id="h-future">The Road Ahead</h2>
+
+            <p>
+              The IEA projects that for the world to reach net-zero emissions by
+              2050,
+              <strong
+                >90% of global electricity must come from renewables</strong
+              >. This will require an estimated
+              <strong>$4 trillion per year</strong>
+              in clean energy investment &mdash; but the rewards in health, jobs
+              and climate stability are immense.
+            </p>
+
+            <!-- future city image -->
+            <img
+              src="images/content_future.jpeg"
+              alt="Modern city skyline at dusk with glowing lights, representing an energy-efficient urban future powered by clean renewable energy"
+              class="content-img"
+            />
+            <p class="img-caption">
+              Fig 5. The cities of tomorrow will be powered by distributed,
+              clean renewable energy &mdash; the transition is already well
+              underway.
+            </p>
+
+            <h3>Emerging Technologies to Watch</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Green Hydrogen:</strong> Made using renewable
+                electricity and electrolysis &mdash; can store energy seasonally
+                and decarbonise heavy industry and shipping.
+              </li>
+              <li>
+                <strong>Floating Solar (Floatovoltaics):</strong> PV panels on
+                reservoirs and lakes that also reduce water evaporation.
+              </li>
+              <li>
+                <strong>Agrivoltaics:</strong> Combining solar panels with food
+                production on the same land, benefiting both energy output and
+                farmers.
+              </li>
+              <li>
+                <strong>Next-generation batteries:</strong> Solid-state, flow
+                batteries and gravity storage enabling multi-day grid backup.
+              </li>
+              <li>
+                <strong>Enhanced Geothermal Systems (EGS):</strong> Drilling
+                deeper to access geothermal energy anywhere on Earth, not just
+                volcanic regions.
+              </li>
+            </ul>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Renewable energy is no longer an alternative &mdash; it is the
+                fastest-growing and cheapest electricity technology available.
+                The question is no longer whether we <em>can</em> power the
+                world on renewables, but whether we will move fast enough to
+                matter.
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+      <!-- end content layout -->
+    </main>
+
+    <!-- go to top button - always visible while scrolling -->
+    <a
+      href="#top"
+      class="go-top"
+      aria-label="Go back to top of page"
+      title="Go to top"
+      >&#8679;</a
+    >
+
+    <!-- footer section -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Impact Simulator</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This page</h3>
+          <p>Student: Rishav Maharjan</p>
+          <a href="pageEditor_ST2.html" target="_blank">Page Editor</a>
+          <a href="validation_ST2.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web design & Development | Rishav - Student 2
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

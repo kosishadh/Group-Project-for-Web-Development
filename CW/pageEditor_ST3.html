@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor - Roshan Dahal | Student 3 | SDG 13 Climate Action</title>
+    <meta
+      name="description"
+      content="Technical report and contribution log for Roshan Dahal, Student 3, covering the feedback page and team page for the SDG 13 Climate Action website."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pageEditor_validator.css">
+  </head>
+  <body id="top">
+    <header>
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="Climate Action SDG 13 - Go to home"
+        >
+          <img src="images/Logo.png" alt="SDG 13 Climate Action logo">
+          <div style="display: flex; flex-direction: column">
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Impact Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="stud">
+      <h2>
+        Roshan Dahal | SDG 13 Climate Action | Student 3 - Feedback Page, Team Page, Content Page
+      </h2>
+    </section>
+
+    <div class="container">
+      <main>
+
+        <section>
+          <h2 id="feedback">Feedback Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The feedback page is structured into three main parts inside
+            <code>&lt;main&gt;</code>: a scrollable activity cards strip, a
+            ratings and reviews section, and a user feedback form. The activity
+            cards use <code>display: flex; flex-wrap: nowrap; overflow-x: auto</code>
+            combined with <code>scroll-snap-type: x mandatory</code> to create a
+            horizontally scrollable carousel, with each card fixed at
+            <code>flex: 0 0 300px</code> to ensure consistent sizing. The ratings
+            section employs a two-column CSS Grid with
+            <code>grid-template-columns: 1fr 2fr</code>, placing an overall score
+            panel alongside a responsive grid of individual review cards. The
+            review cards use <code>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))</code>
+            to reflow across screen sizes. The feedback form is wrapped in a
+            <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> for
+            clear semantic grouping. It includes a variety of input types:
+            <code>text</code>, <code>email</code>, <code>tel</code>,
+            <code>date</code>, <code>datetime-local</code>, and
+            <code>textarea</code>. A <code>&lt;datalist&gt;</code> is used for
+            the activity type field, offering suggestions while still allowing
+            free text. A live character counter for the comment textarea is
+            driven by a JavaScript <code>input</code> event listener. Form
+            validation is handled entirely in JavaScript on the
+            <code>submit</code> event, with inline error messages and a
+            confirmation banner that auto-hides after five seconds using
+            <code>setTimeout</code>.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            Every form input has an explicit <code>&lt;label&gt;</code> element
+            linked via matching <code>for</code> and <code>id</code> attributes,
+            ensuring screen readers announce each field's purpose correctly. The
+            form uses the <code>novalidate</code> attribute to suppress native
+            browser popups in favour of custom, accessible error messages
+            rendered in <code>&lt;span&gt;</code> elements adjacent to each
+            field. The fieldset and legend combination groups the fields
+            semantically. All card images carry descriptive
+            <code>alt</code> attributes. The feedback form's submit button uses
+            descriptive text rather than a generic label. The confirmation
+            message uses <code>scrollIntoView</code> to direct keyboard and
+            screen reader focus to the success notification.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST3.html#feedbackVal"
+              >View the W3C validation results for the Feedback Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="feedback.html">Visit the Feedback Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="team">Team Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The team page uses a CSS Grid with
+            <code>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))</code>
+            to display the four team member cards in a responsive layout that
+            reflows from a four-column arrangement on wide screens down to a
+            single column on mobile. Each card uses
+            <code>position: relative; overflow: hidden</code> to contain a
+            hidden detail panel. The detail panel is initially collapsed with
+            <code>max-height: 0; opacity: 0</code> and expands on
+            <code>:hover</code> and <code>:focus</code> using a CSS
+            <code>transition</code> on <code>max-height</code> and
+            <code>opacity</code>, requiring no JavaScript. Member portrait images
+            use <code>object-fit: contain</code> inside a fixed-size container
+            so portraits of varying aspect ratios are displayed without cropping.
+            A <code>transform: scale(1.05)</code> and border highlight are
+            applied to the image on hover for a subtle interactive cue. The card
+            layout uses <code>display: flex; align-items: flex-start; gap: 1rem</code>
+            to place the thumbnail and member info side by side, collapsing to a
+            vertical stack on small screens via a media query that sets
+            <code>flex-direction: column</code>.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            Each team member card has <code>tabindex="0"</code> applied so that
+            keyboard users can focus the card and trigger the detail panel
+            expansion via the <code>:focus</code> CSS state, mirroring the
+            mouse hover interaction without requiring JavaScript event listeners.
+            Every portrait image has a detailed <code>alt</code> attribute that
+            names the person and describes their role. Heading hierarchy is
+            maintained: <code>&lt;h3&gt;</code> is used for member names inside
+            the cards, which sit below the page-level <code>&lt;h2&gt;</code>.
+            The active navigation link includes <code>class="active"</code> to
+            visually indicate the current page. The overall page structure uses
+            proper landmark elements: <code>&lt;header&gt;</code>,
+            <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST3.html#teamVal"
+              >View the W3C validation results for the Team Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p><a href="team.html">Visit the Team Page.</a></p>
+        </section>
+
+        <section>
+          <h2 id="content">Content Page</h2>
+
+          <h3>Technical Description</h3>
+          <p>
+            The content page uses a two-column CSS Grid with
+            <code>grid-template-columns: 220px 1fr</code>, placing a sticky side
+            navigation <code>&lt;aside&gt;</code> alongside the main
+            <code>&lt;article&gt;</code>. The aside uses
+            <code>position: sticky; top: 90px</code> so it remains visible while
+            the user scrolls through long content. The article is divided into
+            semantic <code>&lt;section&gt;</code> elements, each with a unique
+            <code>id</code> matching the corresponding anchor links in the side
+            navigation. Heading hierarchy is strictly maintained: one
+            <code>&lt;h1&gt;</code> for the page title,
+            <code>&lt;h2&gt;</code> for topic sections, and
+            <code>&lt;h3&gt;</code> for sub-points. Images use
+            <code>object-fit: cover</code> with a fixed height,
+            <code>border-radius</code>, and <code>box-shadow</code> for a
+            consistent visual appearance. A fixed Go-to-Top button is implemented
+            with <code>position: fixed; bottom: 2rem; right: 2rem</code> using a
+            plain anchor link, requiring no JavaScript.
+          </p>
+
+          <h3>Accessibility</h3>
+          <p>
+            The side navigation uses an <code>&lt;aside&gt;</code> landmark
+            element with an <code>aria-label</code> so screen readers can
+            identify it separately from the main content area. All section
+            headings have matching <code>id</code> attributes that serve as
+            anchor targets, supporting smooth in-page scrolling. All images
+            carry descriptive <code>alt</code> text explaining their content and
+            relevance. The Go-to-Top button includes an
+            <code>aria-label</code> attribute for screen reader users.
+          </p>
+
+          <h3>Link to the validation page</h3>
+          <p>
+            <a href="validation_ST3.html#contentVal"
+              >View the W3C validation results for the Content Page.</a
+            >
+          </p>
+
+          <h3>Link to the page</h3>
+          <p>
+            <a href="content_ST3.html">Visit the Content Page.</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 id="challenge">Challenges and Lessons Learned</h2>
+
+          <p>
+            <strong>Challenge 1: Building a Robust Feedback Form with Custom Validation</strong><br>
+            Implementing accessible, user-friendly form validation from scratch was
+            more involved than expected. Native browser validation popups are not
+            consistently styled or announced by screen readers, so I used the
+            <code>novalidate</code> attribute and wrote custom JavaScript
+            validation that places error messages directly in the DOM adjacent to
+            each field. Ensuring error messages were reliably linked to their
+            inputs required careful use of matching <code>id</code> and
+            <code>for</code> attributes throughout the form.
+          </p>
+
+          <p>
+            <strong>Challenge 2: CSS-Only Interactive Team Cards</strong><br>
+            My initial plan used JavaScript event listeners to toggle the detail
+            panel on each team card, but I wanted the interaction to degrade
+            gracefully without scripting. I discovered that combining
+            <code>:hover</code> and <code>:focus</code> CSS pseudo-classes with a
+            <code>max-height</code> transition achieves the same reveal effect
+            purely in CSS. The main difficulty was preventing layout jump when
+            the panel expanded — solved by using a sufficiently large
+            <code>max-height</code> value and tuning the transition duration.
+          </p>
+
+          <p>
+            <strong>Challenge 3: Horizontal Scroll Carousel Without a Library</strong><br>
+            Creating a smooth, snapping horizontal scroll for the activity cards
+            without a third-party carousel library required combining
+            <code>overflow-x: auto</code>, <code>scroll-snap-type</code>, and
+            custom scrollbar styling. Ensuring the scrollbar was visible but
+            unobtrusive across browsers took several iterations of testing
+            <code>::webkit-scrollbar</code> rules.
+          </p>
+
+          <p>
+            <strong>Lessons Learned</strong><br>
+            This project reinforced that accessibility and interactivity are not
+            mutually exclusive. Many interactive effects can be achieved with
+            pure CSS in a way that is inherently more accessible than JavaScript
+            alternatives. I also learned the importance of early cross-browser
+            testing, as scroll behaviour and custom scrollbars vary significantly
+            between Chrome, Firefox, and Safari.
+          </p>
+        </section>
+
+        <section>
+          <h2 id="compliance">Compliance</h2>
+          <p>
+            All pages I created comply with JANET (Joint Academic Network)
+            regulations. All content is relevant to the educational purpose of
+            this coursework and focuses on raising awareness of SDG 13 Climate
+            Action. No page contains offensive, discriminatory, or misleading
+            material. All factual content is grounded in established sources.
+          </p>
+          <p>
+            Images used on the team page are original photographs of team
+            members provided with their consent for use in this project. Activity
+            card images on the feedback page are sourced from royalty-free
+            platforms and are referenced in the section below.
+          </p>
+          <p>
+            The feedback form does not persist, transmit, or store any personal
+            data. All submitted values are validated in the browser, a
+            confirmation message is displayed, and the form is immediately reset.
+            No data is sent to a server or written to any storage mechanism. This
+            complies with JANET data protection requirements and GDPR principles.
+          </p>
+          <p>
+            All written content is entirely my own. No text has been copied from
+            the UN SDG website or any other external source. The code was
+            written from first principles using knowledge from module lectures,
+            tutorials, and the references listed below.
+            <a
+              href="https://intranet.ecs.westminster.ac.uk/modules/4COSC011W/compliance.html"
+              target="_blank"
+              rel="noopener"
+              >See the lecture notes on compliance for more detail.</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2 id="group">Group Meetings and My Contribution Log</h2>
+          <p>
+            The following table records my participation in group meetings
+            throughout the project. All entries reflect my personal account and
+            individual contributions.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th colspan="6">Group Meetings and My Contribution Log</th>
+              </tr>
+              <tr>
+                <th>Meeting</th>
+                <th>Date &amp; Time</th>
+                <th>Format</th>
+                <th>Objective</th>
+                <th>Attended</th>
+                <th>My Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>5 Feb 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Agree SDG topic and assign student roles</td>
+                <td>Yes</td>
+                <td>
+                  Agreed on SDG 13 Climate Action as the project focus. Took on
+                  Student 3 role covering the feedback page, team page, and
+                  content page.
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>12 Feb 2026, 13:30</td>
+                <td>Online</td>
+                <td>Agree colour palette, fonts, and visual identity</td>
+                <td>Yes</td>
+                <td>
+                  Reviewed the three palette options presented by Student 1 and
+                  voted in favour of the earthy green scheme. Suggested the card
+                  hover interaction style used later on the team page.
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>19 Feb 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Review and share the base template and global CSS</td>
+                <td>Yes</td>
+                <td>
+                  Reviewed the shared template.html and style.css files
+                  demonstrated by Student 1. Confirmed the CSS custom properties
+                  and noted which colour variables would be used in my form and
+                  card components.
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>26 Feb 2026, 15:00</td>
+                <td>Online</td>
+                <td>Progress check on individual pages</td>
+                <td>Yes</td>
+                <td>
+                  Shared drafts of feedback.html and team.html. Discussed the
+                  CSS-only card hover approach and received positive feedback.
+                  Noted the need to add keyboard focus support to the team cards
+                  before final submission.
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>5 Mar 2026, 14:00</td>
+                <td>Face-to-face</td>
+                <td>Cross-check navigation links and active page states</td>
+                <td>Yes</td>
+                <td>
+                  Verified navigation links across all pages. Confirmed the
+                  broken link in team.html identified by Student 1 and corrected
+                  the folder path. Added <code>class="active"</code> to the
+                  correct nav items on both my pages.
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>9 Mar 2026, 16:00</td>
+                <td>Online</td>
+                <td>Final review before submission</td>
+                <td>Yes</td>
+                <td>
+                  Ran W3C validation on feedback.html and team.html, correcting
+                  a stray <code>&lt;style&gt;</code> block inside the
+                  <code>&lt;header&gt;</code> in team.html and an unclosed
+                  element in feedback.html. Uploaded all files to the university
+                  web server and confirmed both pages were accessible via their
+                  public URLs.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 id="ref">References</h2>
+          <ul class="ref">
+            <li>
+              Duckett, J. (2011).
+              <em>HTML &amp; CSS: Design and Build Websites.</em> John Wiley
+              &amp; Sons. [Used as foundational reference for HTML structure and
+              CSS layout techniques.]
+            </li>
+            <li>
+              W3C. (2023).
+              <em>Web Content Accessibility Guidelines (WCAG) 2.1.</em>
+              Available at:
+              <a
+                href="https://www.w3.org/TR/WCAG21/"
+                target="_blank"
+                rel="noopener"
+                >https://www.w3.org/TR/WCAG21/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              Mozilla Developer Network. (2024).
+              <em>CSS Scroll Snap.</em> Available at:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap"
+                target="_blank"
+                rel="noopener"
+                >https://developer.mozilla.org/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              Mozilla Developer Network. (2024).
+              <em>The HTML datalist element.</em> Available at:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist"
+                target="_blank"
+                rel="noopener"
+                >https://developer.mozilla.org/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              Mozilla Developer Network. (2024).
+              <em>Client-side form validation.</em> Available at:
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"
+                target="_blank"
+                rel="noopener"
+                >https://developer.mozilla.org/</a
+              >
+              (Last accessed: Mar 2026).
+            </li>
+            <li>
+              United Nations. (2024).
+              <em>The Sustainable Development Goals Report 2024.</em> UN
+              Department of Economic and Social Affairs. [Used for climate
+              statistics in content_ST3.html.]
+            </li>
+            <li>
+              Google Fonts. (2024).
+              <em>Playfair Display &amp; Source Sans 3.</em> Available at:
+              <a href="https://fonts.google.com" target="_blank" rel="noopener"
+                >https://fonts.google.com</a
+              >
+              (Last accessed: Feb 2026).
+            </li>
+            <li>
+              University of Westminster. (2026).
+              <em>4COSC011W Lecture Notes &mdash; HTML, CSS, and JavaScript.</em>
+              Blackboard VLE.
+            </li>
+          </ul>
+        </section>
+
+    <a href="#top" class="go-top" aria-label="Go to top of page" title="Go to top"
+      >&#8679;</a
+    >
+      </main>
+
+      <aside>
+        <h3>Core pages developed:</h3>
+        <ul class="top-level-ul">
+          <li>Student 1
+            <ul>
+              <li><a href="#">Home Page</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Content Page</a></li>
+            </ul>
+          </li>
+          <li>Student 2
+            <ul>
+              <li><a href="#">Splash Screen</a></li>
+              <li><a href="#">Action Impact Simulator</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </li>
+          <li>Student 3
+            <ul>
+              <li><a href="#feedback">Feedback</a></li>
+              <li><a href="#team">Team</a></li>
+              <li><a href="#content">Content Page</a></li>
+            </ul>
+          </li>
+          <li>Student 4
+            <ul>
+              <li><a href="#">User Profile</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </li>
+          <li><a href="#challenge">Challenges and Lessons Learned</a></li>
+          <li><a href="#compliance">Compliance</a></li>
+          <li><a href="#group">Group Meetings and My Contribution Log</a></li>
+          <li><a href="#ref">References</a></li>
+        </ul>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate Action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="profile.html">User Profile</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This Page</h3>
+          <p>Student: Roshan Dahal</p>
+          <a href="pageEditor_ST3.html">Page Editor</a>
+          <a href="validation_ST3.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster |
+          4COSC011W Web Design &amp; Development | Roshan Dahal - Student 3
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
