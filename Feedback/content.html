@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Grassroots Action | SDG 13</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+      .content-layout {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .side-nav {
+        position: sticky;
+        top: 90px;
+        background: #ede8e0;
+        border-left: 4px solid #2d6a4f;
+        padding: 1.5rem;
+        border-radius: 8px;
+      }
+
+      .side-nav h2 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #52796f;
+        margin-bottom: 1rem;
+      }
+
+      .side-nav ol {
+        list-style: none;
+        padding: 0;
+        counter-reset: nav-counter;
+      }
+
+      .side-nav ol li {
+        margin-bottom: 0.5rem;
+        counter-increment: nav-counter;
+      }
+
+      .side-nav ol li a {
+        color: #2d6a4f;
+        font-size: 0.88rem;
+        display: block;
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+        text-decoration: none;
+      }
+
+      .side-nav ol li a:hover {
+        background: #2d6a4f;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .content-article section {
+        margin-bottom: 3.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #c8d5b9;
+        scroll-margin-top: 7.5rem;
+      }
+
+      .content-article section:last-of-type {
+        border-bottom: none;
+      }
+
+      .content-article h2 {
+        font-size: 1.8rem;
+        color: #1b4332;
+        margin-bottom: 1rem;
+      }
+
+      .content-article h3 {
+        font-size: 1.3rem;
+        color: #2d6a4f;
+        margin-top: 1rem;
+        margin-bottom: 0.075rem;
+      }
+
+      .content-img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 16px;
+        margin: 1.5rem 0;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .img-caption {
+        font-size: 0.82rem;
+        color: #5c5c5c;
+        text-align: center;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+      }
+
+      .highlight-box {
+        background: linear-gradient(135deg, #2d6a4f, #52796f);
+        color: #fff;
+        border-radius: 10px;
+        padding: 1.5rem 2rem;
+        margin: 1.5rem 0;
+      }
+
+      .highlight-box h3 {
+        color: #d4a017;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box p {
+        color: #ede8e0;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .facts-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .facts-list li {
+        padding: 0.6rem 0 0.6rem 2rem;
+        position: relative;
+        border-bottom: 1px dashed #c8d5b9;
+        font-size: 0.95rem;
+      }
+
+      .facts-list li::before {
+        position: absolute;
+        left: 0;
+      }
+
+      .go-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: #2d6a4f;
+        color: #fff;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 500;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .go-top:hover {
+        background: #d4a017;
+        color: #1b4332;
+        transform: translateY(-3px);
+        text-decoration: none;
+      }
+
+      /* Accessibility utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+
+      @media (max-width: 768px) {
+        .content-layout {
+          grid-template-columns: 1fr;
+        }
+        .side-nav {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a
+          href="home.html"
+          class="site-logo"
+          aria-label="Climate Action SDG 13 - Go to Home"
+        >
+          <img
+            src="logo.png"
+            alt="SDG 13 Climate Action logo - green leaf with globe"
+          >
+          <div>
+            <span class="site-title">Climate Action</span>
+            <span class="site-subtitle">UN SDG Goal 13</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="ais.html">Action Simulator</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="profile.html">User Profile</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="section-heading">
+        <h1>Community Grassroots Action</h1>
+        <p>
+          How ordinary people, local organisations, and community led movements
+          are driving real climate change solutions from the ground up.
+        </p>
+      </div>
+
+      <div class="content-layout">
+        <aside class="side-nav" aria-label="Page contents navigation">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#what-is">What is Grassroots Action?</a></li>
+            <li><a href="#why-matters">Why It Matters</a></li>
+            <li><a href="#examples">Real-World Examples</a></li>
+            <li><a href="#youth">Youth-Led Movements</a></li>
+            <li><a href="#local">Local Community Projects</a></li>
+            <li><a href="#get-involved">How to Get Involved</a></li>
+          </ol>
+        </aside>
+
+        <article class="content-article">
+          <h2 class="sr-only">Community Grassroots Action in Detail</h2>
+
+          <!-- SECTION 1 -->
+          <section id="what-is" aria-labelledby="h-what-is">
+            <h2 id="h-what-is">What is Grassroots Action?</h2>
+            <p>
+              Grassroots action refers to climate efforts that originate from
+              within communities rather than being handed down from governments
+              or corporations. These initiatives are driven by ordinary
+              individuals, neighbourhood groups, faith organisations, schools,
+              and local charities who recognise the urgency of climate change
+              and decide to act within their own sphere of influence.
+            </p>
+            <p>
+              Unlike top down policy, grassroots movements are flexible,
+              personal, and deeply connected to the needs of local people.
+              They can take many forms from community gardens and repair
+              cafés to organised marches, local clean up drives, or
+              neighbourhood energy co-operatives. What unites them is a shared
+              belief that collective local action creates meaningful systemic
+              change.
+            </p>
+
+            <img
+              src="image/movement.jpg"
+              alt="A diverse group of community members standing together outdoors, holding handmade signs promoting climate action and environmental sustainability"
+              class="content-img"
+            >
+            <p class="img-caption">
+              Fig 1. Grassroots climate action begins with individuals coming
+              together in their own neighbourhoods and communities.
+            </p>
+
+            <div class="highlight-box">
+              <h3>Key Insight</h3>
+              <p>
+                The word "grassroots" refers to action that grows from the
+                ground up, such as grass spreading organically through
+                people, relationships, and shared values rather than through
+                institutional power.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 2 -->
+          <section id="why-matters" aria-labelledby="h-why-matters">
+            <h2 id="h-why-matters">Why It Matters</h2>
+            <p>
+              Governments and multinational organisations play an essential role
+              in combating climate change through international agreements such
+              as the Paris Accord and national legislation. However, policy
+              alone is not enough. Grassroots action bridges the gap between
+              ambitious targets and lived reality, turning commitments into
+              tangible change on the ground.
+            </p>
+
+            <h3>Why Grassroots Action is Essential</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Speed and Agility:</strong> Community groups can
+                respond faster to local environmental problems than governments,
+                which are constrained by slow legislative processes.
+              </li>
+              <li>
+                <strong>Cultural Relevance:</strong> Local activists understand
+                their communities' values, languages, and traditions, enabling
+                more effective and inclusive engagement.
+              </li>
+              <li>
+                <strong>Accountability:</strong> Grassroots organisations hold
+                local governments and businesses to account by raising public
+                awareness and applying community pressure.
+              </li>
+              <li>
+                <strong>Empowerment:</strong> Participation in local action
+                builds confidence, skills, and agency particularly among
+                young people, women, and marginalised groups.
+              </li>
+              <li>
+                <strong>Scalability:</strong> Successful local models can
+                spread to other communities, scaling impact without requiring
+                top down mandates.
+              </li>
+            </ul>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Research by the Climate Emergency Fund found that grassroots
+                climate organisations are among the most cost effective ways to
+                generate public pressure for systemic climate policy change,
+                often achieving outsized results with limited budgets.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 3 -->
+          <section id="examples" aria-labelledby="h-examples">
+            <h2 id="h-examples">Real-World Examples</h2>
+            <p>
+              Around the world, grassroots movements have demonstrated that
+              community action is not just symbolic and it drives measurable
+              environmental outcomes. From small villages to major cities,
+              people are taking ownership of the climate challenge in
+              imaginative and impactful ways.
+            </p>
+
+            <h3>Inspiring Global Examples</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Transition Towns (UK & Global):</strong> Founded in
+                Totnes, England in 2006, the Transition Towns movement now
+                spans over 50 countries, helping communities reduce carbon
+                dependence through local food networks, energy projects, and
+                skills sharing.
+              </li>
+              <li>
+                <strong>Green Belt Movement (Kenya):</strong> Founded by Nobel
+                Peace Prize winner Wangari Maathai, this movement mobilised
+                rural women to plant over 51 million trees across Kenya,
+                restoring degraded land and empowering communities.
+              </li>
+              <li>
+                <strong>Repair Caf&eacute;s (Netherlands & beyond):</strong>
+                Originating in Amsterdam in 2009, Repair Cafe's now operate
+                in over 2,500 locations worldwide, reducing waste by teaching
+                communities to fix rather than discard broken goods.
+              </li>
+              <li>
+                <strong>Fridays for Future (Global):</strong> Inspired by
+                Greta Thunberg in 2018, this student led strike movement
+                mobilised over 4 million people in a single day of global
+                protest, directly pressuring governments ahead of COP25.
+              </li>
+            </ul>
+
+            <img
+              src="image/community%20tree%20planting.jpg"
+              alt="Volunteer groups planting trees in a cleared hillside as part of a community reforestation project, with saplings and tools visible"
+              class="content-img"
+            >
+            <p class="img-caption">
+              Fig 2. Community tree planting drives, such as those pioneered by
+              the Green Belt Movement in Kenya, demonstrate grassroots action
+              delivering measurable environmental restoration.
+            </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                The Transition Towns network has facilitated hundreds of
+                community energy schemes, local currency experiments, and food
+                co-operatives and all without central government funding or
+                direction.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 4 -->
+          <section id="youth" aria-labelledby="h-youth">
+            <h2 id="h-youth">Youth-Led Movements</h2>
+            <p>
+              Young people are among the most powerful drivers of grassroots
+              climate action. Facing the prospect of living through the worst
+              impacts of climate change, many students and young adults have
+              channelled their concern into organised advocacy, creative
+              campaigns, and community projects that demand both local and
+              global change.
+            </p>
+
+            <h3>Notable Youth-Led Initiatives</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>School Strikes for Climate:</strong> Inspired by Greta
+                Thunberg's lone protest outside the Swedish parliament in 2018,
+                the movement grew into a global force involving millions of
+                students demanding faster governmental action.
+              </li>
+              <li>
+                <strong>Zero Hour (USA):</strong> Founded by Indigenous youth
+                activist Jamie Margolin, Zero Hour organises youth led marches
+                and lobbying campaigns focusing on climate justice and
+                frontline communities.
+              </li>
+              <li>
+                <strong>SustainUS:</strong> A US youth delegation that sends
+                young people to UN climate negotiations to advocate directly
+                for ambitious action within international policy forums.
+              </li>
+              <li>
+                <strong>Student Energy:</strong> A global non-profit connecting
+                student energy groups at universities worldwide, supporting
+                campus renewable energy projects and sustainable development
+                careers.
+              </li>
+            </ul>
+
+            <img
+              src="image/youth%20led.jpg"
+              alt="Young people marching in a climate strike through a city street, carrying colourful handmade banners and signs with climate action slogans"
+              class="content-img"
+            >
+            <p class="img-caption">
+              Fig 3. Youth led climate marches have become a defining feature
+              of the global grassroots movement, amplifying the voices of the
+              generation most affected by climate change.
+            </p>
+
+            <div class="highlight-box">
+              <h3>Why Youth Leadership Matters</h3>
+              <p>
+                Young people bring urgency, creativity, and moral clarity to
+                the climate conversation. Studies show that youth activism
+                measurably shifts public opinion and increases political
+                engagement among wider communities, not just young people
+                themselves.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 5 -->
+          <section id="local" aria-labelledby="h-local">
+            <h2 id="h-local">Local Community Projects</h2>
+            <p>
+              Beyond high profile marches and international movements, the
+              everyday work of grassroots climate action happens in
+              neighbourhoods, allotments, community centres, and school halls.
+              These smaller scale projects often have the most direct and
+              lasting impact on people's lives and local environments.
+            </p>
+
+            <h3>Types of Local Climate Projects</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Community Energy Co-operatives:</strong> Groups of
+                residents collectively invest in and manage local solar panels
+                or wind turbines, sharing the energy generated and the profits
+                reinvested into community funds.
+              </li>
+              <li>
+                <strong>Urban Food Growing:</strong> Community allotments,
+                rooftop gardens, and guerrilla gardening projects reduce food
+                miles, improve urban biodiversity, and increase local food
+                resilience.
+              </li>
+              <li>
+                <strong>Neighbourhood Clean Up Campaigns:</strong> Regular
+                litter picks and river cleans organised by local groups reduce
+                plastic pollution, raise environmental awareness, and build
+                community cohesion.
+              </li>
+              <li>
+                <strong>Tool Libraries and Sharing Schemes:</strong>
+                Community run tool and equipment lending libraries reduce
+                consumption, save money, and build local networks of mutual
+                support.
+              </li>
+              <li>
+                <strong>Climate Caf&eacute;s and Education Events:</strong> Informal
+                local gatherings where people share concerns, learn about
+                climate science, and plan collective actions in a welcoming
+                environment.
+              </li>
+            </ul>
+
+            <img
+              src="image/community.webp"
+              alt="Residents tending raised vegetable beds in a community allotment garden surrounded by urban buildings, with solar panels visible on the rooftop behind"
+              class="content-img"
+            >
+            <p class="img-caption">
+              Fig 4. Community allotments and urban growing projects reduce
+              food miles, promote biodiversity, and strengthen local
+              connections &mdash; all key aspects of grassroots climate resilience.
+            </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                There are over 5,000 community energy projects operating across
+                Europe alone, collectively generating enough clean electricity
+                to power millions of homes. Community owned renewable energy
+                has been shown to increase local acceptance of clean energy
+                infrastructure by up to 80%.
+              </p>
+            </div>
+          </section>
+
+          <!-- SECTION 6 -->
+          <section id="get-involved" aria-labelledby="h-get-involved">
+            <h2 id="h-get-involved">How to Get Involved</h2>
+            <p>
+              Grassroots action does not require special qualifications or
+              significant resources &mdash; it requires people who care and are
+              willing to act. Whether you have five minutes or five hours a
+              week, there are meaningful ways to contribute to community led
+              climate action wherever you are.
+            </p>
+
+            <h3>Practical Steps to Join or Start Grassroots Action</h3>
+            <ul class="facts-list">
+              <li>
+                <strong>Find your local group:</strong> Search for existing
+                climate action groups in your area through platforms such as
+                Meetup, Facebook Groups, or the Transition Towns network
+                directory. Joining an established group is the quickest way
+                to make an impact.
+              </li>
+              <li>
+                <strong>Start small at university or college:</strong> Propose
+                a sustainability initiative to your student union, organise a
+                campus litter pick, or establish a student run repair caf&eacute;.
+                Institutions are often responsive to organised student
+                pressure.
+              </li>
+              <li>
+                <strong>Attend a climate caf&eacute; or community meeting:</strong>
+                Many local groups hold regular informal events. Showing up is
+                the first and most important step &mdash; you will quickly find
+                others who share your concerns and want to act together.
+              </li>
+              <li>
+                <strong>Use your skills:</strong> Graphic designers, writers,
+                coders, teachers, and organisers are all vital to grassroots
+                movements. Offer what you are good at &mdash; every skill set has
+                a role to play.
+              </li>
+              <li>
+                <strong>Amplify online:</strong> Share local climate stories,
+                events, and campaigns on social media. Digital amplification
+                extends the reach of grassroots action far beyond the local
+                neighbourhood.
+              </li>
+              <li>
+                <strong>Connect local to global:</strong> Link your community
+                actions to broader campaigns such as Fridays for Future or the
+                Global Climate Strike to demonstrate solidarity and increase
+                collective impact.
+              </li>
+            </ul>
+
+            <img
+              src="image/meeting.jpg"
+              alt="A mixed group of young volunteers in a community meeting room, smiling and collaborating around a table covered in project notes and laptops"
+              class="content-img"
+            >
+            <p class="img-caption">
+              Fig 5. Getting involved starts with showing up. Community
+              meetings, skill sharing sessions, and local projects are all
+              entry points into meaningful grassroots climate action.
+            </p>
+
+            <div class="highlight-box">
+              <h3>Key Facts</h3>
+              <p>
+                Studies consistently show that social norms and peer influence
+                are among the most powerful drivers of pro environmental
+                behaviour. When one person in a community acts on climate,
+                it measurably increases the likelihood of others doing the
+                same &mdash; making every individual action a catalyst for
+                collective change.
+              </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem">
+              <a href="ais.html" class="cta-button">Try the Action Simulator</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <a
+      href="#top"
+      class="go-top"
+      aria-label="Go back to top of page"
+      title="Go to top"
+      >&#8679;</a
+    >
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-section">
+          <h3>Climate action</h3>
+          <p>
+            A student group project promoting awareness and action for UN
+            Sustainable Development Goal 13.
+          </p>
+          <span class="sdg-badge" style="margin-top: 1rem">SDG 13</span>
+        </div>
+        <div class="footer-section">
+          <h3>Pages</h3>
+          <a href="home.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="ais.html">Action Simulator</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="team.html">Team</a>
+          <a href="profile.html">User Profile</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+        <div class="footer-section">
+          <h3>This page</h3>
+          <p>Student: Roshan Dahal</p>
+          <a href="pageEditor_ST1.html" target="_blank">Page Editor</a>
+          <a href="validation_ST1.html" target="_blank">Validator</a>
+          <a
+            href="https://www.w3.org/WAI/WCAG21/quickref/"
+            target="_blank"
+            rel="noopener"
+            >Accessibility (WCAG 2.1)</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 SDG 13 Climate Action - University of Westminster
+          4COSC011W | Web Design &amp; Development | Kosish - Student 1
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
